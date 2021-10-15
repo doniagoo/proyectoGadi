@@ -1,0 +1,4 @@
+# proyectoGadi
+Proyecto numero 1 DAW2 - GADI
+
+INFORMACIÓN DEL PROYECTO (TEMA, PARTES, ETC) Y FOTOS DE LAS PARTES.
