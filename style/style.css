@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Share Tech Mono", monospace;
+  /*-moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;*/
+}
+
 body {
     height: 100%;
     padding: 0%;
@@ -8,7 +19,10 @@ a {
 }
 
 #header-LP{
-    background-image: ;
+    background-image: url("../media/img/bg-landingPage.png");
+    background-position: center;
+	background-attachment: contain;
+	background-size: cover;
 }
 
 .container {
@@ -96,8 +110,29 @@ a {
 }
 
 .container .jugar {
-    background-color: cadetblue;
+    text-align: center;
 }
+
+.container .btn-jugar{
+    
+        transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -webkit-transition: all 150ms ease-in-out;
+        -moz-transition: all 150ms ease-in-out;
+        -ms-transition: all 150ms ease-in-out;
+        -o-transition: all 150ms ease-in-out;
+      
+      
+}.container .btn-jugar:hover {
+    transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
 
 /* .container .continuar {
     background-color: cornflowerblue;
