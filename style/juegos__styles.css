@@ -80,7 +80,8 @@ img:hover {
 }
 
 .game__name{
-    color: #680808;
+    /*color: #680808;*/
+    color: black;
     padding-top: 10px;
 }
 

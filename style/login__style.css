@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+* {
+  font-family: "Share Tech Mono", monospace;
+  text-decoration: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #a4ccc8;
+  background-image: url("../media/img/pixel-cloud.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: 524px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 160px;
+}
+
+.container .form__container {
+  background-color: lightgrey;
+  width: 20vw;
+  padding: 50px;
+  background-image: url("../media/img/minecraft.png");
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  border: 2px solid black;
+}
+
+.container .form__container .form__style {
+  text-align: center;
+}
+
+/* .bttn {
+    background-color: #2772db;
+    border-radius: 5px;
+    width: 200px;
+    height: 35px;
+} */
+
+label {
+  font-size: medium;
+}
+
+input {
+  height: 20px;
+  background: white;
+  border: 2px solid black;
+}
+
+button {
+  background-color: #5ca1e1;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  padding: 16px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 36px;
+  border: 2px solid black;
+  position: fixed;
+}
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
