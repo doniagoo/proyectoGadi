@@ -844,7 +844,7 @@ window.onload = function() {
         var centery = jugador.y + nivel.tileheight/2;
         
         // Draw jugador background circle
-        context.fillStyle = "#A26ABF";
+        context.fillStyle = "#bea4cc";
         context.beginPath();
         context.arc(centerx, centery, nivel.radius+12, 0, 2*Math.PI, false);
         context.fill();
