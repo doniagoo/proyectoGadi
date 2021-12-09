@@ -1,13 +1,26 @@
 //El DOMContentLoaded es llança quan s'ha acabat de carregar el document HTML per complet sense tenir en compte les imatges i stylesheets.
 document.addEventListener('DOMContentLoaded', function () {
+    let score = 0;
+    const grid = document.getElementById("gridJuego");
+
 
     let divCountDown = document.getElementById("divStartGame");
     let btnStart = document.getElementById("btnStartGame");
+
+    const colorsBorder = ["blue", "red", "white", "aqua", "purple"];
+    let btnStartBorder = setInterval(()=>{
+        let rand = Math.floor(Math.random() * parseInt(colorsBorder.length - 1));
+        let color = colorsBorder[rand];
+        btnStart.style.borderColor = color;
+    }, 400);
+
     btnStart.addEventListener('click', startCountDown);
 
     function startCountDown(){
         let timerCountdown = 3;
         let countDownDone = false;
+
+        clearInterval(btnStartBorder);
 
         btnStart.style.display = "none";
         document.getElementById("titleGame").style.display = "none";
@@ -38,16 +51,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    let btnBack = document.getElementById("btnHome");
+    btnBack.addEventListener("click", backGamesScreen);
+
+    function backGamesScreen(){
+        location.href="../../menu_juegos/juego_menu.html";
+    }
+
+
+
 
     function startGame(){
         document.body.style.background = "url(./media/img/dsx.jpg) no-repeat center center fixed";  
         document.body.style.backgroundSize = "cover";
         document.getElementById("gameContainer").style.display = "block";
         //Obtenim la referència de la nostre grid per poder treballar directament amb la const definida:
-        const grid = document.querySelector('.grid');
+        
         const width = 30; //Tindrem 30x28 quadrats, és a dir 840 quadrats.
         let score = 0;
-
+        grid.querySelectorAll('*').forEach(element => {
+                element.remove();
+            });
         //Sounds
         const gameOverSound = new Audio('./media/sounds/gameover.mp3');
         const chompSound = new Audio ('./media/sounds/chomp.mp3');
@@ -60,20 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const textE = "TEXTO DE LA E";
         let timeOver = false;
 
-
-        
-
-
-            
-        
-
-
-
         // Definim el color de l'anell com a verd per defecte.
         document.getElementById("base-timer-path-remaining").style.color = "green";
         
         //Anem a definir el layout de la nostre grid i el contingut que tindrà en cada posició.
-        const files = [
+        let files = [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1],
             [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1],
@@ -112,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //4 - Caselles sense boles
 
         //Creem un array sense elements on guardarem tots els elements del nostre div grid.
-        const elements = []
+        let elements = []
 
         //Un cop tenim tot això, podem començar a dibuixar la nostre grid i renderitzar-la amb la següent funció:
         function dibuixarGridBidimensional() {
@@ -715,7 +730,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(elements[posicioY][posicioX].style.transform = null);
                 enemies.forEach(enemy => clearInterval(enemy.timerId));
                 //Fem que el nostre personatge no es pugui moure.
-                console.log("game over");
+                // console.log("game over");
                 clearInterval(myVar); 
                 clearInterval(gameON); 
                 clearInterval(timer);
@@ -728,13 +743,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
                 !elements[posicioY][posicioX].classList.contains('scared-enemy')){
                     //Fem que els enemics no es moguin mes
-                    console.log("POSICIO Y FINAL: " + posicioY);
-                    console.log("POSICIO X FINAL: " + posicioX);
+                    // console.log("POSICIO Y FINAL: " + posicioY);
+                    // console.log("POSICIO X FINAL: " + posicioX);
         
-                    console.log(elements[posicioY][posicioX].style.transform = null);
+                    elements[posicioY][posicioX].style.transform = null;
                     enemies.forEach(enemy => clearInterval(enemy.timerId));
                     //Fem que el nostre personatge no es pugui moure.
-                    console.log("game over");
+                    // console.log("game over");
                     clearInterval(myVar); 
                     clearInterval(gameON); 
                     clearInterval(timer);
@@ -750,13 +765,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function checkGameWin(score){
             if(score === 280){
-                console.log("POSICIO Y FINAL: " + posicioY);
-                console.log("POSICIO X FINAL: " + posicioX);
+                // console.log("POSICIO Y FINAL: " + posicioY);
+                // console.log("POSICIO X FINAL: " + posicioX);
 
-                console.log(elements[posicioY][posicioX].style.transform = null);
+                elements[posicioY][posicioX].style.transform = null;
                 enemies.forEach(enemy => clearInterval(enemy.timerId));
                 //Fem que el nostre personatge no es pugui moure.
-                console.log("YOU WON");
+                // console.log("YOU WON");
                 clearInterval(myVar); 
                 clearInterval(gameON); 
                 document.removeEventListener('keydown', saveLastMoves);
@@ -892,7 +907,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
             timeLeft -= 1;
-            console.log(minutes + ':' + seconds);
+            // console.log(minutes + ':' + seconds);
             if(seconds < 10){
                 if(minutes < 1){
                     document.getElementById("base-timer-label").innerHTML = '0' + minutes + " : " + '0' + seconds;
@@ -964,8 +979,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+        let btnPlayAgain = document.getElementById("btnPlayAgain");
+        
+        btnPlayAgain.addEventListener("click", restartGame);
 
+        function restartGame(){
+            // removeEventListener("click", restartGame);
+            // let modal = document.getElementById("myModal");
 
+            // grid.querySelectorAll('*').forEach(element => {
+            //     element.remove();
+            // });
+
+            // console.log(grid.childElementCount);
+            // modal.style.display = "none";
+            // document.getElementById("gameContainer").style.display = "none";
+            // document.getElementById("timerStartGame").style.display = "block";
+            // score = 0;
+            // startCountDown();
+
+            location.reload();
+        }
 
 
 

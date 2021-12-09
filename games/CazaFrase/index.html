@@ -12,6 +12,7 @@
     
 </head>
 <body>
+    <button class="btnHome" id="btnHome">HOME</button>
     <div class="divStartGame" id="divStartGame">
         <p class="titleGame" id="titleGame">CAZA FRASE</p>
         <button id="btnStartGame" class="btnStartGame"><p class="startGameText">START GAME</p></button>
@@ -56,7 +57,7 @@
         </div>
 
         <!-- JOC -->
-        <div class="grid"></div>
+        <div class="grid" id="gridJuego"></div>
 
 
         <!-- ELEMENTS DE LA FRASE -->
@@ -80,7 +81,40 @@
             <!-- Modal content -->
             <div class="modal-content">
               <p id="textFinal"></p>
+                <table id="ranking">
+                    <p class="rankingText">RANKING</p>
+                    <tr>
+                        <th>#</th>
+                        <th>Nickname</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Devin</td>
+                        <td>999</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Santi</td>
+                        <td>998</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Random</td>
+                        <td>890</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Random2</td>
+                        <td>700</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Random3</td>
+                        <td>690</td>
+                    </tr>
 
+                </table>
               <button id="btnPlayAgain" class="btnPlayAgain"><p class="playAgainText">PLAY AGAIN</p></button>
             </div>
           

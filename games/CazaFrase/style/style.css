@@ -72,9 +72,6 @@
     /* border-radius: 10px; */
 }
 
-.big-dots-again{
-}
-
 /* Ara definirem l'estil de l'element amb el que jugarem */
 .character{
     background-color: white;
@@ -223,9 +220,9 @@ body{
     width: 80%; /* Could be more or less, depending on screen size */
     height: 80%;
     display: flex;
-    justify-content: center;
-    align-content: center;
     color: white;
+    flex-direction: column;
+    align-items: center;
   }
 
   .lletresFrase{
@@ -351,6 +348,7 @@ body{
     background-size: 300px;
     color: white;
     background-color: black;
+    border-color: black;
     /* display: none; */
  }
 
@@ -378,3 +376,31 @@ body{
   ::-webkit-scrollbar-thumb {
     background: white; 
   }
+
+  .btnHome{
+      background-image: url(../media/img/backbutton.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      width: 100px;
+      height: 40px;
+      left: 5px;
+      font-size: 25px;
+  }
+
+  th, td{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+ }
+
+ table{
+     border-collapse: collapse;
+     margin-top: 10px;
+     width: 80%;
+ }
+
+ .rankingText{
+     margin-top: 50px;
+ }
