@@ -92,7 +92,30 @@ window.onload = function() {
     var loadcount = 0;
     var loadtotal = 0;
     var preloaded = false;
-    
+/*
+igual te hago un while
+igual te hago un while
+igual te hago un while
+igual te hago un while
+igual te hago un while
+igual te hago un while
+*/
+    function updateRejoj() {
+        var tiempoTotal=100;
+        document.getElementById('countdown').innerHTML = tiempoTotal;
+        for(tiempoTotal=100;tiempoTotal>0;tiempoTotal--){
+            //setTimeout("updateReloj()",1000);
+            console.log(i);
+            document.getElementById('countdown').innerHTML += (101-i);
+        }
+        if (tiempoTotal == 0) {
+            //alert('final');
+            gamestate == gamestates.gameover;
+        }else{
+            tiempoTotal-=1;
+            //setTimeout("updateReloj()",1000);
+        }
+    }
     // Imagenes cargadas
     function loadImages(imagefiles) {
         // Iniciamos variables
@@ -740,6 +763,7 @@ window.onload = function() {
         // Render jugador bola
         renderjugador();
         
+
         // Game Over overlay
         if (gamestate == gamestates.gameover) {
             context.fillStyle = "rgba(0, 0, 0, 0.8)";
@@ -751,7 +775,7 @@ window.onload = function() {
             drawCenterText(score, nivel.x, nivel.y + nivel.height / 2 + 40, nivel.width);
             if (score > 11000){
                 drawCenterText("Has hecho muchos puntos! Muy bien!", nivel.x, nivel.y + nivel.height / 2 + 70, nivel.width);
-                drawCenterText("La persistencia i el esfuerzo nos hacen mejores", nivel.x, nivel.y + nivel.height / 2 + 100, nivel.width);
+                drawCenterText("La persistencia y el esfuerzo nos hacen mejores", nivel.x, nivel.y + nivel.height / 2 + 100, nivel.width);
             } else{
                 drawCenterText("Necesitas practicar una poco más, no te rindas!", nivel.x, nivel.y + nivel.height / 2 + 70, nivel.width);
             }
@@ -769,9 +793,8 @@ window.onload = function() {
                 return sonido2;
             };
             /*----------------------------------- */
-            /*----------------------------------- */
             const sonido2 = cargarSonido("./burbuja.mp3");
-            sonido2.play();
+            //sonido2.play();
             //sonido2.pause();
         }
     }
@@ -1084,17 +1107,7 @@ window.onload = function() {
         };
     }
     
-    function updateRejoj(/*canvas*/) {
-        var tiempoTotal=100;
-        document.getElementById('countdown').innerHTML = tiempoTotal;
-        if (tiempoTotal == 0) {
-            //alert('final');
-            gamestate == gamestates.gameover;
-        }else{
-            tiempoTotal-=1;
-            setTimeout("updateReloj()",1000);
-        }
-    }
+    
     // Llamamos al init para empezar el juego
     init();
     
