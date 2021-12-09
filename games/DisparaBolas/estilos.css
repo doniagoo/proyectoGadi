@@ -1,0 +1,17 @@
+#img_logo{
+    display: block;
+    margin: auto;
+}
+#pagina{
+    background-color: #8c8c8c;
+}
+body{
+    background-image: url(./Bubble-Shooter-HTML5/cep_colors.jfif);
+}
+#juego{
+    height: 70%;
+    width: 70%;
+}
+canvas{
+    margin-left: 5%;
+}
