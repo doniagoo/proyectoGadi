@@ -4,7 +4,7 @@ window.onload = function() {
     // Get del canvas y el context 2d
     var canvas = document.getElementById("pagina");
     var context = canvas.getContext("2d");
-    alert("Així és com funciona bubble shooter --> es tracta d'explotar un conjunt de boles per color en porcions d'almenys 3, així fins que s'acabin totes, aneu amb compte si no us afanyeu es van introduïnt més línies de boles!");
+    alert("Así es como funciona diapara bolas --> se trata de explotar un conjunto de bolas por color en porciones de almenos 3, así hasta que se acaben todas, ir con cuidado si no os dais prisa se van introduciendo más línias de bolas!");
     // Timing y frames per second
     var lastframe = 0;
     var fpstime = 0;
