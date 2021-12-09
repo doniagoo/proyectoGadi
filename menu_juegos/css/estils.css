@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/*body{
+
+}*/
+nav{
+    padding: 5px 20px;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    opacity: 0.5;
+}
+.logo a:hover{
+    text-decoration: none;
+}
