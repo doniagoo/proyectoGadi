@@ -15,3 +15,7 @@ body{
 canvas{
     margin-left: 5%;
 }
+#volver:hover{
+    opacity: 0.5;
+
+}
