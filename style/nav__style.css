@@ -1,44 +1,48 @@
 /*nav bar*/
 .container-navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(15px);
 }
 /*logo*/
 .container-navbar .logo-navbar {
-    font-size: 20px;
-    height: 30%;
-    width: 30%;
-    text-decoration:none;
+  font-size: 20px;
+  height: 30%;
+  width: 30%;
+  text-decoration: none;
 }
-.container-navbar .logo-navbar a img{
-    height: 30%;
-    width: 30%;
+.container-navbar .logo-navbar a img {
+  height: 30%;
+  width: 30%;
 }
-.container-navbar .logo-navbar a img:hover{
-    opacity: 0.5;
+.container-navbar .logo-navbar a img:hover {
+  opacity: 0.5;
 }
 /*links*/
 .container-navbar .contenido-navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 5px;
-    align-items: center;
-    text-decoration:none;
-    gap: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 5px;
+  align-items: center;
+  text-decoration: none;
+  gap: 80px;
+  padding-right: 25px;
 }
-.container-navbar .contenido-navbar a{
-    text-decoration: underline;
-    color: black;
-    padding-right: 10px;
-    font-weight: bolder; 
-    text-decoration:none;
+.container-navbar .contenido-navbar a {
+  text-decoration: underline;
+  color: black;
+  padding-right: 10px;
+  font-weight: bolder;
+  text-decoration: none;
 }
-.container-navbar .contenido-navbar a:hover{
-    opacity: 0.5;
+.container-navbar .contenido-navbar a:hover {
+  opacity: 0.5;
 }
-.container-navbar .contenido-navbar div a{
-    align-items: center;
-    text-decoration:none;
+.container-navbar .contenido-navbar div a {
+  align-items: center;
+  text-decoration: none;
 }
