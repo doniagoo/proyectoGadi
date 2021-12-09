@@ -8,12 +8,13 @@ body {
 .container {
     display: flex;
     flex-flow: row wrap;
-    gap: 300px 300px;
+    gap: 160px 300px;
     margin-top: 100px;
     align-items: center;
     /* margin: 200px; */
     padding: 60px;
     justify-content: center;
+    text-align: center;
 }
 
 .imagen__juego {
