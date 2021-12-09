@@ -1,0 +1,44 @@
+/*nav bar*/
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/*logo*/
+.container .logo {
+    font-size: 20px;
+    height: 30%;
+    width: 30%;
+    
+}
+.container .logo a img{
+    height: 30%;
+    width: 30%;
+}
+.container .logo a img:hover{
+    opacity: 0.5;
+}
+/*links*/
+.container .contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 5px;
+    align-items: center;
+}
+.container .contenido a{
+    text-decoration: underline;
+    color: black;
+    padding-right: 10px;
+    font-weight: bolder;  
+}
+.container .contenido a:hover{
+    opacity: 0.5;
+}
+.container .contenido div a{
+    align-items: center;
+    
+}
+body{
+    background-color: #D36F34;
+}
