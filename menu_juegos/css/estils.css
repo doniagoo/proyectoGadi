@@ -3,9 +3,9 @@
     padding: 0;
     margin: 0;
 }
-/*body{
-
-}*/
+body{
+  background-color: #D36F34;
+}
 nav{
     padding: 5px 20px;
 }
@@ -14,7 +14,12 @@ ul{
 }
 a{
     color: black;
-    text-decoration: none;
+    text-decoration:solid;
+    
+}
+li{
+    color: black;
+    text-decoration:solid;
 }
 a:hover{
     text-decoration: underline;
@@ -22,4 +27,34 @@ a:hover{
 }
 .logo a:hover{
     text-decoration: none;
+}
+.menu div li{
+    font-size: 20px;
+    padding: 15px 15px;
+    white-space: nowrap;
+    text-decoration: underline;
+}
+.logo a{
+font-size: 20px;
+}
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+/*.item.button{
+    order: 1;
+}*/
+.item{
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.item.active{
+    display: block;
+}
+.container_2{
+    display: flex;
+    flex-direction: row;
 }
