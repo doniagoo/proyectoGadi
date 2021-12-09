@@ -1,0 +1,30 @@
+*{
+  background-color: black;
+color: white;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+div.centrar{
+  padding: 0px;
+  margin: auto;
+  width: 85%;
+  height: 800px;
+  border: 10px solid slateblue;
+  border-radius: 40px;
+  margin-top: 2%;
+  position: relative;
+}
+p{
+  font-size: 78px;
+  width: 65%;
+  text-align: center;
+  margin: auto;
+  margin-top: 15%;
+  font-family: 'SansationLight';
+}
+@font-face {
+  font-family: 'SansationLight';
+  src: url('../SansationLight.eot');
+  src: local('SansationLight'), url('../SansationLight.woff') format('woff'), url('../SansationLight.ttf') format('truetype');
+}
