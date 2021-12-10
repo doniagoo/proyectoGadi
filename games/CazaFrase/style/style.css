@@ -389,6 +389,20 @@ body{
       font-size: 25px;
   }
 
+  .btnHome2{
+    background-image: url(../media/img/backbutton.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 81%;
+    left: 40%;
+    width: 100px;
+    height: 40px;
+    font-size: 25px;
+}
+
+
   th, td{
     padding: 8px;
     text-align: left;

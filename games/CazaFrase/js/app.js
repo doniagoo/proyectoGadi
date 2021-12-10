@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    let btnBack = document.getElementById("btnHome");
+    const btnBack = document.getElementById("btnHome");
+    const btnBack2 = document.getElementById("btnHome2");
+    btnBack2.addEventListener("click", backGamesScreen);
     btnBack.addEventListener("click", backGamesScreen);
 
     function backGamesScreen(){
@@ -736,9 +738,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 clearInterval(timer);
                 document.removeEventListener('keydown', saveLastMoves);
                 gameOverSound.play();
-                let modal = document.getElementById("myModal");
-                document.getElementById("textFinal").innerHTML = "TIME OVER";
-                modal.style.display = "block";   
+                openModal();
             }else{
                 if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
                 !elements[posicioY][posicioX].classList.contains('scared-enemy')){
@@ -755,9 +755,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     clearInterval(timer);
                     document.removeEventListener('keydown', saveLastMoves);
                     gameOverSound.play();
-                    let modal = document.getElementById("myModal");
-                    document.getElementById("textFinal").innerHTML = "GAME OVER";
-                    modal.style.display = "block";   
+                    openModal(); 
             }
             }
             
@@ -778,14 +776,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 gameWinSound.play();
                 clearInterval(timer);
                 setTimeout(function(){
-                    let modal = document.getElementById("myModal");
-                    document.getElementById("textFinal").innerHTML = "YOU WON!";
-                    modal.style.display = "block";  
+                    openModal();
                 }, 1000);
                 
             }
         }
 
+        function openModal(){
+            let modal = document.getElementById("myModal");
+            document.getElementById("textFinal").innerHTML = "YOU WON!";
+            modal.style.display = "block"; 
+            btnBack.style.display = "none";  
+            console.log(btnBack.style.display); 
+        }
 
         function moveToRandom(enemy){
             let maxX = 29;
