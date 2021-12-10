@@ -1,0 +1,33 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+   background-size: cover;
+   background-repeat: no-repeat;
+   object-fit: cover;
+   position: relative;
+}
+
+.imagenes {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.collider {
+    border: 3px solid red;
+    background: white;
+    opacity: 0.4;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

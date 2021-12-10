@@ -239,7 +239,7 @@ body{
     position: absolute;
     margin-top: 5%;
     width: 200px;
-    height: 60%;
+    height: 47%;
     display: flex;
     justify-content: center;
     border: 1px solid white;
@@ -388,6 +388,20 @@ body{
       left: 5px;
       font-size: 25px;
   }
+
+  .btnHome2{
+    background-image: url(../media/img/backbutton.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 81%;
+    left: 40%;
+    width: 100px;
+    height: 40px;
+    font-size: 25px;
+}
+
 
   th, td{
     padding: 8px;
