@@ -13,7 +13,7 @@
         <label for="id">ID</label>
         <input type="text" id="id" name="id">
         <button type="submit" name="delete">Crear</button>
-        <a href="./prueba.php"><button>Cancelar</button></a>
+        <a href="./Admins.php"><button>Cancelar</button></a>
     </form>
 </body>
 

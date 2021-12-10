@@ -19,8 +19,8 @@
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre">
         <button type="submit" name="insert">Crear</button>
-        <a href="./prueba.php"><button>Cancelar</button></a>
     </form>
+    <a href="./Admins.php"><button>Cancelar</button></a>
 </body>
 
 </html>

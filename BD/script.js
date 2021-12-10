@@ -1,10 +1,10 @@
 function comprovarContraseña() {
     var ContraNueva = document.getElementById("ContraNueva")
-        , confirmarContra = document.getElementById("confirmarContra");
+    var confirmarContra = document.getElementById("confirmarContra");
 
     function validarContraseña() {
         if (ContraNueva.value != confirmarContra.value) {
-            confirmarContra.setCustomValidity("Passwords Don't Match");
+            confirmarContra.setCustomValidity("Las contraseñas no coinciden");
         } else {
             confirmarContra.setCustomValidity('');
         }

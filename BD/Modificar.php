@@ -12,6 +12,8 @@
     <?php
     $adminid = $_POST['modificarAdminID'];
     $adminNombre = $_POST['modificarAdminNombre'];
+    $adminPassword = $_POST['modificarAdminPassword'];
+    $result=false;
     ?>
     <form action="./controlador.php" method="post">
         <label for="idAdmin">ID: <?php echo $adminid ?></label>
@@ -21,9 +23,9 @@
         <input type="password" name="ContraNueva" id="ContraNueva" required>
         <label for="confirmarContra">Confirmar Contraseña:</label>
         <input type="password" name="confirmarContra" id="confirmarContra" required>
-        <button type="submit" name="modify" onclick="comprovarContraseña()">Confirmar</button>
-        <a href="./prueba.php"><button>Cancelar</button></a>
+        <button type="submit" name="modify" onclick="comprovarContraseña()">Confirmar</button>    
     </form>
+    <a href="./Admins.php"><button>Cancelar</button></a>
 </body>
 <script src="./script.js"></script>
 </html>
