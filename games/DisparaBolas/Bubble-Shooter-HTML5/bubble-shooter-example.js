@@ -75,11 +75,11 @@ window.onload = function() {
     var score = 0;
     var turncounter = 0;
     var rowoffset = 0;
-    // Variables Animacion
+    // Variables Animacion info video
     var animationstate = 0;
     var animationtime = 0;
     
-    // Clusters
+    // Clusters info video
     var showcluster = false;
     var cluster = [];
     var floatingclusters = [];
@@ -128,7 +128,6 @@ igual te hago un while
         for (var i=0; i<imagefiles.length; i++) {
             // Creamos el objeto imagen
             var image = new Image();
-            
             // Añadimos el cargo evento 
             image.onload = function () {
                 loadcount++;
@@ -144,7 +143,6 @@ igual te hago un while
             // Guardar la imagen en el array
             loadedimages[i] = image;
         }
-        
         // Devolvemos el array imagenes cargadas
         return loadedimages;
     }
