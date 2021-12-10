@@ -2,8 +2,8 @@ create database if not exists dagi;
 use dagi;
 
 CREATE TABLE if not exists JUEGOS (
-ID INT,
-Nombre varchar(15) not null,
+id INT,
+nombre varchar(15) not null,
 PRIMARY KEY (ID)
 );
 INSERT INTO JUEGOS VALUES (001,"Host");
@@ -13,15 +13,15 @@ INSERT INTO JUEGOS VALUES (004,"Pacman");
 INSERT INTO JUEGOS VALUES (005,"Shot Ball");
 
 CREATE TABLE if not exists USERS(
-ID INT,
-Email varchar(200) not null,
-Contraseña varchar(15),
-Es_Admin boolean,
-Es_SuperAdmin boolean,
-Nickname varchar (15),
-Apellidos varchar(30) not null,
-Nombre varchar (15) not null,
-Ciclo varchar(5),
+id INT,
+email varchar(200) not null,
+contrasena varchar(100),
+es_Admin boolean,
+es_SuperAdmin boolean,
+nickname varchar (15),
+apellidos varchar(30) not null,
+nombre varchar (15) not null,
+ciclo varchar(5),
 PRIMARY KEY (ID)
 );
 INSERT INTO USERS VALUES (001,"Ptoro@politecnis.barcelona","SOMOSCEP20",true,True,null,"Toro","Paco",null);
@@ -30,10 +30,10 @@ INSERT INTO USERS VALUES (003,"Jlenovo@politecnis.barcelona","SOMOSCEP20",True,F
 /*OPCIONAL ENCRIPTAR CONTRASEÑA*/
 
 CREATE TABLE if not exists JUEGO_USER(
-IDJuego INT,
-IDUser INT,
-JuegoCompleto BOOLEAN,
-Score INT,
+idJuego INT,
+idUser INT,
+juegoCompleto BOOLEAN,
+score INT,
 FOREIGN KEY (IDJuego) REFERENCES JUEGOS(ID),
 FOREIGN KEY (IDUser) REFERENCES USERS(ID)
 );
