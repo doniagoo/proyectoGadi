@@ -257,7 +257,8 @@ igual te hago un while
     
     function stateShootbola(dt) {
         // bola en movimiento
-        
+
+        //los videos youtube nunca fallan
         // Movimiento de la bola en la direction del raton
         jugador.bola.x += dt * jugador.bola.speed * Math.cos(degToRad(jugador.bola.angle));
         jugador.bola.y += dt * jugador.bola.speed * -1*Math.sin(degToRad(jugador.bola.angle));
@@ -565,7 +566,7 @@ igual te hago un while
         return foundcolors;
     }
     
-    // Find cluster at the specified tile location
+    // Find cluster en la localizacion de losa (tile) especifica  
     function findCluster(tx, ty, matchtype, reset, skipborradas) {
         // Reset the processed flags
         if (reset) {
@@ -1032,12 +1033,12 @@ igual te hago un while
     
     // Check if los dos circulos interseccionan
     function circleIntersection(x1, y1, r1, x2, y2, r2) {
-        // Calculate the distance between the centers
+        // Calcula la distancia entre los centros
         var dx = x1 - x2;
         var dy = y1 - y2;
         var len = Math.sqrt(dx * dx + dy * dy);
         if (len < r1 + r2) {
-            // Circles intersect
+            // Circulos interseccionan
             return true;
         }
         
@@ -1105,9 +1106,7 @@ igual te hago un while
         };
     }
     
-    
     // Llamamos al init para empezar el juego
     init();
-    
     
 };
