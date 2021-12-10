@@ -771,7 +771,7 @@ window.onload = function() {
             /*----------------------------------- */
             /*----------------------------------- */
             const sonido2 = cargarSonido("./burbuja.mp3");
-            sonido2.play();
+            //sonido2.play();
             //sonido2.pause();
         }
     }
