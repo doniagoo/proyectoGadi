@@ -6,10 +6,10 @@ if (isset($_POST['insert'])) {
     header('Location: ./Admins.php');
     exit();
 }
-if(isset($_POST['insertUser'])){
-    insertUser($_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['nickname'],$_POST['ciclo']);
-    userJuegos(cantidadJuegos(),id($_POST['email']));
-    header('Location: ./users.php');//Apartado juegos
+if (isset($_POST['insertUser'])) {
+    insertUser($_POST['email'], $_POST['nickname'], $_POST['apellidos'], $_POST['nombre'], $_POST['ciclo']);
+    userJuegos(cantidadJuegos(), id($_POST['email']));
+    header('Location: ./users.php'); //Apartado juegos
     exit();
 }
 if (isset($_POST['deleteAdmin'])) {
@@ -20,13 +20,13 @@ if (isset($_POST['deleteAdmin'])) {
     exit();
 }
 if (isset($_POST['modify'])) {
-    $contrasena=encriptarContrasena($_POST['ContraNueva']);
-    modificarAdmin($contrasena,$_POST['idAdmin']);
+    $contrasena = encriptarContrasena($_POST['ContraNueva']);
+    modificarAdmin($contrasena, $_POST['idAdmin']);
     header('Location: ./Admins.php');
     exit();
 }
-function encriptarContrasena($contrasena){
-    $pass_cifrado=password_hash($contrasena,PASSWORD_DEFAULT, array("cost"=>"4"));
+function encriptarContrasena($contrasena)
+{
+    $pass_cifrado = password_hash($contrasena, PASSWORD_DEFAULT, array("cost" => "4"));
     return $pass_cifrado;
 }
-

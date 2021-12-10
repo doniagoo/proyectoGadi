@@ -50,7 +50,8 @@ function insertAdmin($email, $contrasena, $apellidos, $nombre)
     $conexion = closeBD();
 }
 
-function modificarAdmin($contrasena, $id){
+function modificarAdmin($contrasena, $id)
+{
     $conexion = openBD();
     $sentenciaText = "UPDATE USERS SET contrasena = '$contrasena' Where id = $id";
     $sentencia = $conexion->prepare($sentenciaText);
@@ -61,28 +62,30 @@ function mostrarUsers()
 {
     $conexion = openBD();
     $sentenciaText = "select * from USERS where es_Admin = 0";
-    $sentenciaText2= "select idJuego,score from JUEGO_USER";
+    $sentenciaText2 = "select idJuego,score from JUEGO_USER";
     $sentencia = $conexion->prepare($sentenciaText);
-    $sentencia2=$conexion->prepare($sentenciaText2);
+    $sentencia2 = $conexion->prepare($sentenciaText2);
     $sentencia->execute();
     $sentencia2->execute();
     $resultado = $sentencia->fetchAll();
     $conexion = closeBD();
     return $resultado;
 }
-function mostrarScore(){
+function mostrarScore()
+{
     $conexion = openBD();
-    $sentenciaText2= "select idUser,idJuego,score from JUEGO_USER where juegoCompleto = 1";
-    $sentencia2=$conexion->prepare($sentenciaText2);
+    $sentenciaText2 = "select idUser,idJuego,score from JUEGO_USER where juegoCompleto = 1";
+    $sentencia2 = $conexion->prepare($sentenciaText2);
     $sentencia2->execute();
     $resultado = $sentencia2->fetchAll();
     $conexion = closeBD();
     return $resultado;
 }
 
-function insertUser($nombre,$apellidos,$email,$nickname,$ciclo){
+function insertUser($email, $nickname, $apellidos, $nombre, $ciclo)
+{
     $conexion = openBD();
-    $sentenciaText = "Insert into USERS (email,contrasena,es_Admin,es_SuperAdmin,nickname,apellidos,nombre,ciclo) values (:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
+    $sentenciaText = "Insert into USERS (id,email,contrasena,es_Admin,es_SuperAdmin,nickname,apellidos,nombre,ciclo) values (default,:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
     $sentencia = $conexion->prepare($sentenciaText);
     $sentencia->bindParam(':email', $email);
     $sentencia->bindParam(':nickname', $nickname);
@@ -90,34 +93,36 @@ function insertUser($nombre,$apellidos,$email,$nickname,$ciclo){
     $sentencia->bindParam(':nombre', $nombre);
     $sentencia->bindParam(':ciclo', $ciclo);
     $sentencia->execute();
-    set_time_limit(20);
+    sleep(2);
     $conexion = closeBD();
 }
-function cantidadJuegos(){
-    $conexion=openBD();
+function cantidadJuegos()
+{
+    $conexion = openBD();
     $cantidadJuegos = $conexion->prepare("Select count(id) from JUEGOS");
     $cantidadJuegos->execute();
     $resultado = $cantidadJuegos->fetchAll();
-    $conexion=closeBD();
+    $conexion = closeBD();
     return $resultado;
 }
-function id($email){
-    $conexion=openBD();
-    $idUser = $conexion->prepare("Select id from USERS WHERE email = $email");
+function id($email)
+{
+    $conexion = openBD();
+    $idUser = $conexion->prepare("Select id from USERS WHERE email = :email");
+    $idUser->bindParam(':email', $email);
     $idUser->execute();
     $resultado = $idUser->fetchAll();
-    $conexion=closeBD();
-    return $resultado;
+    $conexion = closeBD();
+    return $resultado[0];
 }
-function userJuegos($cantidadJuegos,$idUser){
-    $conexion=openBD();
-    for ($i=0; $i < $cantidadJuegos; $i++) { 
-        $sentenciaText="Insert into JUEGO_USER (idJuego,idUser,juegoCompleto,score)VALUES (:idJuego,:idUser,:juegoCompleto,:score)";
+function userJuegos($cantidadJuegos, $idUser)
+{
+    $conexion = openBD();
+    for ($i = 0; $i < $cantidadJuegos; $i++) {
+        $sentenciaText = "Insert into JUEGO_USER (idJuego,idUser,juegoCompleto,score)VALUES (:idJuego,:idUser,0,null)";
         $sentencia = $conexion->prepare($sentenciaText);
-        $sentencia->bindParam(':idJuego',$i);
-        $sentencia->bindParam(':idUser',$idUser);
-        $sentencia->bindParam(':juegoCompleto',false);
-        $sentencia->bindParam(':score',null);
+        $sentencia->bindParam(':idJuego', $i);
+        $sentencia->bindParam(':idUser', $idUser[0]);
         $sentencia->execute();
     }
     $conexion = closeBD();
