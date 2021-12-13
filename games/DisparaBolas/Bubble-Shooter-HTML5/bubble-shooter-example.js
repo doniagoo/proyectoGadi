@@ -4,7 +4,7 @@ window.onload = function() {
     // Get del canvas y el context 2d
     var canvas = document.getElementById("pagina");
     var context = canvas.getContext("2d");
-    alert("Así es como funciona diapara bolas --> se trata de explotar un conjunto de bolas por color en porciones de almenos 3, así hasta que se acaben todas, ir con cuidado si no os dais prisa se van introduciendo más línias de bolas!");
+    alert("Así es como funciona dispara bolas --> se trata de explotar un conjunto de bolas por color en porciones de almenos 3, así hasta que se acaben todas, ir con cuidado si no os dais prisa se van introduciendo más línias de bolas! y tienes poco tiempo para completarlo!");
     // Timing y frames per second
     var lastframe = 0;
     var fpstime = 0;
@@ -95,11 +95,14 @@ window.onload = function() {
 /*
 igual te hago un while
 igual te hago un while
-igual te hago un while
-igual te hago un while
-igual te hago un while
-igual te hago un while
 */
+/*
+    function setCircleDasharray() {
+        let fraccioTempsRestant =  calculateTimeFraction();
+        const circleDasharray = (fraccioTempsRestant * 283); //Anem modificant la fracció de temps a mesura que ens quedem sense temps.
+        document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", (circleDasharray + ' 283')); //Amb l'atribut stroke-dasharray definim el traç de la figura que volem dibuixar.
+    }*/
+    /*
     function updateRejoj() {
         var tiempoTotal=100;
         document.getElementById('countdown').innerHTML = tiempoTotal;
@@ -115,7 +118,7 @@ igual te hago un while
             tiempoTotal-=1;
             //setTimeout("updateReloj()",1000);
         }
-    }
+    }*/
     // Imagenes cargadas
     function loadImages(imagefiles) {
         // Iniciamos variables
@@ -741,7 +744,7 @@ igual te hago un while
         var yoffset =  nivel.tileheight/2;
         
         // Dibuja nivel background
-        context.fillStyle = "#DEDEDE";
+        context.fillStyle = "#BEA4CC";
         context.fillRect(nivel.x - 4, nivel.y - 4, nivel.width + 8, nivel.height + 4 - yoffset);
         
         // Render losas (tiles)
@@ -1025,7 +1028,6 @@ igual te hago un while
         
         return bolatype;
     }
-    
     // Obtener random int entre low y high, inclusivamente
     function ryRange(low, high) {
         return Math.floor(low + Math.random()*(high-low+1));
@@ -1061,12 +1063,10 @@ igual te hago un while
     function radToDeg(angle) {
         return angle * (180 / Math.PI);
     }
-    
     // Convertir grados a radios
     function degToRad(angle) {
         return angle * (Math.PI / 180);
     }
-
     // On mouse en movimiento
     function onMouseMove(e) {
         // Obtener mouse position
@@ -1117,7 +1117,28 @@ igual te hago un while
             y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
         };
     }
-    
+    /*contador*/
+    let timeLeft = 150;
+    let timer = setInterval(function(){
+        const minutos = Math.floor(timeLeft / 60);
+        const segundos = timeLeft % 60;
+        timeLeft -= 1;
+        // console.log(minutes + ':' + segundos);
+        if(segundos < 10){
+            if(minutos < 1){
+                document.getElementById("base-timer-label").innerHTML = '0' + minutos + " : " + '0' + segundos;
+            }else{
+                document.getElementById("base-timer-label").innerHTML = minutos + " : " + '0' + segundos;
+            }
+            
+        }else{
+            document.getElementById("base-timer-label").innerHTML = minutos + " : " + segundos;
+        }
+        if(timeLeft <= 0){
+            //timeOver = true;
+            setGameState(gamestates.gameover);
+        }  
+    }, 1000);
     // Llamamos al init para empezar el juego
     init();
     
