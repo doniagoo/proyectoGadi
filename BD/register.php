@@ -1,3 +1,9 @@
+<?php session_start();
+$emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] : '';
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +21,11 @@
         <label for="apellidos">Apellido:</label>
         <input type="text" name="apellidos" id="apellidos">
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
+        <?php if ($emailRegister != '') { ?>
+            <input type="text" name="email" id="email" value="<?php echo $emailRegister ?>">
+        <?php } else { ?>
+            <input type="text" name="email" id="email">
+        <?php } ?>
         <label for="nickname">Nickname:</label>
         <input type="text" name="nickname" id="nickname">
         <label for="ciclo">Ciclo:</label>

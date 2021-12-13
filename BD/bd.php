@@ -6,7 +6,7 @@ function openBD()
     $username = "root";
     $password = "mysql";
 
-    $conexion = new PDO("mysql:host=$servername;dbname=dagi", $username, $password);
+    $conexion = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     // set the PDO error mode to exception
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conexion->exec("set names utf8");
@@ -20,7 +20,7 @@ function closeBD()
 function mostrarAdmins()
 {
     $conexion = openBD();
-    $sentenciaText = "select * from USERS where es_Admin = 1";
+    $sentenciaText = "select * from USERS where es_admin = 1 and es_superadmin = 0";
     $sentencia = $conexion->prepare($sentenciaText);
     $sentencia->execute();
     $resultado = $sentencia->fetchAll();
@@ -40,7 +40,7 @@ function deleteAdmins($id)
 function insertAdmin($email, $contrasena, $apellidos, $nombre)
 {
     $conexion = openBD();
-    $sentenciaText = "Insert into USERS (email,contrasena,es_Admin,es_SuperAdmin,nickname,apellidos,nombre,ciclo) values (:email,:contrasena,1,0,null,:apellidos,:nombre,null)";
+    $sentenciaText = "Insert into USERS (email,contrasena,es_admin,es_superadmin,nickname,apellidos,nombre,ciclo) values (:email,:contrasena,1,0,null,:apellidos,:nombre,null)";
     $sentencia = $conexion->prepare($sentenciaText);
     $sentencia->bindParam(':email', $email);
     $sentencia->bindParam(':contrasena', $contrasena);
@@ -61,7 +61,7 @@ function modificarAdmin($contrasena, $id)
 function mostrarUsers()
 {
     $conexion = openBD();
-    $sentenciaText = "select * from USERS where es_Admin = 0";
+    $sentenciaText = "select * from USERS where es_admin = 0";
     $sentenciaText2 = "select idJuego,score from JUEGO_USER";
     $sentencia = $conexion->prepare($sentenciaText);
     $sentencia2 = $conexion->prepare($sentenciaText2);
@@ -77,15 +77,15 @@ function mostrarScore()
     $sentenciaText2 = "select idUser,idJuego,score from JUEGO_USER where juegoCompleto = 1";
     $sentencia2 = $conexion->prepare($sentenciaText2);
     $sentencia2->execute();
-    $resultado = $sentencia2->fetchAll();
+    $resultado = $sentencia2->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();
     return $resultado;
 }
 
-function insertUser($email, $nickname, $apellidos, $nombre, $ciclo)
+function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
 {
     $conexion = openBD();
-    $sentenciaText = "Insert into USERS (id,email,contrasena,es_Admin,es_SuperAdmin,nickname,apellidos,nombre,ciclo) values (default,:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
+    $sentenciaText = "Insert into USERS (email,contrasena,es_admin,es_superadmin,nickname,apellidos,nombre,ciclo) values (:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
     $sentencia = $conexion->prepare($sentenciaText);
     $sentencia->bindParam(':email', $email);
     $sentencia->bindParam(':nickname', $nickname);
@@ -93,7 +93,7 @@ function insertUser($email, $nickname, $apellidos, $nombre, $ciclo)
     $sentencia->bindParam(':nombre', $nombre);
     $sentencia->bindParam(':ciclo', $ciclo);
     $sentencia->execute();
-    sleep(2);
+    set_time_limit(20);
     $conexion = closeBD();
 }
 function cantidadJuegos()
@@ -108,22 +108,42 @@ function cantidadJuegos()
 function id($email)
 {
     $conexion = openBD();
-    $idUser = $conexion->prepare("Select id from USERS WHERE email = :email");
-    $idUser->bindParam(':email', $email);
+    $idUser = $conexion->prepare("Select id from USERS WHERE email = $email");
     $idUser->execute();
     $resultado = $idUser->fetchAll();
     $conexion = closeBD();
-    return $resultado[0];
+    return $resultado;
 }
 function userJuegos($cantidadJuegos, $idUser)
 {
     $conexion = openBD();
     for ($i = 0; $i < $cantidadJuegos; $i++) {
-        $sentenciaText = "Insert into JUEGO_USER (idJuego,idUser,juegoCompleto,score)VALUES (:idJuego,:idUser,0,null)";
+        $sentenciaText = "Insert into JUEGO_USER (idJuego,idUser,juegoCompleto,score)VALUES (:idJuego,:idUser,:juegoCompleto,:score)";
         $sentencia = $conexion->prepare($sentenciaText);
         $sentencia->bindParam(':idJuego', $i);
-        $sentencia->bindParam(':idUser', $idUser[0]);
+        $sentencia->bindParam(':idUser', $idUser);
+        $sentencia->bindParam(':juegoCompleto', false);
+        $sentencia->bindParam(':score', null);
         $sentencia->execute();
     }
     $conexion = closeBD();
+}
+
+function loginUser($email)
+{
+    $conexion = openBD();
+    $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email' and es_admin = 0");
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll();
+    $conexion = closeBD();
+    return $resultado;
+}
+function loginAdmin($email)
+{
+    $conexion = openBD();
+    $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email' and es_admin = 1");
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado;
 }

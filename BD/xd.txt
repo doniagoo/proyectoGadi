@@ -1,0 +1,5 @@
+<?php $admin = isset($_POST['adminModificar']) ? $_POST['adminModificar'] : null ?>
+
+<label for="id">Id: <?php echo $admin["id"] ?></label>
+<label for="nombre">Nombre: <?php echo $admin["nombre"] ?></label>
+<label for="contrasenaNueva"></label>

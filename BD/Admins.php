@@ -37,8 +37,8 @@ $admins = mostrarAdmins();
                     <td><?php echo $admin['id']; ?></td>
                     <td><?php echo $admin['email']; ?></td>
                     <td><?php echo $admin['contrasena']; ?></td>
-                    <td><?php echo $admin['es_Admin']; ?></td>
-                    <td><?php echo $admin['es_SuperAdmin']; ?></td>
+                    <td><?php echo $admin['es_admin']; ?></td>
+                    <td><?php echo $admin['es_superadmin']; ?></td>
                     <td><?php echo $admin['nickname']; ?></td>
                     <td><?php echo $admin['apellidos']; ?></td>
                     <td><?php echo $admin['nombre']; ?></td>
