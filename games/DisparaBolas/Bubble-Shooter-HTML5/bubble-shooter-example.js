@@ -999,6 +999,27 @@ igual te hago un while
                 }
             }
         }
+        let timeLeft = 150;
+        let timer = setInterval(function(){
+        const minutos = Math.floor(timeLeft / 60);
+        const segundos = timeLeft % 60;
+        timeLeft -= 1;
+        // console.log(minutes + ':' + segundos);
+        if(segundos < 10){
+            if(minutos < 1){
+                document.getElementById("base-timer-label").innerHTML = '0' + minutos + " : " + '0' + segundos;
+            }else{
+                document.getElementById("base-timer-label").innerHTML = minutos + " : " + '0' + segundos;
+            }
+            
+        }else{
+            document.getElementById("base-timer-label").innerHTML = minutos + " : " + segundos;
+        }
+        if(timeLeft <= 0){
+            //timeOver = true;
+            setGameState(gamestates.gameover);
+        }  
+        }, 1000);
     }
     
     // Crear random bola para jugador
