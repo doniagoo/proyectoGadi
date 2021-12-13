@@ -4,7 +4,7 @@ window.onload = function() {
     // Get del canvas y el context 2d
     var canvas = document.getElementById("pagina");
     var context = canvas.getContext("2d");
-    alert("Així és com funciona bubble shooter --> es tracta d'explotar un conjunt de boles per color en porcions d'almenys 3, així fins que s'acabin totes, aneu amb compte si no us afanyeu es van introduïnt més línies de boles!");
+    alert("Així és com funciona bubble shooter --> es tracta d'explotar un conjunt de boles per color en porcions d'almenys 3, així fins que s'acabin totes, aneu amb compte si no us afanyeu es van introduïnt més línies de boles! I el temps s'acaba!");
     // Timing y frames per second
     var lastframe = 0;
     var fpstime = 0;
@@ -707,7 +707,7 @@ window.onload = function() {
         var yoffset =  nivel.tileheight/2;
         
         // Dibuja nivel background
-        context.fillStyle = "#DEDEDE";
+        context.fillStyle = "#BEA4CC";
         context.fillRect(nivel.x - 4, nivel.y - 4, nivel.width + 8, nivel.height + 4 - yoffset);
         
         // Render losas (tiles)
@@ -962,6 +962,27 @@ window.onload = function() {
                 }
             }
         }
+        let timeLeft = 150;
+        let timer = setInterval(function(){
+        const minutos = Math.floor(timeLeft / 60);
+        const segundos = timeLeft % 60;
+        timeLeft -= 1;
+        // console.log(minutes + ':' + segundos);
+        if(segundos < 10){
+            if(minutos < 1){
+                document.getElementById("base-timer-label").innerHTML = '0' + minutos + " : " + '0' + segundos;
+            }else{
+                document.getElementById("base-timer-label").innerHTML = minutos + " : " + '0' + segundos;
+            }
+            
+        }else{
+            document.getElementById("base-timer-label").innerHTML = minutos + " : " + segundos;
+        }
+        if(timeLeft <= 0){
+            //timeOver = true;
+            setGameState(gamestates.gameover);
+        }  
+        }, 1000);
     }
     
     // Crear random bola para jugador
@@ -1083,18 +1104,28 @@ window.onload = function() {
             y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
         };
     }
-    
-    function updateRejoj(/*canvas*/) {
-        var tiempoTotal=100;
-        document.getElementById('countdown').innerHTML = tiempoTotal;
-        if (tiempoTotal == 0) {
-            //alert('final');
-            gamestate == gamestates.gameover;
+    /*Contador*/
+    let timeLeft = 150;
+    let timer = setInterval(function(){
+        const minutos = Math.floor(timeLeft / 60);
+        const segundos = timeLeft % 60;
+        timeLeft -= 1;
+        // console.log(minutes + ':' + segundos);
+        if(segundos < 10){
+            if(minutos < 1){
+                document.getElementById("base-timer-label").innerHTML = '0' + minutos + " : " + '0' + segundos;
+            }else{
+                document.getElementById("base-timer-label").innerHTML = minutos + " : " + '0' + segundos;
+            }
+            
         }else{
-            tiempoTotal-=1;
-            setTimeout("updateReloj()",1000);
+            document.getElementById("base-timer-label").innerHTML = minutos + " : " + segundos;
         }
-    }
+        if(timeLeft <= 0){
+            //timeOver = true;
+            setGameState(gamestates.gameover);
+        }  
+    }, 1000);
     // Llamamos al init para empezar el juego
     init();
     
