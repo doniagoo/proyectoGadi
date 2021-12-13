@@ -460,6 +460,7 @@ a {
   -ms-flex-align: center;
   align-items: center;
   font-size: 20px;
+  z-index: 2;
 }
 
 .direccion a {
@@ -467,6 +468,7 @@ a {
   display: inline-block;
   padding: 30px;
   text-decoration: none;
+  z-index: 2;
 }
 
 .direccion a:hover {
