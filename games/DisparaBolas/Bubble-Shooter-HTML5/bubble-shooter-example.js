@@ -319,9 +319,21 @@ igual te hago un while
                 // Set the borradas flag
                 cluster[i].borradas = true;
             }
-            
+            const cargarSonido = function (fuente) {
+                const sonido2 = document.createElement("audio");
+                sonido2.src = fuente;
+                sonido2.setAttribute("preload", "auto");
+                sonido2.setAttribute("controls", "none");
+                sonido2.style.display = "none"; // <-- oculto
+                document.body.appendChild(sonido2);
+                return sonido2;
+            };
+            /*----------------------------------- */
+            /*----------------------------------- */
+            const sonido2 = cargarSonido("./burbuja_colision.mp3");
+            sonido2.play();
             // Add cluster score
-            score += cluster.length * 100;
+            score += cluster.length * 10;
             // Find floating clusters
             floatingclusters = findFloatingClusters();
             //esta parte sacada de internet
@@ -333,7 +345,7 @@ igual te hago un while
                         tile.shift = 0;
                         tile.shift = 1;
                         tile.velocity = jugador.bola.soltarspeed;
-                        //añadir sonido??
+                        //añadir sonido
                         /*----------------------------------- */
                         /*----------------------------------- */
                         const cargarSonido = function (fuente) {
@@ -349,7 +361,7 @@ igual te hago un while
                         /*----------------------------------- */
                         const sonido = cargarSonido("./burbujas.mp3");
                         sonido.play();
-                        score += 100;
+                        score += 10;
                         
                     }
                 }
@@ -772,7 +784,7 @@ igual te hago un while
             context.font = "24px Verdana";
             drawCenterText("Se acabó!", nivel.x, nivel.y + nivel.height / 2 + 10, nivel.width);
             drawCenterText(score, nivel.x, nivel.y + nivel.height / 2 + 40, nivel.width);
-            if (score > 11000){
+            if (score > 1000){
                 drawCenterText("Has hecho muchos puntos! Muy bien!", nivel.x, nivel.y + nivel.height / 2 + 70, nivel.width);
                 drawCenterText("La persistencia y el esfuerzo nos hacen mejores", nivel.x, nivel.y + nivel.height / 2 + 100, nivel.width);
             } else{
