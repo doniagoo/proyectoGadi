@@ -961,8 +961,9 @@ window.onload = function() {
                     nivel.tiles[i][j].type = -1;
                 }
             }
+            let timeLeft = 150;
         }
-        let timeLeft = 150;
+        timeLeft = 150;
         let timer = setInterval(function(){
         const minutos = Math.floor(timeLeft / 60);
         const segundos = timeLeft % 60;
@@ -979,7 +980,7 @@ window.onload = function() {
             document.getElementById("base-timer-label").innerHTML = minutos + " : " + segundos;
         }
         if(timeLeft <= 0){
-            //timeOver = true;
+            timeOver = true;
             setGameState(gamestates.gameover);
         }  
         }, 1000);
