@@ -93,7 +93,6 @@ function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
     $sentencia->bindParam(':nombre', $nombre);
     $sentencia->bindParam(':ciclo', $ciclo);
     $sentencia->execute();
-    set_time_limit(20);
     $conexion = closeBD();
 }
 function cantidadJuegos()
@@ -134,9 +133,9 @@ function loginUser($email)
     $conexion = openBD();
     $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email' and es_admin = 0");
     $sentencia->execute();
-    $resultado = $sentencia->fetchAll();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();
-    return $resultado;
+    return $resultado[0];
 }
 function loginAdmin($email)
 {

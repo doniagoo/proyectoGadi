@@ -8,7 +8,12 @@ if (isset($_POST['insert'])) {
     exit();
 } else if (isset($_POST['insertUser'])) {
     insertUser($_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['nickname'], $_POST['ciclo']);
-    header('Location: ./users.php'); //Apartado juegos
+    $_SESSION["nombre"] = $_POST['nombre'];
+    $_SESSION["apellidos"] = $_POST['apellidos'];
+    $_SESSION["email"] = $_POST['email'];
+    $_SESSION["nickname"] = $_POST['nickname'];
+    $_SESSION["ciclo"] = $_POST['ciclo'];
+    header('Location: ../menu_juegos/juego_menu.php'); //Apartado juegos
     exit();
 } else if (isset($_POST['deleteAdmin'])) {
     $idAdmin = $_POST['Idadmin'];
@@ -23,9 +28,14 @@ if (isset($_POST['insert'])) {
     exit();
 } else if (isset($_POST['LoginUser'])) {
     $user = loginUser($_POST['email']);
+
+
     if ($user != null) {
         $_SESSION['userActivo'] = $user;
-        header('Location: ./users.php'); //apartado juegos
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['nickname'] = $user['nickname'];
+        $_SESSION['ciclo'] = $user['ciclo'];
+        header('Location: ../menu_juegos/juego_menu.php'); //apartado juegos
         exit();
     } else {
         $_SESSION['emailRegister'] = $_POST['email'];
@@ -45,7 +55,14 @@ if (isset($_POST['insert'])) {
     } else {
         echo "Email incorrecto";
     }
+} else if (isset($_POST['cerrarSesion'])) {
+    session_destroy();
+
+    header('Location: ../index.html');
+    exit();
 }
+
+
 function encriptarContrasena($contrasena)
 {
     $pass_cifrado = password_hash($contrasena, PASSWORD_DEFAULT, array("cost" => "4"));
