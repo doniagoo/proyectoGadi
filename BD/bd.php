@@ -144,5 +144,5 @@ function loginAdmin($email)
     $sentencia->execute();
     $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();
-    return $resultado;
+    return $resultado[0];
 }
