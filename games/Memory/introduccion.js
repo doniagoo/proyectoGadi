@@ -16,6 +16,6 @@ function intro3(){
     setTimeout(redirecion, 3000);
 }
 function redirecion(){
-    window.location.href='./index.html'
+    window.location.href='./index.php'
 }
 intro1()

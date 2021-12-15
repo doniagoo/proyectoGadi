@@ -5,7 +5,7 @@ CREATE TABLE if not exists JUEGOS (
 iD INT,
 nombre varchar(15) not null,
 PRIMARY KEY (ID)
-);
+);	
 INSERT INTO JUEGOS VALUES (001,"Host");
 INSERT INTO JUEGOS VALUES (002,"Memory");
 INSERT INTO JUEGOS VALUES (003,"Hunt");
@@ -21,7 +21,7 @@ es_superadmin boolean,
 nickname varchar (15),
 apellidos varchar(30) not null,
 nombre varchar (15) not null,
-ciclo varchar(5),
+ciclo varchar(100),
 PRIMARY KEY (ID)
 );
 INSERT INTO USERS VALUES (null,"Ptoro@politecnis.barcelona","$2y$04$BOh.h2duJDbSzEI5FNoUpe1nCOtOolpBjD9HJqR0nHavPW.xKYFvu",true,True,null,"Toro","Paco",null);

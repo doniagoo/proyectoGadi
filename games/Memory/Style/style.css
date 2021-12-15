@@ -1,12 +1,12 @@
 .grid {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 img {
   margin: auto;
   width: 16%;
-  height: 5%;
+  height: 100%;
   margin-top: 15px;
   margin-bottom: 15px;
   display: block;
@@ -14,10 +14,10 @@ img {
   transform-style: preserve-3d;
   transition: 0.25s linear;
 }
-.marg{
+.marg {
   margin-left: 30%;
 }
-.margR{
+.margR {
   margin-right: 30%;
 }
 body {
@@ -31,12 +31,13 @@ body {
 h3 {
   color: rgb(184, 41, 240);
   font-size: 28px;
-  font-family: 'SansationLight';
+  font-family: "SansationLight";
 }
 @font-face {
-  font-family: 'SansationLight';
-  src: url('../SansationLight.eot');
-  src: local('SansationLight'), url('../SansationLight.woff') format('woff'), url('../SansationLight.ttf') format('truetype');
+  font-family: "SansationLight";
+  src: url("../SansationLight.eot");
+  src: local("SansationLight"), url("../SansationLight.woff") format("woff"),
+    url("../SansationLight.ttf") format("truetype");
 }
 p {
   color: white;
@@ -115,12 +116,6 @@ p {
 }
 
 /* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
 
 .close:hover,
 .close:focus {
@@ -143,4 +138,10 @@ p {
   padding: 2px 16px;
   background-color: #000;
   color: white;
+}
+
+button {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
 }

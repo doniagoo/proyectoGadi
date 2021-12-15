@@ -13,24 +13,20 @@ body {
   height: 800px;
   align-items: center;
   text-align: center;
-  border: 10px solid slateblue;
-  border-radius: 40px;
+  border: 10px solid white;
   margin-top: 2%;
   position: relative;
 }
 
 .play {
-  color: rgb(184, 41, 240);
-  font-size: 200px;
-  font-family: 'SansationLight';
-  border: 15px solid rgb(52, 26, 218);
-  border-radius: 70px;
-  border-left: 85px;
-  border-right: 85px;
-  width: 40%;
+  color: rgb(255 255 255);
+  font-size: 131px;
+  font-family: "SansationLight";
+  border: 7px solid rgb(255 255 255);
+  width: 30%;
   text-align: center;
   margin: auto;
-  margin-top: 17%;
+  margin-top: 21%;
 }
 
 a:link,
@@ -40,7 +36,8 @@ a:active {
   margin-top: 250px;
 }
 @font-face {
-  font-family: 'SansationLight';
-  src: url('../SansationLight.eot');
-  src: local('SansationLight'), url('../SansationLight.woff') format('woff'), url('../SansationLight.ttf') format('truetype');
+  font-family: "SansationLight";
+  src: url("../SansationLight.eot");
+  src: local("SansationLight"), url("../SansationLight.woff") format("woff"),
+    url("../SansationLight.ttf") format("truetype");
 }

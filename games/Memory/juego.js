@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     cartas.sort(() => 0.5 - Math.random()); //random para que te salgan las cartas aleatorias
-    const card = [];
+
     const grid = document.querySelector('.grid');
     const resultado = document.querySelector('#resultado');
     const tempo = document.querySelector('#tempo');
@@ -95,27 +95,22 @@ document.addEventListener('DOMContentLoaded', () => {
             let carta = document.createElement('img');
             carta.setAttribute('src', './img/carta_detras.png');
             carta.setAttribute('data-id', i);
-            card[i]=i;
             carta.draggable = false;
             carta.addEventListener('click', transicion);
             grid.appendChild(carta);
         }
-        
     }
-    crearTablero();
-    temporizador();
-    setInterval(moverCartas,3200);
-    
+
+
     function coincide() {//funcion que comprueba si la primera carta seleccionada es igual que la segunda si coincide cambia la imagen a blanco y sube el score, si no se vuelve a voltear la carta 
         let carta = document.querySelectorAll('img');
         const opcionId1 = cartaEscogidaId[0];
         const opcionId2 = cartaEscogidaId[1];
         if (cartaEscogida[0] === cartaEscogida[1]) {
-            //aviso de acierto
+            document.getElementById("acierto").innerHTML = ('acierto');//aviso de acierto
             carta[opcionId1].style.visibility = 'hidden';
             carta[opcionId2].style.visibility = 'hidden';
             cartasGanadas.push(cartaEscogida);
-            
         } else {
             if (carta[opcionId1] !== "'src','./img/blanco.png'" || carta[opcionId2] !== "'src','./img/blanco.png'") {
                 carta[opcionId1].style.transform = "rotateY(180deg)";
@@ -124,8 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 carta[opcionId2].setAttribute('src', './img/carta_detras.png');
                
             }
-            //aviso de fallo
-           
+            document.getElementById("acierto").innerHTML = ('fallo');//aviso de fallo
         }
         cartaEscogida = [];
         cartaEscogidaId = [];
@@ -138,11 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
             modal();
         }
     }
-    
     function transicion() {
         let carta = this;
         carta.style.transform = "rotateY(360deg)"; //gira la carta
-        setTimeout(voltearCarta, 125, carta);  
+        setTimeout(voltearCarta, 125, carta);
     }
 
     function voltearCarta(carta) { //funcion para voltear la carta y mostrarte la carta es lo primero que se ejecuta cuando le das a una carta
@@ -157,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-   
-    
+    crearTablero();
+    temporizador();
     function modal() {
         // Get the modal
         clearInterval(seg);
@@ -195,18 +188,64 @@ document.addEventListener('DOMContentLoaded', () => {
             modal();
         }
     }
-    function moverCartas() {
-        /*if (cartas[card[0]].style.transitionDuration == "0s") {
-            cartas[card[0]].style.transitionDuration = "3s";
-        }*/
-        
-        cartas[card[0]].style.marginLeft = "100%";
-        setTimeout(volver,3000);
+    function movimiento() {
+        for (let i = 0; i < 6; i++) {
+            cartas[i]
+        }
     }
+    //-----------------------SQL--------------------------
+    var Connection = require('tedious').Connection;  
+    var config = {  
+        server: 'localhost',  //update me
+        authentication: {
+            type: 'default',
+            options: {
+                userName: 'root', //update me
+                password: 'mysql'  //update me
+            }
+        },
+        options: {
+            // If you are on Microsoft Azure, you need encryption:
+            encrypt: true,
+            database: 'gadi'  //update me
+        }
+    };  
+    var connection = new Connection(config);  
+    connection.on('connect', function(err) {  
+        // If no error, then good to proceed.  
+        console.log("Connected");  
+        executeStatement1();  
+    });
     
-    function volver(){
-        cartas[card[0]].style.transitionDuration = "0s";
-        cartas[card[0]].style.marginLeft = "0%";
-    }
+    connection.connect();
+    
+    var Request = require('tedious').Request  
+    var TYPES = require('tedious').TYPES;  
+  
+    function executeStatement1() {  
+        request = new Request("INSERT INTO JUEGO_USER VALUES (@idJuego,@idUser,@juegoCompleto,@score);", function(err) {  
+         if (err) {  
+            console.log(err);}  
+        });  
+        request.addParameter('idJuego', TYPES.int,2);  
+        request.addParameter('idUser', TYPES.int , );  
+        request.addParameter('juegoCompleto', TYPES.boolean, True);  
+        request.addParameter('score', TYPES.Int,resultado);  
+        request.on('row', function(columns) {  
+            columns.forEach(function(column) {  
+              if (column.value === null) {  
+                console.log('NULL');  
+              } else {  
+                console.log("Product id of inserted item is " + column.value);  
+              }  
+            });  
+        });
+
+        // Close the connection after the final event emitted by the request, after the callback passes
+        request.on("requestCompleted", function (rowCount, more) {
+            connection.close();
+        });
+        connection.execSql(request);  
+    }  
 }
 )
