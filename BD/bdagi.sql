@@ -24,9 +24,9 @@ nombre varchar (15) not null,
 ciclo varchar(5),
 PRIMARY KEY (ID)
 );
-INSERT INTO USERS VALUES (null,"Ptoro@politecnis.barcelona","SOMOSCEP20",true,True,null,"Toro","Paco",null);
-INSERT INTO USERS VALUES (null,"Jgrillo@politecnis.barcelona","SOMOSCEP20",True,False,null,"grillo","Joana",null);
-INSERT INTO USERS VALUES (null,"Jlenovo@politecnis.barcelona","SOMOSCEP20",True,False,null,"Lenovo","Joan",null);
+INSERT INTO USERS VALUES (null,"Ptoro@politecnis.barcelona","$2y$04$BOh.h2duJDbSzEI5FNoUpe1nCOtOolpBjD9HJqR0nHavPW.xKYFvu",true,True,null,"Toro","Paco",null);
+INSERT INTO USERS VALUES (null,"Jgrillo@politecnis.barcelona","$2y$04$BOh.h2duJDbSzEI5FNoUpe1nCOtOolpBjD9HJqR0nHavPW.xKYFvu",True,False,null,"grillo","Joana",null);
+INSERT INTO USERS VALUES (null,"Jlenovo@politecnis.barcelona","$2y$04$BOh.h2duJDbSzEI5FNoUpe1nCOtOolpBjD9HJqR0nHavPW.xKYFvu",True,False,null,"Lenovo","Joan",null);
 INSERT INTO USERS VALUES (null,"saedgseui",null,False,False,"awa","mobil","panrta","DAW");
 INSERT INTO USERS VALUES (null,"wed",null,False,False,"afwefwwa","mobil","panrta","DAW");
 

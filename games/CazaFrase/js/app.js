@@ -1,6 +1,8 @@
 //El DOMContentLoaded es llança quan s'ha acabat de carregar el document HTML per complet sense tenir en compte les imatges i stylesheets.
 document.addEventListener('DOMContentLoaded', function () {
     let score = 0;
+    let timeLeft = 119;
+    let cont = 1;
     const grid = document.getElementById("gridJuego");
 
 
@@ -71,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const width = 30; //Tindrem 30x28 quadrats, és a dir 840 quadrats.
         let score = 0;
+        let fraseComida = false;
+        let contLetras = 0;
+
         grid.querySelectorAll('*').forEach(element => {
                 element.remove();
             });
@@ -332,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     elements[posicioY][posicioX].className = 'character';
                 }
 
-                checkGameOver();
+                checkGameEnd();
 
 
                 if(move == 37){
@@ -410,6 +415,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }else if(elements[posicioY][posicioX].classList.contains('big-dots')){
                 score = score + 5;
                 isDot = true;
+
+                contLetras++;
+                if(contLetras == 5){
+                    fraseComida = true;
+                }
+
                 if(elements[posicioY][posicioX].classList.contains('F')){
                     document.getElementById("f").style.color = "red";
                     showTextFrase('f');
@@ -427,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     showTextFrase('e');
                 }
             }
-            checkGameWin(score);
+            checkGameEnd();
 
             // console.log(score);
             return isDot;
@@ -471,16 +482,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.outOfHouse = false;
             }
         }
-        // const enemies = [
-        //     new Ghost('enemy1', 13, 14,500)
-        // ];
-
         const enemies = [
-            new Ghost('enemy1', 13, 14, 200),
-            new Ghost('enemy2', 14, 14, 200),
-            new Ghost('enemy3', 13, 15, 200),
-            new Ghost('enemy4', 14, 15, 200)   
+            new Ghost('enemy1', 13, 14,500)
         ];
+
+        // const enemies = [
+        //     new Ghost('enemy1', 13, 14, 200),
+        //     new Ghost('enemy2', 14, 14, 200),
+        //     new Ghost('enemy3', 13, 15, 200),
+        //     new Ghost('enemy4', 14, 15, 200)   
+        // ];
 
         //Dibuixem els enemics. Els hi donem la classe que contingui el nom que li hem donat i la classe 'enemy' per poder localitzar-lo en cas de
         //haver de consultar si hi ha hagut colisió amb un enemic.
@@ -720,7 +731,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
                 
-                checkGameOver(enemy);
+                checkGameEnd();
                 elements[enemy.currentIndexY][enemy.currentIndexX].style.transform = null; 
                 //Volem que l'enemic es mogui tant rapid com la seva velocitat sigui.
             }, enemy.speed);
@@ -729,10 +740,9 @@ document.addEventListener('DOMContentLoaded', function () {
         //Funció per comprovar si el personatge ha estat menjat per un enemic.
         function checkGameOver(){
             if(timeOver){
-                console.log(elements[posicioY][posicioX].style.transform = null);
+                // console.log(elements[posicioY][posicioX].style.transform = null);
                 enemies.forEach(enemy => clearInterval(enemy.timerId));
                 //Fem que el nostre personatge no es pugui moure.
-                // console.log("game over");
                 clearInterval(myVar); 
                 clearInterval(gameON); 
                 clearInterval(timer);
@@ -742,30 +752,26 @@ document.addEventListener('DOMContentLoaded', function () {
             }else{
                 if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
                 !elements[posicioY][posicioX].classList.contains('scared-enemy')){
-                    //Fem que els enemics no es moguin mes
-                    // console.log("POSICIO Y FINAL: " + posicioY);
-                    // console.log("POSICIO X FINAL: " + posicioX);
-        
-                    elements[posicioY][posicioX].style.transform = null;
+                    //Fem que els enemics no es moguin mes        
+                    // elements[posicioY][posicioX].style.transform = null;
                     enemies.forEach(enemy => clearInterval(enemy.timerId));
                     //Fem que el nostre personatge no es pugui moure.
-                    // console.log("game over");
                     clearInterval(myVar); 
                     clearInterval(gameON); 
                     clearInterval(timer);
                     document.removeEventListener('keydown', saveLastMoves);
                     gameOverSound.play();
                     openModal(); 
-            }
+                }
             }
             
         }
 
-        function checkGameWin(score){
+        function checkGameWin(){
             if(score === 280){
                 // console.log("POSICIO Y FINAL: " + posicioY);
                 // console.log("POSICIO X FINAL: " + posicioX);
-
+                score += timeLeft;
                 elements[posicioY][posicioX].style.transform = null;
                 enemies.forEach(enemy => clearInterval(enemy.timerId));
                 //Fem que el nostre personatge no es pugui moure.
@@ -782,13 +788,103 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        function openModal(){
+        function checkGameEnd(){
+            let textFinal = "";
+
+            if(fraseComida){
+                
+                textFinal = "YOU WON!";
+                if(timeOver){
+                    gameWinSound.play();
+                    stopMovement();
+                    setTimeout(function(){
+                        openModal(textFinal);
+                    }, 1000);
+
+                }else if(score === 280){
+                    gameWinSound.play();
+                    score += timeLeft;
+                    console.log(score);
+                    elements[posicioY][posicioX].style.transform = null;
+                    stopMovement();
+                    setTimeout(function(){
+                        openModal(textFinal);
+                    }, 1000);
+                    
+                }else if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
+                !elements[posicioY][posicioX].classList.contains('scared-enemy')){
+                    gameWinSound.play();
+                    //Fem que els enemics no es moguin mes        
+                    stopMovement();
+                    openModal(textFinal); 
+                }
+            }else{
+                textFinal = "GAME OVER";
+                if(timeOver){
+                    // console.log(elements[posicioY][posicioX].style.transform = null);
+                    stopMovement();
+                    gameOverSound.play();
+                    openModal();
+                }else{
+                    if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
+                    !elements[posicioY][posicioX].classList.contains('scared-enemy')){
+                        //Fem que els enemics no es moguin mes        
+                        stopMovement();
+                        gameOverSound.play();
+                        openModal(textFinal); 
+                    }
+                }
+            }
+        }
+
+        function stopMovement(){
+            enemies.forEach(enemy => clearInterval(enemy.timerId));
+            //Fem que el nostre personatge no es pugui moure.
+            clearInterval(myVar); 
+            clearInterval(gameON); 
+            clearInterval(timer);
+            document.removeEventListener('keydown', saveLastMoves);
+        }
+
+        function openModal(textFinal){
             let modal = document.getElementById("myModal");
-            document.getElementById("textFinal").innerHTML = "YOU WON!";
+            document.getElementById("textFinal").innerHTML = textFinal;
+            document.getElementById("lastScore").innerHTML = "Your score is: " + score;
+            showRanking();
             modal.style.display = "block"; 
             btnBack.style.display = "none";  
-            console.log(btnBack.style.display); 
+        
         }
+
+        function showRanking(){
+            let tablaRanking = document.getElementById("ranking");
+            tablaRanking.innerHTML = "";
+            const opcion = {
+                method: 'POST',
+                body: JSON.stringify({action: 'selectScores'})
+            }
+
+                        
+            fetch('./php_librarys/bd.php', opcion)
+            .then(respuesta => respuesta.json())
+            .then(resultado => {
+                
+                console.log(resultado);
+                cont = 1; 
+                resultado.forEach(user => {
+                    
+                    tablaRanking.innerHTML += `
+                    <tr>
+                        <th>${cont}</th>
+                        <th>${user.nickname}</th>
+                        <th>${user.score}</th>
+                    </tr>`
+                    cont++;
+                });
+            });
+
+        }
+
 
         function moveToRandom(enemy){
             let maxX = 29;
@@ -905,7 +1001,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         
         //Timer del joc
-        let timeLeft = 119;
+        
         let timer = setInterval(function(){
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
@@ -951,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //Loop per anar comprovant si hem perdut.
         function gameLoop(){
-            checkGameOver();
+            checkGameEnd();
 
         }
 

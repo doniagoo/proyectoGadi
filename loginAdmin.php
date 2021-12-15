@@ -1,4 +1,11 @@
-<?php session_start();?>
+<?php session_start();
+$adminPassword = isset($_SESSION['contrasena']) ? $_SESSION['contrasena'] : "";
+
+if ($adminPassword !== "") {
+    header('Location: ./BD/Administracion.php');
+    exit();
+}
+?>
 
 
 <!DOCTYPE html>
@@ -12,7 +19,7 @@
 </head>
 
 <body>
-    <form action="./controlador.php" method="post">
+    <form action="./BD/controlador.php" method="post">
         <label for="email">Email:</label>
         <input type="text" name="email" id="email">
         <label for="contrasena">Contraseña:</label>

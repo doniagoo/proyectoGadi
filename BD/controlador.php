@@ -28,8 +28,6 @@ if (isset($_POST['insert'])) {
     exit();
 } else if (isset($_POST['LoginUser'])) {
     $user = loginUser($_POST['email']);
-
-
     if ($user != null) {
         $_SESSION['userActivo'] = $user;
         $_SESSION['email'] = $user['email'];
@@ -45,9 +43,12 @@ if (isset($_POST['insert'])) {
 } else if (isset($_POST['LoginAdmin'])) {
     $admin = loginAdmin($_POST['email']);
     if ($admin != null) {
-        if (password_verify($_POST['contrasena'], $admin[0]['contrasena'])) {
-            $_SESSION['adminActivo'] = $admin;
-            header('Location: ./Admins.php'); //apartado opciones admin
+        if (password_verify($_POST['contrasena'], $admin['contrasena'])) {
+            $_SESSION['userActivo'] = $admin;
+            $_SESSION['email'] = $admin['email'];
+            $_SESSION['contrasena'] = $admin['contrasena'];
+            $_SESSION['es_superadmin'] = $admin['es_superadmin'];
+            header('Location: ./Administracion.php'); //apartado opciones admin
             exit();
         } else {
             echo "Contraseña incorrecta";
