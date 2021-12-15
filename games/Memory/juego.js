@@ -164,11 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (victoria==true) { 
         enorabuena.textContent = "Enorabuena lo has logrado !!! :)";
         scores.textContent = "Tu score es: " + cartasGanadas.length;
-        tiempos.textContent = "Te han sobrado: " + tempo.innerHTML + " seg";
+            tiempos.textContent = "Te han sobrado: " + tempo.innerHTML + " seg";
+            resultado.textContent = "El resultado es: "+(cartasGanadas+tempo);
         } else {
-             enorabuena.textContent = "Lo siento pero se te a acabado el tiempo :(  ";
-        scores.textContent = "Tu score es: " + cartasGanadas.length;
-        tiempos.textContent = "TIEMPO !!!!";
+            enorabuena.textContent = "Lo siento pero se te a acabado el tiempo :( ";
+            perdida.textContent = "No puedes entrar en el ranking";
+            scores.textContent = "Tu score es: " + cartasGanadas.length;
+            //  tiempos.textContent = "TIEMPO !!!!";
+            resultado.textContent = "Tu puntuacion final es: " (cartasGanadas.length + tempo);
     }
     }
 
@@ -182,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tempo.textContent = tempo.innerHTML - 1;
         }else{
             clearInterval(seg);
-            tempo.textContent="TIEMPOOOO "
+            tempo.textContent="TIEMPO !!! "
             acabo.textContent = " "
             victoria = false;
             modal();
