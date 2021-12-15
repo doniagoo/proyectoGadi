@@ -998,6 +998,7 @@ igual te hago un while
                     nivel.tiles[i][j].type = -1;
                 }
             }
+            //contador a partir de aqui
             let timeLeft = 150;
         }
         timeLeft = 150;
@@ -1139,28 +1140,7 @@ igual te hago un while
             y: Math.round((e.clientY - rect.top)/(rect.bottom - rect.top)*canvas.height)
         };
     }
-    /*contador
-    let timeLeft = 150;
-    let timer = setInterval(function(){
-        const minutos = Math.floor(timeLeft / 60);
-        const segundos = timeLeft % 60;
-        timeLeft -= 1;
-        // console.log(minutes + ':' + segundos);
-        if(segundos < 10){
-            if(minutos < 1){
-                document.getElementById("base-timer-label").innerHTML = '0' + minutos + " : " + '0' + segundos;
-            }else{
-                document.getElementById("base-timer-label").innerHTML = minutos + " : " + '0' + segundos;
-            }
-            
-        }else{
-            document.getElementById("base-timer-label").innerHTML = minutos + " : " + segundos;
-        }
-        if(timeLeft <= 0){
-            //timeOver = true;
-            setGameState(gamestates.gameover);
-        }  
-    }, 1000);*/
+    
     // Llamamos al init para empezar el juego
     init();
     
