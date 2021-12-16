@@ -30,6 +30,7 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
         </div>
     </div>
     <div class="container">
+        <?php require_once('./mensaje.php');?>
         <div class="form__container">
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>
