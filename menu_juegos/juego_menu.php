@@ -21,12 +21,12 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
 <body>
   <div class="container-navbar">
     <div class="logo-navbar">
-      <a href="../index.html"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
+      <a href="../index.php"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
     </div>
     <div class="contenido-navbar">
-      <div><a href="../index.html">Inicio</a></div>
-      <div><a href="../index.html#1">Sobre Politècnics</a></div>
-      <div><a href="../index.html#2">Ciclos</a></div>
+      <div><a href="../index.php">Inicio</a></div>
+      <div><a href="../index.php#1">Sobre Politècnics</a></div>
+      <div><a href="../index.php#2">Ciclos</a></div>
       <div>
         <form action="../BD/controlador.php" method="post">
           <div></div>
@@ -109,7 +109,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   <div class="container">
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/politecniX/src/html/index.html"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
+        <a href="../games/politecniX/src/html/index.php"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
 
       </div>
       <div class="game__name">
@@ -126,7 +126,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
     </div>
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+        <a href="../games/politecnicsHunt/index.php"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
       </div>
       <div class="game__name">
         <h3>Politecnics Hunt</h3>
@@ -142,7 +142,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
     </div>
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/CazaFrase/index.html"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
+        <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
       </div>
       <div class="game__name">
         <h3>Caza Frase</h3>

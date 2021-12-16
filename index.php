@@ -11,25 +11,32 @@
     <title>Gadi Games Menu</title>
   </head>
   <body id="0">
+
+    <?php
+      include ("lang/esp.php");
+      // include ("lang/cat.php");
+      // include ("lang/eng.php");
+    ?>
+
     <div class="container-header" id="header-LP">
       <div class="lang__menu">
         <div class="selected__lang">
           <ul>
             <li>
-              <a href="index_cat.html" class="cat">Català</a>
+              <a href="#" class="cat">Català</a>
             </li>
             <li>
-              <a href="index.html" class="esp">Español</a>
+              <a href="#" class="eng">English</a>
             </li>
           </ul>
         </div>
       </div>
       <div class="jugar">
-        <h2>¡WELCOME TO POLITÈCNICS BARCELONA!</h2>
+        <h2><?php echo $lang["titulo"] ?></h2>
         <br />
         <div class="btn-jugar">
           <a href="./BD/loginUser.php"
-            ><h1>🎮 PLAY 🎮</h1></a
+            ><h1><?php echo $lang["jugar"] ?></h1></a
           >
         </div>
       </div>
@@ -47,11 +54,11 @@
         /></a>
       </div>
       <div class="contenido-navbar">
-        <div><a href="#0">Main</a></div>
-        <div><a href="#1">About Politècnics</a></div>
-        <div><a href="#2">Degrees</a></div>
+        <div><a href="#0"><?php echo $lang["navInicio"] ?></a></div>
+        <div><a href="#1"><?php echo $lang["navAbout"] ?></a></div>
+        <div><a href="#2"><?php echo $lang["navCiclos"] ?></a></div>
         <div>
-          <a href="./BD/loginUser.php">PLAY</a>
+          <a href="./BD/loginUser.php">JUGAR</a>
         </div>
       </div>
     </div>
@@ -59,33 +66,16 @@
     <div class="container-main">
       <div class="container-cep">
         <div class="titulo">
-          <h1>About POLITÈCNICS</h1>
+          <h1><?php echo $lang["sobrePolitecnics"] ?></h1>
           <br />
-          <h2>
-            Learning experience - More than 50 years training professionals
-          </h2>
+          <h2><?php echo $lang["experienciaAprendizaje"] ?></h2>
         </div>
         <div class="contenido-cep" id="1">
           <div class="contenido-principal">
             <div class="texto-parrafo">
-              <p id="main__text">
-                At the Center for Polytechnic Studies we have a professional 
-                and human team that ensures at all times to satisfy the 
-                academic experience of our students. As it is a face-to-face 
-                training, we suggest that you live a five-way learning experience. 
-                In the classroom we can see each other, listen to each other, 
-                share, discuss and get excited. Class attendance allows us to 
-                make the most of the learning experience in a much more enriching way.
-                We have everyone to explain, to ask, to doubt, to make mistakes and to 
-                discover.<br /><br />
-                For the management of the center, the quality of our teaching and 
-                administrative team has always been one of the main elements of 
-                differential value. For this reason, the Polytechnic has a specialized 
-                professional and human team, with professional experience in the various 
-                sectors of the training cycles that are taught there. A team that knows and 
-                combines the realities of the classroom and the company is essential to be 
-                able to accompany our students in their process of learning, personal 
-                growth and insertion in the labor market.
+              <p id="main__text"><?php echo $lang["mainText1"]?>
+              <br /><br />
+              <?php echo $lang["mainText2"]?>
               </p>
             </div>
             <div class="foto-parrafo">
@@ -95,22 +85,12 @@
         </div>
       </div>
       <div class="container-cursos">
-        <div class="titulo"><h1>EDUCATIONAL PROJECT OF THE CENTER</h1></div>
+        <div class="titulo"><h1><?php echo $lang["proyectoEducativo"]?></h1></div>
         <div class="contenido">
           <p id="main__text">
-            At the Center for Polytechnic Studies we offer intermediate and 
-            advanced training courses in the specialties of trade and marketing, 
-            administration and finance, computer science, and tourism and event management.<br />
-            Our mission is to grow students. We look after the achievement of their 
-            professional skills and personal skills that companies, in particular, 
-            and society in general, demand.
-            <br /><br />
-            Our main purpose is the technical training and the development of the 
-            personal abilities of our students. We direct our efforts to their 
-            incorporation into the labor market or even to the creation of their 
-            own company with a full guarantee of success.
-            <br /><br />
-            <br />
+            <p><?php echo $lang["proyectoText1"]?></p><br /><br />
+            <p><?php echo $lang["proyectoText2"]?></p><br /><br />
+            <p><?php echo $lang["proyectoText3"]?></p><br /><br />
             <div class="slide-contenedor">
               <div class="miSlider fade"><img src="./media/img/banner-0.jpg" ></div>
               <div class="miSlider fade"><img src="./media/img/banner-1.jpg" ></div>
@@ -128,71 +108,61 @@
               </div>
           </div>
           <br /><br /><br />
-          We create learning contexts based on active methodologies that bring 
-          students closer to business reality. Our Center Education Project 
-          includes the implementation of reverse classes, AGILE project management 
-          methodologies, business simulation, Project Based Learning (PBL) and 
-          Service and Learning (ApS).<br /><br />
-          At Polytechnics we especially value the knowledge of foreign languages. 
-          For this reason, we participate, on the one hand, in the Multilingual 
-          Generation Program of the Department of Education and, on the other 
-          hand, in the Erasmus + Program.
+          <p><?php echo $lang["abp"]?></p>
+          <br /><br />
+            <p><?php echo $lang["erasmus"]?></p>
           </p>
         </div>
       </div>
 
       <div class="titulo-form">
-        <h1>PROFESIONAL TRAINING</h1>
+        <h1><?php echo $lang["formacionProfesional"]?></h1>
       </div>
 
       <div class="container-ciclos">
         <div class="ciclo-m">
-          <div class="titulo-m"><h2>TRADE AND MARKETING</h2></div>
+          <div class="titulo-m"><h2><?php echo $lang["comercioMarketing"]?></h2></div>
           <div class="contenido-2-m" id="2">
             <ul>
-              <li>Medium degree commercial activities</li>
+              <li><?php echo $lang["com1"]?></li>
               <br />
-              <li>Higher degree in marketing and advertising</li>
+              <li><?php echo $lang["com2"]?></li>
               <br />
-              <li>Higher degree in sales management and commercial spaces</li>
+              <li><?php echo $lang["com3"]?></li>
               <br />
-              <li>Higher degree in international trade</li>
+              <li><?php echo $lang["com4"]?></li>
             </ul>
           </div>
         </div>
         <div class="ciclo-h">
-          <div class="titulo-h"><h2>HOTEL AND TOURISM</h2></div>
+          <div class="titulo-h"><h2><?php echo $lang["hosteleriaTurismo"]?></h2></div>
           <div class="contenido-2-h">
             <ul>
-              <li>
-                Higher degree travel agencies and event organization
-              </li>
+              <li><?php echo $lang["hosteleria1"]?></li>
             </ul>
           </div>
         </div>
         <div class="ciclo-i">
-          <div class="titulo-i"><h2>COMPUTING AND COMMUNICATIONS</h2></div>
+          <div class="titulo-i"><h2><?php echo $lang["info"]?></h2></div>
           <div class="contenido-2-i">
             <ul>
-              <li>Intermediate degree in microcomputer systems and networks</li>
+              <li><?php echo $lang["info1"]?></li>
               <br />
-              <li>
-                Advanced degree in cross-platform application development
-              </li>
+              <li><?php echo $lang["info2"]?></li>
               <br />
-              <li>Advanced degree in web application development</li>
+              <li><?php echo $lang["info3"]?></li>
             </ul>
           </div>
         </div>
         <div class="ciclo-a">
-          <div class="titulo-a"><h2>ADMINISTRATION AND MANAGEMENT</h2></div>
+          <div class="titulo-a"><h2><?php echo $lang["empresariales"]?></h2></div>
           <div class="contenido-2-a">
             <ul>
-              <li>Intermediate degree in administrative management</li>
+              <li><?php echo $lang["emp1"]?></li>
               <br />
-              <li>Higher degree in administration and finance</li>
+              <li><?php echo $lang["emp2"]?></li>
               <br />
-              <li>Higher degree management assistance</li>
+              <li><?php echo $lang["emp3"]?></li>
             </ul>
           </div>
         </div>
