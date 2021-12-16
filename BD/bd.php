@@ -93,7 +93,6 @@ function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
     $sentencia->bindParam(':nombre', $nombre);
     $sentencia->bindParam(':ciclo', $ciclo);
     $sentencia->execute();
-    $_SESSION['userActivo'] = loginUser($email);
     $conexion = closeBD();
 }
 function cantidadJuegos()
