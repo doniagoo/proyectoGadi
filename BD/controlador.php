@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('./bd.php');
+
 if (isset($_POST['insert'])) {
     $contrasena = encriptarContrasena($_POST['contrasena']);
     insertAdmin($_POST['email'], $contrasena, $_POST['apellidos'], $_POST['nombre']);
@@ -9,7 +10,7 @@ if (isset($_POST['insert'])) {
 } else if (isset($_POST['insertUser'])) {
     insertUser($_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['nickname'], $_POST['ciclo']);
     $_SESSION["nombre"] = $_POST['nombre'];
-    $_SESSION["apellidos"] = $_POST['apellidos'];
+    $_SESSION["ape  llidos"] = $_POST['apellidos'];
     $_SESSION["email"] = $_POST['email'];
     $_SESSION["nickname"] = $_POST['nickname'];
     $_SESSION["ciclo"] = $_POST['ciclo'];
