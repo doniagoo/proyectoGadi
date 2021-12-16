@@ -32,10 +32,13 @@ if ($userEmail !== "") {
     </div>
     <div class="container">
         <div class="form__container">
+            <div class="caja-mensjae-login">
+                <h2>Introduzca el email para hacer login:</h2>
+            </div>
             <form class="form__style" action="./controlador.php" method="post">
-                <label for="email">Email:</label>
-                <input type="text" name="email" id="email">
-                <button type="submit" name="LoginUser">Login</button>
+                <label for="email">Email</label><br>
+                <input type="text" name="email" id="email"><br>
+                <button class="login-boton" type="submit" name="LoginUser">Login</button><br><br><br>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
             </form>
         </div>

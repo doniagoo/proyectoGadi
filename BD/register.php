@@ -32,20 +32,20 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
     <div class="container">
         <div class="form__container">
             <form class="form__style" action="./controlador.php" method="post">
-                <label for="email">Email:</label><br>
+                <label for="email">Email</label><br>
                 <?php if ($emailRegister != '') { ?>
                     <input type="text" name="email" id="email" value="<?php echo $emailRegister ?>">
                 <?php } else { ?>
                     <input type="text" name="email" id="email">
                 <?php } ?><br><br>
-                <label for="nombre">Nombre:</label><br>
+                <label for="nombre">Nombre</label><br>
                 <input type="text" name="nombre" id="nombre"><br><br>
-                <label for="apellidos">Apellido:</label><br>
+                <label for="apellidos">Apellido</label><br>
                 <input type="text" name="apellidos" id="apellidos"><br><br>
 
-                <label for="nickname">Nickname:</label><br>
+                <label for="nickname">Nickname</label><br>
                 <input type="text" name="nickname" id="nickname"><br><br>
-                <label for="ciclo">Ciclo:</label><br>
+                <label for="ciclo">Ciclo</label><br>
                 <select name="ciclo" id="">
                     <option></option>
                     <option value="Grau mitjà activitats comercials">Grau mitjà activitats comercials</option>
