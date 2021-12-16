@@ -3,7 +3,8 @@ session_start();
 
 $emailUser = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
-
+$userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,19 +43,66 @@ $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
     </div>
     <div class="divComboBoxCiclos">
       <select name="ciclo" id="comboCiclo">
-        <option></option>
-        <?php ?>
-        <option value="GM AC">Grau mitjà activitats comercials</option>
-        <option value="GS MARP">Grau superior màrqueting i publicitat</option>
-        <option value="GS GVEC">Grau superior gestió de vendes i espais comercials</option>
-        <option value="GS CINT">Grau superior comerç internacional</option>
-        <option value="GS AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
-        <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
-        <option value="GS DAW">Grau superior desenvolupament aplicacions web</option>
-        <option value="GS DAM">Grau superior desenvolupament aplicacions multiplataforma</option>
-        <option value="GM GAD">Grau mitjà gestió administrativa</option>
-        <option value="GS AFI">Grau superior administració i finances</option>
-        <option value="GS ADIR">Grau superior assistència a la direcció</option>
+        <?php if ($userActivo['ciclo'] == '') { ?>
+          <option selected></option>
+        <?php } else { ?>
+          <option></option>
+        <?php }
+        if ($userActivo['ciclo'] == 'AC') { ?>
+          <option value="AC" selected>Grau mitjà activitats comercials</option>
+        <?php } else { ?>
+          <option value="AC">Grau mitjà activitats comercials</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'MARP') { ?>
+          <option value="GS MARP" selected>Grau superior màrqueting i publicitat</option>
+        <?php } else { ?>
+          <option value="MARP">Grau superior màrqueting i publicitat</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'GVEC') { ?>
+          <option value="GVEC" selected>Grau superior gestió de vendes i espais comercials</option>
+        <?php } else { ?>
+          <option value="GS GVEC">Grau superior gestió de vendes i espais comercials</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'CINT') { ?>
+          <option value="GS CINT" selected>Grau superior comerç internacional</option>
+        <?php } else { ?>
+          <option value="CINT">Grau superior comerç internacional</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'AVIE') { ?>
+          <option value="AVIE" selected>Grau superior agències de viatges i gestió d’esdeveniments</option>
+        <?php } else { ?>
+          <option value="AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'SMIX') { ?>
+          <option value="SMIX" selected>Grau mitjà sistemes microinformàtics i xarxes</option>
+        <?php } else { ?>
+          <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'DAW') { ?>
+          <option value="DAW">Grau superior desenvolupament aplicacions web</option>
+        <?php } else { ?>
+          <option value="DAW">Grau superior desenvolupament aplicacions web</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'DAM') { ?>
+          <option value="DAM" selected>Grau superior desenvolupament aplicacions multiplataforma</option>
+        <?php } else { ?>
+          <option value="DAM">Grau superior desenvolupament aplicacions multiplataforma</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'GAD') { ?>
+          <option value="GAD" selected>Grau mitjà gestió administrativa</option>
+        <?php } else { ?>
+          <option value="GAD">Grau mitjà gestió administrativa</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'AFI') { ?>
+          <option value="AFI" selected>Grau superior administració i finances</option>
+        <?php } else { ?>
+          <option value="AFI">Grau superior administració i finances</option>
+        <?php }
+        if ($userActivo['ciclo'] == 'ADIR') { ?>
+          <option value="ADIR" selected>Grau superior assistència a la direcció</option>
+        <?php } else { ?>
+          <option value="ADIR">Grau superior assistència a la direcció</option>
+        <?php } ?>
       </select>
     </div>
   </div>
