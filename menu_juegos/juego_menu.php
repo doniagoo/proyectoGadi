@@ -4,7 +4,6 @@ session_start();
 $emailUser = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
 $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
-var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
