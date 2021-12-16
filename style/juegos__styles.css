@@ -1,37 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
 * {
-    padding: 0px;
-    margin: 0px;
-    font-family: "Share Tech Mono", monospace;
-    text-decoration: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #000000 #f8f8f8;
-  }
-  
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #f8f8f8;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 10px;
-    border: 3px solid #f8f8f8;
-  }
+  padding: 0px;
+  margin: 0px;
+  font-family: "Share Tech Mono", monospace;
+  text-decoration: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #f8f8f8;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 3px solid #f8f8f8;
+}
 
 body {
   padding: 0;
@@ -41,24 +41,24 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 160px 300px;
-    margin-top: 100px;
-    align-items: center;
-    /* margin: 200px; */
-    padding: 60px;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 160px 300px;
+  margin-top: 100px;
+  align-items: center;
+  /* margin: 200px; */
+  padding: 60px;
+  justify-content: center;
+  text-align: center;
 }
 
 .imagen__juego {
 }
 
 img {
-    width: 350px;
-    height: 250px;
-    -ms-transform: scale(1);
+  width: 350px;
+  height: 250px;
+  -ms-transform: scale(1);
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
   -o-transform: scale(1);
@@ -69,8 +69,8 @@ img {
 }
 
 img:hover {
-    opacity: 0.5;
-    -ms-transform: scale(1.1);
+  opacity: 0.5;
+  -ms-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -o-transform: scale(1.1);
@@ -79,13 +79,13 @@ img:hover {
 .container .juego {
 }
 
-.game__name{
-    /*color: #680808;*/
-    color: black;
-    padding-top: 10px;
+.game__name {
+  /*color: #680808;*/
+  color: black;
+  padding-top: 10px;
 }
 
-.divComboBoxCiclos{
+.divComboBoxCiclos {
   width: inherit;
   display: flex;
   justify-content: center;
@@ -93,10 +93,10 @@ img:hover {
   margin-bottom: -50px;
 }
 
-.caja-elige-ciclo{
+.caja-elige-ciclo {
   margin-top: 70px;
 }
-.titulo-ciclos{
+.titulo-ciclos {
   text-align: center;
 }
 select {
@@ -104,4 +104,11 @@ select {
   background: white;
   border: 2px solid black;
   width: 450px;
+}
+
+.cerrar-sesion {
+  height: 25px;
+  background: white;
+  border: 2px solid black;
+  width: 250px;
 }
