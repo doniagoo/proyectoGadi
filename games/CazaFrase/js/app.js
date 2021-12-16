@@ -792,7 +792,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let textFinal = "";
 
             if(fraseComida){
-                
                 textFinal = "YOU WON!";
                 if(timeOver){
                     gameWinSound.play();
@@ -846,8 +845,26 @@ document.addEventListener('DOMContentLoaded', function () {
             document.removeEventListener('keydown', saveLastMoves);
         }
 
+        function insertGameUser(){
+            const opcion = {
+                method: 'POST',
+                body: JSON.stringify({action: 'updateUserGame', id: 1, completed: 1, score: score})
+            }
+
+                        
+            fetch('./php_librarys/bd.php', opcion)
+            // .then(respuesta => respuesta.json())
+            .catch(error => console.log('Error: ', error))
+            .then(respuesta => console.log("Success: ", respuesta));
+        }
+
+
         function openModal(textFinal){
             let modal = document.getElementById("myModal");
+            if(fraseComida){
+                insertGameUser();
+            }
+
             document.getElementById("textFinal").innerHTML = textFinal;
             document.getElementById("lastScore").innerHTML = "Your score is: " + score;
             showRanking();

@@ -3,6 +3,12 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 if($data['action'] == 'selectScores') {
     selectScores();
+}else if($data['action'] == 'updateUserGame'){
+    $id_user = $data['id'];
+    $game_completed = $data['completed'];
+    $score = $data['score'];
+    
+    updateUserGame($id_user, $game_completed, $score);
 }
 
 function openBd(){
@@ -37,13 +43,15 @@ function selectUserNicknames($user_id){
     return $result;
 }
 
-function insertUserGame($id_juego, $id_user, $juego_completo, $score){
+function updateUserGame($id_user, $juego_completo, $score){
     $connection = openBd();
 
-    $consulta = "INSERT INTO juego_user VALUES (:id_juego, :id_user, :juego_completo, :score)";
+    $consulta = "UPDATE juego_user SET juego_completo = :juego_completo, score =  :score
+                 WHERE id_juego = :id_juego AND id_user = :id_user";
+                 
     $sentence = $connection->prepare($consulta);
     
-    $sentence->bindParam(':id_juego', $id_juego);
+    $sentence->bindParam(':id_juego', 4);
     $sentence->bindParam(':id_user', $id_user);
     $sentence->bindParam(':juego_completo', $juego_completo);
     $sentence->bindParam(':score', $score);
@@ -58,7 +66,12 @@ function selectScores(){
 
     $consulta = "SELECT score, users.nickname, id_user, id_juego FROM juego_user 
                  JOIN users
-                 ON id_juego = 4 ORDER BY score DESC LIMIT 3";
+                 WHERE id_juego = 4 AND id_user = users.id
+                 ORDER BY score DESC LIMIT 5"; 
+
+    // $consulta = "SELECT nickname, juego_user.score, id FROM users
+    //              JOIN juego_user
+    //              WHERE juego_user.id_juego = 4 AND id = juego_user.id_user";
 
     $sentence = $connection->prepare($consulta);
     $sentence->execute();

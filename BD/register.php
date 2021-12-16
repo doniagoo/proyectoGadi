@@ -61,7 +61,7 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                 </select>
                 <button type="submit" name="insertUser">Registrarse</button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
-                <button type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>
+                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>
             </form>
         </div>
     </div>

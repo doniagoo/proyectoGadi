@@ -4,7 +4,7 @@ function openBD()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "mysql";
+    $password = "";
 
     $conexion = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     // set the PDO error mode to exception
