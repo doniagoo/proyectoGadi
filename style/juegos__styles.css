@@ -85,3 +85,11 @@ img:hover {
     padding-top: 10px;
 }
 
+.divComboBoxCiclos{
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: -50px;
+}
+
