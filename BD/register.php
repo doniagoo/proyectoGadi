@@ -45,7 +45,7 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                 <label for="nickname">Nickname:</label>
                 <input type="text" name="nickname" id="nickname">
                 <label for="ciclo">Ciclo:</label>
-                <select name="ciclo" id="">
+                <select name="ciclo" id="comboCiclo">
                     <option></option>
                     <option value="Grau mitjà activitats comercials">Grau mitjà activitats comercials</option>
                     <option value="Grau superior màrqueting i publicitat">Grau superior màrqueting i publicitat</option>
