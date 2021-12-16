@@ -8,7 +8,11 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
+<<<<<<< HEAD
             "url": "http://localhost/GADI/index.html",
+=======
+            "url": "http://localhost:8080/php_basico/PROYECTO_1rTrimstre/proyectoGadi/proyectoGadi/index.html",
+>>>>>>> cb68af6421ae5377b16b31d9967e1974f9d07f07
             "webRoot": "${workspaceFolder}"
         }
     ]

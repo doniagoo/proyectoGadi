@@ -20,7 +20,7 @@ body {
   background-size: 524px;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }
@@ -61,8 +61,14 @@ input {
   background: white;
   border: 2px solid black;
 }
+select {
+  height: 25px;
+  background: white;
+  border: 2px solid black;
+  width: 160px;
+}
 
-button {
+.registro-boton {
   background-color: #5ca1e1;
   border: none;
   color: #fff;
@@ -74,31 +80,59 @@ button {
   cursor: pointer;
   margin: 36px;
   border: 2px solid black;
-  position: fixed;
-}
-
-button {
-  cursor: pointer;
-  display: inline-block;
   position: relative;
-  transition: 0.5s;
+  margin-bottom: 0px;
 }
 
-button:after {
+.registro-boton:after {
   content: "»";
   position: absolute;
   opacity: 0;
   top: 14px;
   right: -20px;
-  transition: 0.5s;
+  transition: 1s;
 }
 
-button:hover {
+.registro-boton:hover {
   padding-right: 24px;
   padding-left: 8px;
 }
 
-button:hover:after {
+.registro-boton:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+.cancel-boton {
+  background-color: #e15c5c;
+  /* border: none; */
+  color: #fff;
+  text-align: center;
+  font-size: 19px;
+  padding: 4px;
+  width: 250px;
+  transition: 1s;
+  /* cursor: pointer; */
+  margin: 23px;
+  border: 2px solid black;
+  position: relative;
+}
+
+.cancel-boton:after {
+  content: "«";
+  position: absolute;
+  opacity: 0;
+  top: 4px;
+  right: -10px;
+  transition: 1s;
+}
+
+.cancel-boton:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.cancel-boton:hover:after {
   opacity: 1;
   right: 10px;
 }

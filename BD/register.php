@@ -32,20 +32,21 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
     <div class="container">
         <div class="form__container">
             <form class="form__style" action="./controlador.php" method="post">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre">
-                <label for="apellidos">Apellido:</label>
-                <input type="text" name="apellidos" id="apellidos">
-                <label for="email">Email:</label>
+                <label for="email">Email:</label><br>
                 <?php if ($emailRegister != '') { ?>
                     <input type="text" name="email" id="email" value="<?php echo $emailRegister ?>">
                 <?php } else { ?>
                     <input type="text" name="email" id="email">
-                <?php } ?>
-                <label for="nickname">Nickname:</label>
-                <input type="text" name="nickname" id="nickname">
-                <label for="ciclo">Ciclo:</label>
-                <select name="ciclo" id="comboCiclo">
+                <?php } ?><br><br>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" id="nombre"><br><br>
+                <label for="apellidos">Apellido:</label><br>
+                <input type="text" name="apellidos" id="apellidos"><br><br>
+
+                <label for="nickname">Nickname:</label><br>
+                <input type="text" name="nickname" id="nickname"><br><br>
+                <label for="ciclo">Ciclo:</label><br>
+                <select name="ciclo" id="">
                     <option></option>
                     <option value="Grau mitjà activitats comercials">Grau mitjà activitats comercials</option>
                     <option value="Grau superior màrqueting i publicitat">Grau superior màrqueting i publicitat</option>
@@ -58,10 +59,10 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                     <option value="Grau mitjà gestió administrativa">Grau mitjà gestió administrativa</option>
                     <option value="Grau superior administració i finances">Grau superior administració i finances</option>
                     <option value="Grau superior assistència a la direcció">Grau superior assistència a la direcció</option>
-                </select>
-                <button type="submit" name="insertUser">Registrarse</button>
+                </select><br>
+                <button class="registro-boton" type="submit" name="insertUser">Registrarse</button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
-                <button type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>
+                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>
             </form>
         </div>
     </div>
