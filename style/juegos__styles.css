@@ -93,3 +93,15 @@ img:hover {
   margin-bottom: -50px;
 }
 
+.caja-elige-ciclo{
+  margin-top: 70px;
+}
+.titulo-ciclos{
+  text-align: center;
+}
+select {
+  height: 25px;
+  background: white;
+  border: 2px solid black;
+  width: 450px;
+}

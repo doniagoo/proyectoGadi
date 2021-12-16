@@ -67,7 +67,6 @@ select {
   height: 25px;
   background: white;
   border: 2px solid black;
-  width: 160px;
   width: 250px;
 }
 
@@ -142,7 +141,7 @@ select {
 
 
 .login-boton {
-  background-color: #0078e9;
+  background-color: #3489d8;
   border: none;
   color: #fff;
   text-align: center;

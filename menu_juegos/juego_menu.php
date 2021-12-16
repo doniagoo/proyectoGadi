@@ -32,24 +32,29 @@ $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
       </form>
     </div>
   </div>
-  <div class="divComboBoxCiclos">
-    <select name="ciclo" id="comboCiclo">
-      <option></option>
-      <?php ?>
-      <option value="GM AC">Grau mitjà activitats comercials</option>
-      <option value="GS MARP">Grau superior màrqueting i publicitat</option>
-      <option value="GS GVEC">Grau superior gestió de vendes i espais comercials</option>
-      <option value="GS CINT">Grau superior comerç internacional</option>
-      <option value="GS AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
-      <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
-      <option value="GS DAW">Grau superior desenvolupament aplicacions web</option>
-      <option value="GS DAM">Grau superior desenvolupament aplicacions multiplataforma</option>
-      <option value="GM GAD">Grau mitjà gestió administrativa</option>
-      <option value="GS AFI">Grau superior administració i finances</option>
-      <option value="GS ADIR">Grau superior assistència a la direcció</option>
-    </select>
-
+  <div class="caja-elige-ciclo">
+    <div class="titulo-ciclos">
+      <h2>Selecciona el Ciclo para cambiar la modalidad de cada JUEGO</h2>
+    </div>
+    <div class="divComboBoxCiclos">
+      <select name="ciclo" id="comboCiclo">
+        <option></option>
+        <?php ?>
+        <option value="GM AC">Grau mitjà activitats comercials</option>
+        <option value="GS MARP">Grau superior màrqueting i publicitat</option>
+        <option value="GS GVEC">Grau superior gestió de vendes i espais comercials</option>
+        <option value="GS CINT">Grau superior comerç internacional</option>
+        <option value="GS AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
+        <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
+        <option value="GS DAW">Grau superior desenvolupament aplicacions web</option>
+        <option value="GS DAM">Grau superior desenvolupament aplicacions multiplataforma</option>
+        <option value="GM GAD">Grau mitjà gestió administrativa</option>
+        <option value="GS AFI">Grau superior administració i finances</option>
+        <option value="GS ADIR">Grau superior assistència a la direcció</option>
+      </select>
+    </div>
   </div>
+
   <div class="container">
     <div class="juego">
       <div class="imagen__juego">
