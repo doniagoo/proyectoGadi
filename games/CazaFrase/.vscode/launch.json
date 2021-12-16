@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "pwa-chrome",
-            "url": "http://localhost/CazaFrase/index.html",
+            "url": "http://localhost/CazaFrase/index.php",
             "webRoot": "${workspaceFolder}"
         }
     ]
