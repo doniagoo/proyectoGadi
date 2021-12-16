@@ -37,7 +37,7 @@ if ($userEmail !== "") {
             </div>
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>
-                <input type="text" name="email" id="email" minlength="11" maxlength="60"><br>
+                <input type="text" name="email" id="email" required minlength="11" maxlength="60"><br>
                 <button class="login-boton" type="submit" name="LoginUser">Login</button><br><br><br>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
             </form>

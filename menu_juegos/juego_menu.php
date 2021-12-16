@@ -29,7 +29,8 @@ $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
       <div><a href="../index.html#2">Ciclos</a></div>
       <div>
         <form action="../BD/controlador.php" method="post">
-          <button class="cerrar-sesion" type="submit" name="cerrarSesion" class="btnCerrarSesion"><?php echo $emailUser; ?> Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
+          <div></div>
+          <button class="btnCerrarSesion" type="submit" name="cerrarSesion"><?php echo $emailUser; ?> Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
         </form>
       </div>
 

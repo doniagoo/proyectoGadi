@@ -34,31 +34,31 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>
                 <?php if ($emailRegister != '') { ?>
-                    <input type="text" name="email" id="email" value="<?php echo $emailRegister ?>">
+                    <input type="text" name="email" id="email" required minlength="11" maxlength="60" value="<?php echo $emailRegister ?>">
                 <?php } else { ?>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" required minlength="11" maxlength="60">
                 <?php } ?><br><br>
                 <label for="nombre">Nombre</label><br>
-                <input type="text" name="nombre" id="nombre"><br><br>
+                <input type="text" name="nombre" id="nombre" required maxlength="25"><br><br>
                 <label for="apellidos">Apellido</label><br>
-                <input type="text" name="apellidos" id="apellidos"><br><br>
+                <input type="text" name="apellidos" id="apellidos" required  maxlength="60"><br><br>
 
                 <label for="nickname">Nickname</label><br>
-                <input type="text" name="nickname" id="nickname"><br><br>
+                <input type="text" name="nickname" id="nickname" required  maxlength="25"><br><br>
                 <label for="ciclo">Ciclo</label><br>
-                <select name="ciclo" id="">
+                <select name="ciclo" id="" required>
                     <option></option>
-                    <option value="Grau mitjà activitats comercials">Grau mitjà activitats comercials</option>
-                    <option value="Grau superior màrqueting i publicitat">Grau superior màrqueting i publicitat</option>
-                    <option value="Grau superior gestió de vendes i espais comercials">Grau superior gestió de vendes i espais comercials</option>
-                    <option value="Grau superior comerç internacional">Grau superior comerç internacional</option>
-                    <option value="Grau superior agències de viatges i gestió d’esdeveniments">Grau superior agències de viatges i gestió d’esdeveniments</option>
-                    <option value="Grau mitjà sistemes microinformàtics i xarxes">Grau mitjà sistemes microinformàtics i xarxes</option>
-                    <option value="Grau superior desenvolupament aplicacions web">Grau superior desenvolupament aplicacions web</option>
-                    <option value="Grau superior desenvolupament aplicacions web">Grau superior desenvolupament aplicacions web</option>
-                    <option value="Grau mitjà gestió administrativa">Grau mitjà gestió administrativa</option>
-                    <option value="Grau superior administració i finances">Grau superior administració i finances</option>
-                    <option value="Grau superior assistència a la direcció">Grau superior assistència a la direcció</option>
+                    <option value="AC">Grau mitjà activitats comercials</option>
+                    <option value="MARP">Grau superior màrqueting i publicitat</option>
+                    <option value="GVEC">Grau superior gestió de vendes i espais comercials</option>
+                    <option value="CINT">Grau superior comerç internacional</option>
+                    <option value="AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
+                    <option value="SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
+                    <option value="DAW">Grau superior desenvolupament aplicacions web</option>
+                    <option value="DAM">Grau superior desenvolupament aplicacions multiplaforma</option>
+                    <option value="GAD">Grau mitjà gestió administrativa</option>
+                    <option value="AFI">Grau superior administració i finances</option>
+                    <option value="ADIR">Grau superior assistència a la direcció</option>
                 </select><br>
                 <button class="registro-boton" type="submit" name="insertUser">Registrarse</button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
