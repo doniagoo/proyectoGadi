@@ -4,15 +4,12 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-<<<<<<< HEAD
-            "url": "http://localhost/GADI/index.html",
-=======
-            "url": "http://localhost:8080/php_basico/PROYECTO_1rTrimstre/proyectoGadi/proyectoGadi/index.html",
->>>>>>> cb68af6421ae5377b16b31d9967e1974f9d07f07
+            "url": "http://localhost:8080/proyectoGadi/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
