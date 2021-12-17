@@ -26,10 +26,17 @@ if ($adminPassword !== "") {
                 <label for="email">Email</label><br><br>
                 <input type="text" name="email" id="email" required><br><br>
                 <label for="contrasena">Contraseña</label><br><br>
-                <input type="text" name="contrasena" id="contrasena" required><br>
+                <input type="password" name="contrasena" id="contrasena" required><br>
+                <label class="b-contain">
+                    <span>Mostrar Contraseña</span>
+                    <input type="checkbox" onclick="hidePassword()">
+                    <div class="b-input"></div>
+                </label>
                 <button class="login-boton" type="submit" name="LoginAdmin">Login</button><br><br><br>
             </form>
         </div>
     </div>
+    <script src="./js/hidePassword.js"></script>
 </body>
+
 </html>
