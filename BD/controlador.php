@@ -13,8 +13,14 @@ if (isset($_POST['insert'])) {
     $_SESSION["email"] = $_POST['email'];
     $_SESSION["nickname"] = $_POST['nickname'];
     $_SESSION["ciclo"] = $_POST['ciclo'];
-    header('Location: ../menu_juegos/juego_menu.php'); //Apartado juegos
-    exit();
+    if (isset($_SESSION['error'])) {
+        header('Location: ./register.php'); //Apartado juegos
+        exit();
+    }else{
+        header('Location: ../menu_juegos/juego_menu.php'); //Apartado juegos
+        exit();
+    }
+   
 } else if (isset($_POST['deleteAdmin'])) {
     $idAdmin = $_POST['Idadmin'];
     var_dump($idAdmin);

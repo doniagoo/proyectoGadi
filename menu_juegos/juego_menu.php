@@ -107,6 +107,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   </div>
 
   <div class="container">
+    <!-- poner un require_once que te lleve a mensaje.php es php -->
     <div class="juego">
       <div class="imagen__juego">
         <a href="../games/politecniX/src/html/index.php"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>

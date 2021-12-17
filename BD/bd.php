@@ -1,5 +1,36 @@
 <?php
-
+session_start();
+function errorMensaje($e)
+{
+    if (!empty($e->errorInfo[1])) {
+        switch ($e->errorInfo[1]) {
+            case 1062:
+                $mensaje = 'Registro duplicado';
+                break;
+            case 1451:
+                $mensaje = 'Registrop con elementos relacionados';
+                break;
+            default:
+                $mensaje = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
+                break;
+        }
+    } else {
+        switch ($e->getCode()) {
+            case 1044:
+                $mensaje = "User y/o password incorrecto";
+                break;
+            case 1049:
+                $mensaje = 'Base de datos desconocida';
+                break;
+            case 2002:
+                $mensaje = 'No se encuentra el server';
+                break;
+            default:
+                $mensaje = $e->getCode() . ' - ' . $e->getMessage();
+                break;
+        }
+    }
+}
 function openBD()
 {
     $servername = "localhost";
@@ -84,18 +115,25 @@ function mostrarScore()
 
 function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
 {
-    $conexion = openBD();
-    $sentenciaText = "Insert into USERS (email,contrasena,es_admin,es_superadmin,nickname,apellidos,nombre,ciclo) values (:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
-    $sentencia = $conexion->prepare($sentenciaText);
-    $sentencia->bindParam(':email', $email);
-    $sentencia->bindParam(':nickname', $nickname);
-    $sentencia->bindParam(':apellidos', $apellidos);
-    $sentencia->bindParam(':nombre', $nombre);
-    $sentencia->bindParam(':ciclo', $ciclo);
-    $sentencia->execute();
-    $_SESSION['userActivo'] = loginUser($email);
+    try {
+        $conexion = openBD();
+        $sentenciaText = "Insert into USERS (email,contrasena,es_admin,es_superadmin,nickname,apellidos,nombre,ciclo) values (:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
+        $sentencia = $conexion->prepare($sentenciaText);
+        $sentencia->bindParam(':email', $email);
+        $sentencia->bindParam(':nickname', $nickname);
+        $sentencia->bindParam(':apellidos', $apellidos);
+        $sentencia->bindParam(':nombre', $nombre);
+        $sentencia->bindParam(':ciclo', $ciclo);
+        $sentencia->execute();
+        $_SESSION['mensaje'] = 'Registro aceptado';
+    } catch (PDOException $e) {
+        $_SESSION['error'] = errorMensaje($e);
+        
+    }
+
     $conexion = closeBD();
 }
+
 function cantidadJuegos()
 {
     $conexion = openBD();

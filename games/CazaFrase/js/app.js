@@ -63,18 +63,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-
+    
 
     function startGame(){
+        let score = 0;
+        let fraseComida = false;
+        let contLetras = 0;
+
         document.body.style.background = "url(./media/img/dsx.jpg) no-repeat center center fixed";  
         document.body.style.backgroundSize = "cover";
         document.getElementById("gameContainer").style.display = "block";
         //Obtenim la referència de la nostre grid per poder treballar directament amb la const definida:
         
-        const width = 30; //Tindrem 30x28 quadrats, és a dir 840 quadrats.
-        let score = 0;
-        let fraseComida = false;
-        let contLetras = 0;
+        
 
         grid.querySelectorAll('*').forEach(element => {
                 element.remove();
@@ -790,40 +791,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function checkGameEnd(){
             let textFinal = "";
+            let juegoTerminado = false;
 
             if(fraseComida){
+                
                 textFinal = "YOU WON!";
                 if(timeOver){
                     gameWinSound.play();
+                    juegoTerminado = true;
                     stopMovement();
-                    setTimeout(function(){
-                        openModal(textFinal);
-                    }, 1000);
+                    
 
                 }else if(score === 280){
                     gameWinSound.play();
+                    juegoTerminado = true;
                     score += timeLeft;
                     console.log(score);
                     elements[posicioY][posicioX].style.transform = null;
                     stopMovement();
-                    setTimeout(function(){
-                        openModal(textFinal);
-                    }, 1000);
+                    
                     
                 }else if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
                 !elements[posicioY][posicioX].classList.contains('scared-enemy')){
                     gameWinSound.play();
+                    juegoTerminado = true;
                     //Fem que els enemics no es moguin mes        
                     stopMovement();
-                    openModal(textFinal); 
                 }
+
+                if(juegoTerminado){
+                    console.log("JUEGO TERMINADO");
+                    insertGameUser();
+                    setTimeout(function(){
+                        openModal(textFinal);
+                    }, 1000);
+                }
+
             }else{
                 textFinal = "GAME OVER";
                 if(timeOver){
                     // console.log(elements[posicioY][posicioX].style.transform = null);
                     stopMovement();
                     gameOverSound.play();
-                    openModal();
+                    openModal(textFinal);
                 }else{
                     if(elements[posicioY][posicioX].classList.contains('enemy') && elements[posicioY][posicioX].classList.contains('character') &&
                     !elements[posicioY][posicioX].classList.contains('scared-enemy')){
@@ -845,25 +855,19 @@ document.addEventListener('DOMContentLoaded', function () {
             document.removeEventListener('keydown', saveLastMoves);
         }
 
-        function insertGameUser(){
-            const opcion = {
+        function insertGameUser() {
+            const opciones = {
                 method: 'POST',
-                body: JSON.stringify({action: 'updateUserGame', id: 1, completed: 1, score: score})
+                body: JSON.stringify({action: 'updateUserGame', score: score})
             }
-
-                        
-            fetch('./php_librarys/bd.php', opcion)
-            // .then(respuesta => respuesta.json())
-            .catch(error => console.log('Error: ', error))
-            .then(respuesta => console.log("Success: ", respuesta));
+            fetch('./php_librarys/bd.php', opciones)
+            
         }
 
 
         function openModal(textFinal){
             let modal = document.getElementById("myModal");
-            if(fraseComida){
-                insertGameUser();
-            }
+           
 
             document.getElementById("textFinal").innerHTML = textFinal;
             document.getElementById("lastScore").innerHTML = "Your score is: " + score;
@@ -886,7 +890,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(respuesta => respuesta.json())
             .then(resultado => {
                 
-                console.log(resultado);
                 cont = 1; 
                 resultado.forEach(user => {
                     

@@ -1,14 +1,15 @@
 <?php 
+session_start();
 $data = json_decode(file_get_contents('php://input'), true);
 
 if($data['action'] == 'selectScores') {
     selectScores();
-}else if($data['action'] == 'updateUserGame'){
-    $id_user = $data['id'];
-    $game_completed = $data['completed'];
+}
+
+if($data['action'] == 'updateUserGame'){
+    $user = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
     $score = $data['score'];
-    
-    updateUserGame($id_user, $game_completed, $score);
+    updateUserGame($score, $user);
 }
 
 function openBd(){
@@ -43,19 +44,18 @@ function selectUserNicknames($user_id){
     return $result;
 }
 
-function updateUserGame($id_user, $juego_completo, $score){
+function updateUserGame($score, $user){
     $connection = openBd();
 
-    $consulta = "UPDATE juego_user SET juego_completo = :juego_completo, score =  :score
-                 WHERE id_juego = :id_juego AND id_user = :id_user";
+    $id_user = $user['id'];
+    
+
+    $consulta = "UPDATE juego_user SET juegoCompleto = 1, score =:score
+                 WHERE idUser =:id_user AND idJuego = 4";
                  
     $sentence = $connection->prepare($consulta);
-    
-    $sentence->bindParam(':id_juego', 4);
-    $sentence->bindParam(':id_user', $id_user);
-    $sentence->bindParam(':juego_completo', $juego_completo);
     $sentence->bindParam(':score', $score);
-
+    $sentence->bindParam(':id_user', $id_user);
     $sentence->execute();
 
     $connection = closeBd();
@@ -64,19 +64,15 @@ function updateUserGame($id_user, $juego_completo, $score){
 function selectScores(){
     $connection = openBd();
 
-    $consulta = "SELECT score, users.nickname, id_user, id_juego FROM juego_user 
+    $consulta = "SELECT score, users.nickname, idUser, idJuego FROM juego_user 
                  JOIN users
-                 WHERE id_juego = 4 AND id_user = users.id
+                 WHERE idJuego = 4 AND idUser = users.id
                  ORDER BY score DESC LIMIT 5"; 
-
-    // $consulta = "SELECT nickname, juego_user.score, id FROM users
-    //              JOIN juego_user
-    //              WHERE juego_user.id_juego = 4 AND id = juego_user.id_user";
 
     $sentence = $connection->prepare($consulta);
     $sentence->execute();
 
-    $result = $sentence->fetchAll();
+    $result = $sentence->fetchAll(PDO::FETCH_ASSOC);
 
     $connection = closeBd();
 
@@ -87,7 +83,7 @@ function selectScores(){
     }
     
     $connection = closeBd();
-    return $result;
+    return $result[0];
 }
 
 
