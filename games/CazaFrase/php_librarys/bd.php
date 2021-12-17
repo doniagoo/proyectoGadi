@@ -1,21 +1,22 @@
-<?php 
+<?php
 session_start();
 $data = json_decode(file_get_contents('php://input'), true);
 
-if($data['action'] == 'selectScores') {
+if ($data['action'] == 'selectScores') {
     selectScores();
 }
 
-if($data['action'] == 'updateUserGame'){
+if ($data['action'] == 'updateUserGame') {
     $user = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
     $score = $data['score'];
     updateUserGame($score, $user);
 }
 
-function openBd(){
+function openBd()
+{
     $servername = "localhost";
     $username = "root";
-    $password = ""; 
+    $password = "mysql";
 
     $connection = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,11 +25,13 @@ function openBd(){
     return $connection;
 }
 
-function closeBd(){
+function closeBd()
+{
     return null;
 }
 
-function selectUserNicknames($user_id){
+function selectUserNicknames($user_id)
+{
     $connection = openBd();
 
     $consulta = "SELECT nickname FROM users WHERE id = :id";
@@ -44,15 +47,16 @@ function selectUserNicknames($user_id){
     return $result;
 }
 
-function updateUserGame($score, $user){
+function updateUserGame($score, $user)
+{
     $connection = openBd();
 
     $id_user = $user['id'];
-    
+
 
     $consulta = "UPDATE juego_user SET juegoCompleto = 1, score =:score
                  WHERE idUser =:id_user AND idJuego = 4";
-                 
+
     $sentence = $connection->prepare($consulta);
     $sentence->bindParam(':score', $score);
     $sentence->bindParam(':id_user', $id_user);
@@ -61,13 +65,14 @@ function updateUserGame($score, $user){
     $connection = closeBd();
 }
 
-function selectScores(){
+function selectScores()
+{
     $connection = openBd();
 
     $consulta = "SELECT score, users.nickname, idUser, idJuego FROM juego_user 
                  JOIN users
-                 WHERE idJuego = 4 AND idUser = users.id
-                 ORDER BY score DESC LIMIT 5"; 
+                 WHERE idJuego = 4 AND idUser = users.id AND score > 0
+                 ORDER BY score DESC LIMIT 5";
 
     $sentence = $connection->prepare($consulta);
     $sentence->execute();
@@ -76,16 +81,12 @@ function selectScores(){
 
     $connection = closeBd();
 
-    if(!empty($result)){
+    if (!empty($result)) {
         echo json_encode($result);
-    }else{
+    } else {
         echo json_encode([]);
     }
-    
+
     $connection = closeBd();
     return $result[0];
 }
-
-
-
-?>

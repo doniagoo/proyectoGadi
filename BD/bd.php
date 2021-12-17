@@ -114,10 +114,12 @@ function mostrarScore()
     return $resultado;
 }
 
-function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
+function insertUser($nombre, $apellidos, $email, $nickname, $ciclo, $cantidadJuegos)
 {
+    $conexion = openBD();
     try {
-        $conexion = openBD();
+        $conexion->beginTransaction();
+
         $sentenciaText = "Insert into USERS (email,contrasena,es_admin,es_superadmin,nickname,apellidos,nombre,ciclo) values (:email,null,0,0,:nickname,:apellidos,:nombre,:ciclo)";
         $sentencia = $conexion->prepare($sentenciaText);
         $sentencia->bindParam(':email', $email);
@@ -126,8 +128,22 @@ function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
         $sentencia->bindParam(':nombre', $nombre);
         $sentencia->bindParam(':ciclo', $ciclo);
         $sentencia->execute();
+
+        $idUser = $conexion->lastInsertId();
+
+        $sentenciaTextUserJuego = "Insert into JUEGO_USER (idJuego,idUser,juegoCompleto,score)VALUES (:idJuego,:idUser,0,0)";
+        $sentencia2 = $conexion->prepare($sentenciaTextUserJuego);
+        $sentencia2->bindParam(':idUser', $idUser);
+        // $sentencia2->bindParam(':juegoCompleto', false);
+        // $sentencia2->bindParam(':score', 0);
+        for ($i = 1; $i <= $cantidadJuegos; $i++) {
+            $sentencia2->bindParam(':idJuego', $i);
+            $sentencia2->execute();
+        }
+        $conexion->commit();
         $_SESSION['userActivo'] = loginUser($email);
     } catch (PDOException $e) {
+        $conexion->rollBack();
         $_SESSION['error'] = errorMensaje($e);
     }
 

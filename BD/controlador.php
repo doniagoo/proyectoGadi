@@ -7,7 +7,7 @@ if (isset($_POST['insert'])) {
     header('Location: ./Admins.php');
     exit();
 } else if (isset($_POST['insertUser'])) {
-    insertUser($_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['nickname'], $_POST['ciclo']);
+    insertUser($_POST['nombre'], $_POST['apellidos'], $_POST['email'], $_POST['nickname'], $_POST['ciclo'], 5);
     $_SESSION["nombre"] = $_POST['nombre'];
     $_SESSION["apellidos"] = $_POST['apellidos'];
     $_SESSION["email"] = $_POST['email'];
@@ -16,11 +16,10 @@ if (isset($_POST['insert'])) {
     if (isset($_SESSION['error'])) {
         header('Location: ./register.php'); //Apartado juegos
         exit();
-    }else{
+    } else {
         header('Location: ../menu_juegos/juego_menu.php'); //Apartado juegos
         exit();
     }
-   
 } else if (isset($_POST['deleteAdmin'])) {
     $idAdmin = $_POST['Idadmin'];
     var_dump($idAdmin);
