@@ -1,6 +1,6 @@
 <?php
 
-$lang = array(
+$langEng = array(
 
     "titulo" => "¡WELCOME TO POLITÈCNICS BARCELONA!",
     "jugar" => "🎮 PLAY 🎮",
