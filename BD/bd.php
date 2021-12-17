@@ -35,7 +35,7 @@ function openBD()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "mysql";
+    $password = "";
 
     $conexion = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     // set the PDO error mode to exception
@@ -125,6 +125,7 @@ function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
         $sentencia->bindParam(':nombre', $nombre);
         $sentencia->bindParam(':ciclo', $ciclo);
         $sentencia->execute();
+        $_SESSION['userActivo'] = loginUser($email);
         $_SESSION['mensaje'] = 'Registro aceptado';
     } catch (PDOException $e) {
         $_SESSION['error'] = errorMensaje($e);

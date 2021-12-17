@@ -111,4 +111,23 @@ select {
   background: white;
   border: 2px solid black;
   width: 250px;
+  cursor: pointer;
+}
+
+.cerrar-sesion:hover{
+  opacity: 0.80;
+}
+
+.nombreUser-btn {
+  height: 20px;
+  background: black;
+  width: 240px;
+  color: white;
+  /* margin: 0px; */
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  /* align-items: center; */
+  /* align-content: center; */
+  padding-top: 5px;
 }
