@@ -14,8 +14,9 @@
 
     <?php
       include ("lang/esp.php");
-      // include ("lang/cat.php");
-      // include ("lang/eng.php");
+      include ("lang/cat.php");
+      include ("lang/eng.php");
+      $lang = $langEsp;
     ?>
 
     <div class="container-header" id="header-LP">

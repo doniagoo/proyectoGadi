@@ -29,8 +29,8 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
       <div><a href="../index.php#2">Ciclos</a></div>
       <div>
         <form action="../BD/controlador.php" method="post">
-          <div></div>
-          <button class="btnCerrarSesion" type="submit" name="cerrarSesion"><?php echo $emailUser; ?> Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
+          <div class="nombreUser-btn"><?php echo $emailUser; ?></div>
+          <button class="cerrar-sesion" type="submit" name="cerrarSesion">Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
         </form>
       </div>
     </div>

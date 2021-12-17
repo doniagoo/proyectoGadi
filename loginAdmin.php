@@ -14,18 +14,22 @@ if ($adminPassword !== "") {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./style/login__style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin</title>
 </head>
 
-<body>
-    <form action="./BD/controlador.php" method="post">
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
-        <label for="contrasena">Contraseña:</label>
-        <input type="text" name="contrasena" id="contrasena">
-        <button type="submit" name="LoginAdmin">Login</button>
-    </form>
+<body class="body-admin">
+    <div class="container">
+        <div class="form__container">
+            <form class="form__style" action="./BD/controlador.php" method="post">
+                <label for="email">Email</label><br><br>
+                <input type="text" name="email" id="email" required><br><br>
+                <label for="contrasena">Contraseña</label><br><br>
+                <input type="text" name="contrasena" id="contrasena" required><br>
+                <button class="login-boton" type="submit" name="LoginAdmin">Login</button><br><br><br>
+            </form>
+        </div>
+    </div>
 </body>
-
 </html>
