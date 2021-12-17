@@ -21,6 +21,11 @@ body {
   background-position-y: 300px;
 }
 
+.body-admin{
+  background-color: #bea4cc;
+  background-position-y: 160px;
+}
+
 a {
   text-decoration: none;
   color: white;
