@@ -2,7 +2,7 @@
 session_start();
 
 //$usuario = $_SESSION['user'];
-
+// var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">

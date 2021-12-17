@@ -6,7 +6,7 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,6 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
         </div>
     </div>
     <div class="container">
-        <?php require_once('./mensaje.php');?>
         <div class="form__container">
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>
@@ -42,10 +41,10 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                 <label for="nombre">Nombre</label><br>
                 <input type="text" name="nombre" id="nombre" required maxlength="25"><br><br>
                 <label for="apellidos">Apellido</label><br>
-                <input type="text" name="apellidos" id="apellidos" required  maxlength="60"><br><br>
+                <input type="text" name="apellidos" id="apellidos" required maxlength="60"><br><br>
 
                 <label for="nickname">Nickname</label><br>
-                <input type="text" name="nickname" id="nickname" required  maxlength="25"><br><br>
+                <input type="text" name="nickname" id="nickname" required maxlength="25"><br><br>
                 <label for="ciclo">Ciclo</label><br>
                 <select name="ciclo" id="" required>
                     <option></option>
@@ -61,6 +60,8 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                     <option value="AFI">Grau superior administració i finances</option>
                     <option value="ADIR">Grau superior assistència a la direcció</option>
                 </select><br>
+                <br>
+                <div class="mensaje-error"><?php require_once('./mensaje.php'); ?></div>
                 <button class="registro-boton" type="submit" name="insertUser">Registrarse</button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
                 <button class="cancel-boton" type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>

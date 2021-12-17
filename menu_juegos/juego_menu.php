@@ -6,7 +6,7 @@ $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
 $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -33,7 +33,6 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
           <button class="cerrar-sesion" type="submit" name="cerrarSesion">Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
         </form>
       </div>
-
     </div>
   </div>
   <div class="caja-elige-ciclo">
@@ -107,7 +106,6 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   </div>
 
   <div class="container">
-    <!-- poner un require_once que te lleve a mensaje.php es php -->
     <div class="juego">
       <div class="imagen__juego">
         <a href="../games/politecniX/src/html/index.php"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
