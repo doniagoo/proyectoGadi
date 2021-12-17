@@ -13,10 +13,10 @@
   <body id="0">
 
     <?php
-      include ("lang/esp.php");
-      include ("lang/cat.php");
-      include ("lang/eng.php");
-      $lang = $langEsp;
+      // include ("lang/lang.php");
+      include('./lang/esp.php');
+      session_start();
+      $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
     ?>
 
     <div class="container-header" id="header-LP">
@@ -24,10 +24,25 @@
         <div class="selected__lang">
           <ul>
             <li>
-              <a href="#" class="cat">Català</a>
+              <form action="./lang/lang.php" method="post">
+                <button type="submit" name="cat" class="cat" >Català</button>
+              </form>
+              <!-- <input type="submit" class="cat" name="insert" value="Català" /> -->
+              <!-- <a href="#" class="cat">Català</a> -->
             </li>
             <li>
-              <a href="#" class="eng">English</a>
+              <form action="./lang/lang.php" method="post">
+                <button type="submit" name="eng" class="eng" >English</button>
+              </form>
+              <!-- <input type="submit" class="eng" name="insert" value="English" /> -->
+              <!-- <a href="#" class="eng">English</a> -->
+            </li>
+            <li>
+              <form action="./lang/lang.php" method="post">
+                <button type="submit" name="esp" class="esp" >Español</button>
+              </form>
+              <!-- <input type="submit" class="eng" name="insert" value="English" /> -->
+              <!-- <a href="#" class="eng">English</a> -->
             </li>
           </ul>
         </div>
