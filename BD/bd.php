@@ -30,6 +30,7 @@ function errorMensaje($e)
                 break;
         }
     }
+    return $mensaje;
 }
 function openBD()
 {
@@ -125,10 +126,9 @@ function insertUser($nombre, $apellidos, $email, $nickname, $ciclo)
         $sentencia->bindParam(':nombre', $nombre);
         $sentencia->bindParam(':ciclo', $ciclo);
         $sentencia->execute();
-        $_SESSION['mensaje'] = 'Registro aceptado';
+        $_SESSION['userActivo'] = loginUser($email);
     } catch (PDOException $e) {
         $_SESSION['error'] = errorMensaje($e);
-        
     }
 
     $conexion = closeBD();

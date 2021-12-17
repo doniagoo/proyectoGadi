@@ -139,7 +139,6 @@ select {
   right: 10px;
 }
 
-
 .login-boton {
   background-color: #3489d8;
   border: none;
@@ -175,7 +174,10 @@ select {
   right: 10px;
 }
 
-.caja-mensjae-login{
+.caja-mensjae-login {
   text-align: center;
 }
 
+.mensaje-error {
+  color: red;
+}
