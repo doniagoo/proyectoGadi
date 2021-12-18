@@ -77,7 +77,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
           <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
         <?php }
         if ($userActivo['ciclo'] == 'DAW') { ?>
-          <option value="DAW">Grau superior desenvolupament aplicacions web</option>
+          <option value="DAW" selected>Grau superior desenvolupament aplicacions web</option>
         <?php } else { ?>
           <option value="DAW">Grau superior desenvolupament aplicacions web</option>
         <?php }
