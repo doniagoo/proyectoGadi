@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Share Tech Mono", monospace;
+  text-decoration: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #f8f8f8;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 3px solid #f8f8f8;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #b34747;
+}
+
+.cerrar-sesion {
+  height: 25px;
+  background: white;
+  border: 2px solid black;
+  width: 140px;
+  cursor: pointer;
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+}
+
+.cerrar-sesion:hover {
+  opacity: 0.85;
+  -ms-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.container-general {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 160px 300px;
+  margin-top: 100px;
+  align-items: center;
+  /* margin: 200px; */
+  padding: 60px;
+  justify-content: center;
+  text-align: center;
+}
+.container-user {
+}
+.container-admin {
+}
+
+.titulo {
+  color: black;
+  padding-top: 10px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.nombreUser-btn {
+  height: 20px;
+  /* background: black; */
+  /* width: 258px; */
+  color: black;
+  /* margin: 0px; */
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  /* align-items: center; */
+  /* align-content: center; */
+  padding-top: 5px;
+}
+
+img {
+  width: 527px;
+  height: 368px;
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+}
+
+img:hover {
+  opacity: 0.5;
+  -ms-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.nombreUser-btn {
+  height: 20px;
+  /* background: black; */
+  /* width: 258px; */
+  color: black;
+  /* margin: 0px; */
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  /* align-items: center; */
+  /* align-content: center; */
+  padding-top: 5px;
+}
+
+i {
+  margin-right: 5px;
+}
+
+form {
+  /* align-items: stretch; */
+  display: flex;
+  /* align-content: baseline; */
+  flex-direction: column;
+  /* flex-wrap: wrap-reverse; */
+  /* justify-content: unset; */
+  align-items: center;
+}
+
+.fa {
+  color: black;
+}
+.fa {
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+}
+
+.fa:hover {
+  opacity: 0.85;
+  -ms-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  -o-transform: scale(1.3);
+}
+
+.nombreUser-btn a {
+  margin: 0;
+}
+
+table.tablaBD {
+  border: 3px solid #000000;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.tablaBD td,
+table.tablaBD th {
+  border: 1px solid #000000;
+  padding: 5px 4px;
+}
+table.tablaBD tbody td {
+  font-size: 13px;
+  background-color: #d4b2b2;
+}
+table.tablaBD thead {
+  background: #cfcfcf;
+  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #cfcfcf 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #dbdbdb 0%,
+    #d3d3d3 66%,
+    #cfcfcf 100%
+  );
+  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #cfcfcf 100%);
+  border-bottom: 3px solid #000000;
+}
+table.tablaBD thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.container-table {
+    margin: 130px;
+}
+
+.volver {
+  margin-bottom: 50px;
+}
+
+button{
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+    text-align: center;
+}
+
+.crear-admin{
+    margin-bottom: 20px;
+    float: right;
+    margin-right: 5px;
+}
+
+.crear-admin button i{
+    color: white;
+    float: right;
+}
