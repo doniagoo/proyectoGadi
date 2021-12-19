@@ -13,9 +13,9 @@
   <body id="0">
 
     <?php
-      // include ("lang/lang.php");
-      include('./lang/esp.php');
       session_start();
+      // include ("./lang/lang.php");
+      include('./lang/esp.php');
       $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
     ?>
 
