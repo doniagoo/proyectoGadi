@@ -71,7 +71,7 @@
       <div><a href="#0"><?php echo $lang["navInicio"] ?></a></div>
       <div><a href="#1"><?php echo $lang["navAbout"] ?></a></div>
       <div><a href="#2"><?php echo $lang["navCiclos"] ?></a></div>
-      <div>
+      <div class="ultimo-elemento">
         <a href="./BD/loginUser.php">JUGAR</a>
       </div>
     </div>

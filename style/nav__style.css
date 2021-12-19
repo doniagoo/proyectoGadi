@@ -35,7 +35,7 @@
 }
 .container-navbar .contenido-navbar a {
   color: black;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   font-weight: bolder;
   text-decoration: none;
 }
@@ -45,4 +45,8 @@
 .container-navbar .contenido-navbar div a {
   align-items: center;
   text-decoration: none;
+}
+
+.container-navbar .contenido-navbar .ultimo-elemento {
+  padding-right: 10px;
 }

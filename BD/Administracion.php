@@ -24,7 +24,7 @@
             <div><a href="../BD/loginUser.php">JUGAR</a></div>
             <div>
                 <form action="./controlador.php" method="post">
-                    <div class="nombreUser-btn"><i class="fa fa-user"></i><?php echo $_SESSION['email']; ?></div>
+                    <div class="nombreUser-btn"><a href="../BD/Administracion.php"><i class="fa fa-user"></i></a><?php echo $_SESSION['email']; ?></div>
                     <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i>Cerrar Sesión</button>
                 </form>
             </div>
