@@ -15,10 +15,15 @@
 <body id="0">
 
   <?php
-  // include ("lang/lang.php");
-  include('./lang/esp.php');
   session_start();
-  $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
+  if(isset($_SESSION['lang'])){
+    var_dump($_SESSION['lang']['titulo']);
+  }
+
+  include ("lang/lang.php");
+  // include('./lang/esp.php');
+  $lang = $_SESSION['lang'];
+  var_dump($lang['titulo']);
   ?>
 
   <div class="container-header" id="header-LP">
@@ -27,21 +32,21 @@
         <ul>
           <li>
             <form action="./lang/lang.php" method="post">
-              <button type="submit" name="cat" class="cat">Català</button>
+              <button type="submit" name="cat" class="cat" value="cat">Català</button>
             </form>
             <!-- <input type="submit" class="cat" name="insert" value="Català" /> -->
             <!-- <a href="#" class="cat">Català</a> -->
           </li>
           <li>
             <form action="./lang/lang.php" method="post">
-              <button type="submit" name="eng" class="eng">English</button>
+              <button type="submit" name="eng" class="eng" value="eng">English</button>
             </form>
             <!-- <input type="submit" class="eng" name="insert" value="English" /> -->
             <!-- <a href="#" class="eng">English</a> -->
           </li>
           <li>
             <form action="./lang/lang.php" method="post">
-              <button type="submit" name="esp" class="esp">Español</button>
+              <button type="submit" name="esp" class="esp" value="esp">Español</button>
             </form>
             <!-- <input type="submit" class="eng" name="insert" value="English" /> -->
             <!-- <a href="#" class="eng">English</a> -->

@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once("./bd.php");
 $admins = mostrarAdmins();
-
 
 ?>
 <!DOCTYPE html>

@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 $adminPassword = isset($_SESSION['contrasena']) ? $_SESSION['contrasena'] : "";
 
 if ($adminPassword !== "") {

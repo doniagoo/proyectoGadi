@@ -57,12 +57,35 @@ if (isset($_POST['insert'])) {
             exit();
         } else {
             echo "Contraseña incorrecta";
+            header('Location: ../loginAdmin.php');
+            exit();
         }
     } else {
         echo "Email incorrecto";
     }
 } else if (isset($_POST['cerrarSesion'])) {
-    session_destroy();
+    if(isset($_SESSION['email'])){
+        unset($_SESSION['email']);
+    }
+    if(isset($_SESSION['ciclo'])){
+       unset($_SESSION['ciclo']);
+    }
+
+    if(isset($_SESSION['userActivo'])){
+        unset($_SESSION['userActivo']);
+    }
+
+    if(isset($_SESSION['nickname'])){
+        unset($_SESSION['nickname']);
+    }
+
+    if(isset($_SESSION['contrasena'])){
+        unset($_SESSION['contrasena']);
+    }
+
+    if(isset($_SESSION['es_superadmin'])){
+        unset($_SESSION['es_superadmin']);
+    }
 
     header('Location: ../index.php');
     exit();
