@@ -17,13 +17,12 @@
   <?php
   session_start();
   if(isset($_SESSION['lang'])){
-    var_dump($_SESSION['lang']['titulo']);
   }
 
-  include ("lang/lang.php");
-  // include('./lang/esp.php');
-  $lang = $_SESSION['lang'];
-  var_dump($lang['titulo']);
+  // include ("lang/lang.php");
+  include('./lang/esp.php');
+  // $lang = $_SESSION['lang'];
+  $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
   ?>
 
   <div class="container-header" id="header-LP">

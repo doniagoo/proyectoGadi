@@ -1,8 +1,9 @@
 <?php 
 session_start();
-include ("../lang/lang.php");
-// include('../lang/esp.php');
-$lang = $_SESSION['lang'];
+// include ("../lang/lang.php");
+include('../lang/esp.php');
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
+// $lang = $_SESSION['lang'];
 $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 if ($userEmail !== "") {
     header('Location: ../menu_juegos/juego_menu.php');
@@ -40,7 +41,7 @@ if ($userEmail !== "") {
         <div class="form__container">
             <div class="volver"><a href="../index.php"><i class="fa fa-chevron-left" style="font-size:24px"></i></a></div>
             <div class="caja-mensjae-login">
-                <h2>Texto<?php echo $lang["navInicio"] ?></h2>
+                <h2><?php echo $lang["textoRegistro"] ?></h2>
             </div>
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>
