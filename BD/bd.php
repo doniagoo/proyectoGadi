@@ -36,7 +36,7 @@ function openBD()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "mysql";
 
     $conexion = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     // set the PDO error mode to exception
@@ -196,6 +196,22 @@ function loginAdmin($email)
 {
     $conexion = openBD();
     $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email' and es_admin = 1");
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado[0];
+}
+function ranking(){
+    $conexion = openBD();
+    $sentencia = $conexion->prepare("Select idUser,score from JUEGO_USER WHERE idJuego = 2 order by score desc LIMIT 5");
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado;
+}
+function nickname($idUser){
+    $conexion = openBD();
+    $sentencia = $conexion->prepare("Select nickname from USERS WHERE id = '$idUser'");
     $sentencia->execute();
     $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();

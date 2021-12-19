@@ -15,7 +15,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "pwa-chrome",
-            "url": "http://localhost:8080/php_basico/proyectoGadi/index.php",
+            "url": "http://localhost:8080/proyectoGadi/games/Memory",
             "webRoot": "${workspaceFolder}"
         }
 
