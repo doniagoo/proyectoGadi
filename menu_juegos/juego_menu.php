@@ -112,7 +112,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
 
       </div>
       <div class="game__name">
-        <h3>PolitecniX</h3>
+        <h2>PolitecniX</h2>
       </div>
     </div>
     <div class="juego">
@@ -120,7 +120,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/Memory/inicio.html"><img src="../media/img/img-pantalla-game-2.png" id="juego_imagen" alt="joc1" /></a>
       </div>
       <div class="game__name">
-        <h3>Memory</h3>
+        <h2>Memory</h2>
       </div>
     </div>
     <div class="juego">
@@ -128,7 +128,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/politecnicsHunt/index.php"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
       </div>
       <div class="game__name">
-        <h3>Politecnics Hunt</h3>
+        <h2>Politecnics Hunt</h2>
       </div>
     </div>
     <div class="juego">
@@ -136,7 +136,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/DisparaBolas/Bubble-Shooter-HTML5/bubble-shooter.html"><img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" /></a>
       </div>
       <div class="game__name">
-        <h3>Dispara Bolas</h3>
+        <h2>Dispara Bolas</h2>
       </div>
     </div>
     <div class="juego">
@@ -144,7 +144,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
       </div>
       <div class="game__name">
-        <h3>Caza Frase</h3>
+        <h2>Caza Frase</h2>
       </div>
     </div>
   </div>

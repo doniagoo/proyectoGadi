@@ -64,7 +64,7 @@ if (isset($_POST['insert'])) {
 } else if (isset($_POST['cerrarSesion'])) {
     session_destroy();
 
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit();
 }
 

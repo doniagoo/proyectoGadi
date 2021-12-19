@@ -32,11 +32,11 @@
     <div class="container-general">
         <div class="container-user">
             <div class="imagen"><a href="./users.php"><img src="../media/img/img-pantalla-game-2.png" /></a><?php if ($_SESSION['es_superadmin'] == 1) { ?></div>
-            <div class="titulo"><a>Users</a></div>
+            <div class="titulo"><h2>Users</h2></div>
         </div>
         <div class="container-admin">
             <div class="imagen"><a href="./Admins.php"><img src="../media/img/img-pantalla-game-2.png" /></a></div>
-            <div class="titulo"><a>Admins</a><?php } ?></div>
+            <div class="titulo"><h2>Admins</h2><?php } ?></div>
         </div>
 </body>
 
