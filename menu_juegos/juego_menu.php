@@ -108,7 +108,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   <div class="container">
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/politecniX/src/html/index.php"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
+        <a href="../games/politecniX/src/html/index.html"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
 
       </div>
       <div class="game__name">
@@ -125,7 +125,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
     </div>
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/politecnicsHunt/index.php"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+        <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
       </div>
       <div class="game__name">
         <h2>Politecnics Hunt</h2>
