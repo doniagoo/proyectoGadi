@@ -14,7 +14,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../style/juegos__styles.css" />
   <link rel="stylesheet" href="../style/nav__style.css" />
-
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <title>Menu Juegos</title>
 </head>
 
@@ -29,8 +29,8 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
       <div><a href="../index.php#2">Ciclos</a></div>
       <div>
         <form action="../BD/controlador.php" method="post">
-          <div class="nombreUser-btn"><?php echo $emailUser; ?></div>
-          <button class="cerrar-sesion" type="submit" name="cerrarSesion">Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
+          <div class="nombreUser-btn"><i class="fa fa-user"></i><?php echo $emailUser; ?></div>
+          <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i>Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
         </form>
       </div>
     </div>

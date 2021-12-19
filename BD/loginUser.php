@@ -35,7 +35,7 @@ if ($userEmail !== "") {
     <div class="container">
         <div class="form__container">
             <div class="caja-mensjae-login">
-                <h2><?php echo $lang["navInicio"] ?></h2>
+                <h2>Texto<?php echo $lang["navInicio"] ?></h2>
             </div>
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>

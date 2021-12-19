@@ -20,12 +20,12 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
 <body>
     <div class="container-navbar">
         <div class="logo-navbar">
-            <a href="../index.html"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
+            <a href="../index.php"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
         </div>
         <div class="contenido-navbar">
-            <div><a href="../index.html">Inicio</a></div>
-            <div><a href="../index.html#1">Sobre Politècnics</a></div>
-            <div><a href="../index.html#2">Ciclos</a></div>
+            <div><a href="../index.php">Inicio</a></div>
+            <div><a href="../index.php#1">Sobre Politècnics</a></div>
+            <div><a href="../index.php#2">Ciclos</a></div>
             <div><a href="#">JUGAR</a></div>
         </div>
     </div>
@@ -64,7 +64,7 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                 <div class="mensaje-error"><?php require_once('./mensaje.php'); ?></div>
                 <button class="registro-boton" type="submit" name="insertUser">Registrarse</button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
-                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>
+                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.php">Cancelar</a></button>
             </form>
         </div>
     </div>

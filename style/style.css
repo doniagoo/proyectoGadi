@@ -39,6 +39,7 @@ body {
   margin: 0%;
   /* background-color: #eee2c7; */
   background-color: white;
+  word-spacing: 7px;
 }
 
 a {
@@ -464,7 +465,7 @@ a {
 }
 
 .direccion a {
-  color: #e74c3c;
+  color: #ffffff;
   display: inline-block;
   padding: 30px;
   text-decoration: none;
@@ -530,7 +531,14 @@ a {
 }
 
 .container-cursos {
-  text-align: center;
+  /* margin: 15px; */
+  -webkit-box-shadow: 0px 0px 21px -8px #000000;
+  box-shadow: 0px 0px 21px -8px #000000;
+  padding: 96px;
+  border-radius: 20px;
+  background-color: #064a0ab3;
+  color: white;
+  margin-bottom: 200px;
 }
 
 .img-bottom {
