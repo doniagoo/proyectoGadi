@@ -1,11 +1,14 @@
-<?php session_start();
-// include ("../lang/lang.php");
-$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
+<?php 
+session_start();
+include ("../lang/lang.php");
+// include('../lang/esp.php');
+$lang = $_SESSION['lang'];
 $userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 if ($userEmail !== "") {
     header('Location: ../menu_juegos/juego_menu.php');
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>

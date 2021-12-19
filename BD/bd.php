@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 function errorMensaje($e)
 {
     if (!empty($e->errorInfo[1])) {
@@ -8,7 +8,7 @@ function errorMensaje($e)
                 $mensaje = 'Registro duplicado';
                 break;
             case 1451:
-                $mensaje = 'Registrop con elementos relacionados';
+                $mensaje = 'Registro con elementos relacionados';
                 break;
             default:
                 $mensaje = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
