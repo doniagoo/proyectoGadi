@@ -20,6 +20,7 @@ if ($userEmail !== "") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/login__style.css">
     <link rel="stylesheet" href="../style/nav__style.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>Registro</title>
 </head>
 
@@ -32,11 +33,12 @@ if ($userEmail !== "") {
             <div><a href="../index.php">Inicio</a></div>
             <div><a href="../index.php#1">Sobre Politècnics</a></div>
             <div><a href="../index.php#2">Ciclos</a></div>
-            <div><a href="#">JUGAR</a></div>
+            <div class="ultimo-elemento"><a href="#">JUGAR</a></div>
         </div>
     </div>
     <div class="container">
         <div class="form__container">
+            <div class="volver"><a href="../index.php"><i class="fa fa-chevron-left" style="font-size:24px"></i></a></div>
             <div class="caja-mensjae-login">
                 <h2>Texto<?php echo $lang["navInicio"] ?></h2>
             </div>
