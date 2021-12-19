@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../style/admin__style.css" />
     <link rel="stylesheet" href="../style/nav__style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>Users_Admins</title>
 </head>
 
@@ -23,19 +24,19 @@
             <div><a href="../BD/loginUser.php">JUGAR</a></div>
             <div>
                 <form action="./controlador.php" method="post">
-                    <div class="nombreUser-btn"><?php echo $_SESSION['email']; ?></div>
-                    <button class="cerrar-sesion" type="submit" name="cerrarSesion">Cerrar Sesión</button>
+                    <div class="nombreUser-btn"><i class="fa fa-user"></i><?php echo $_SESSION['email']; ?></div>
+                    <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i>Cerrar Sesión</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="container-general">
         <div class="container-user">
-            <div class="imagen"><a href="./users.php"><img src="../media/img/img-pantalla-game-2.png" /></a><?php if ($_SESSION['es_superadmin'] == 1) { ?></div>
+            <div class="imagen"><a href="./users.php"><img src="../media/img/img-pantalla-game-6.png" /></a><?php if ($_SESSION['es_superadmin'] == 1) { ?></div>
             <div class="titulo"><h2>Users</h2></div>
         </div>
         <div class="container-admin">
-            <div class="imagen"><a href="./Admins.php"><img src="../media/img/img-pantalla-game-2.png" /></a></div>
+            <div class="imagen"><a href="./Admins.php"><img src="../media/img/img-pantalla-game-7.png" /></a></div>
             <div class="titulo"><h2>Admins</h2><?php } ?></div>
         </div>
 </body>

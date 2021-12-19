@@ -82,7 +82,7 @@ img:hover {
 .game__name {
   /*color: #680808;*/
   color: black;
-  padding-top: 10px;
+  padding-top: 25px;
 }
 
 .divComboBoxCiclos {
@@ -110,19 +110,19 @@ select {
   height: 25px;
   background: white;
   border: 2px solid black;
-  width: 250px;
+  width: 140px;
   cursor: pointer;
 }
 
-.cerrar-sesion:hover{
-  opacity: 0.80;
+.cerrar-sesion:hover {
+  opacity: 0.8;
 }
 
 .nombreUser-btn {
   height: 20px;
-  background: black;
-  width: 240px;
-  color: white;
+  /* background: black; */
+  /* width: 258px; */
+  color: black;
   /* margin: 0px; */
   padding-left: 5px;
   padding-right: 5px;
@@ -130,4 +130,18 @@ select {
   /* align-items: center; */
   /* align-content: center; */
   padding-top: 5px;
+}
+
+i {
+  margin-right: 5px;
+}
+
+form {
+  /* align-items: stretch; */
+  display: flex;
+  /* align-content: baseline; */
+  flex-direction: column;
+  /* flex-wrap: wrap-reverse; */
+  /* justify-content: unset; */
+  align-items: center;
 }
