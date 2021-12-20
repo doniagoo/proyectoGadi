@@ -16,12 +16,8 @@
 
   <?php
   session_start();
-  if(isset($_SESSION['lang'])){
-  }
-
   // include ("lang/lang.php");
   include('./lang/esp.php');
-  // $lang = $_SESSION['lang'];
   $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
   ?>
 
@@ -33,22 +29,16 @@
             <form action="./lang/lang.php" method="post">
               <button type="submit" name="cat" class="cat" value="cat">Català</button>
             </form>
-            <!-- <input type="submit" class="cat" name="insert" value="Català" /> -->
-            <!-- <a href="#" class="cat">Català</a> -->
           </li>
           <li>
             <form action="./lang/lang.php" method="post">
               <button type="submit" name="eng" class="eng" value="eng">English</button>
             </form>
-            <!-- <input type="submit" class="eng" name="insert" value="English" /> -->
-            <!-- <a href="#" class="eng">English</a> -->
           </li>
           <li>
             <form action="./lang/lang.php" method="post">
               <button type="submit" name="esp" class="esp" value="esp">Español</button>
             </form>
-            <!-- <input type="submit" class="eng" name="insert" value="English" /> -->
-            <!-- <a href="#" class="eng">English</a> -->
           </li>
         </ul>
       </div>
