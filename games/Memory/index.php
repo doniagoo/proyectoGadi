@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();           
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,39 +29,21 @@ session_start();
             <div class="modal-body">
                 <p><span id="perdida"></span> <span id="scores"></span></p>
                 <p id="tiempos"></p>
-                <p id="result"></p>
+                <form action="" method="post">
+                    <p id="result"></p>
+
+                </form>
                 <h3>Ranking</h3>
-                <?php
-                function scorePlayer()
-                {
-                    $score ='id="result"' ;
-                    $conexion = openBD();
-                    $id=id($_SESSION['email']);
-                    $sentenciaText = "UPDATE JUEGO_USER SET idJuego= :idJuego,idUser=:idUser,juegoCompleto=:juegoCompleto,score=:score WHERE idUser= $id";
-                    $sentencia = $conexion->prepare($sentenciaText);
-                    $sentencia->bindParam(':idJuego', 2);
-                    $sentencia->bindParam(':idUser', $id);
-                    $sentencia->bindParam(':juegoCompleto', 1);
-                    $sentencia->bindParam(':score',$score);
-                    $sentencia->execute();
-                    $conexion = closeBD();
-                }
-                $ranking=scorePlayer();
-                $nickname=nickname($ranking['idUser']);
-                ?>
+                
                 <table>
                     <td>
                         <tr>nickname</tr>
                         <tr>score</tr>
                     </td>
-                    <td>
-                        <tr>
-                            <?php $nickname['nickname']?>
-                        </tr>
-                        <tr>
-                            <?php $ranking['score']?>
-                        </tr>
-                    </td>
+                    <tbody id="ranking">
+
+
+                    </tbody>
             </div>
             <div class="modal-footer">
                 <a href="./inicio.html"><button>Inicio</button></a>

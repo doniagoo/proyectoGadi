@@ -143,8 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartaEscogidaId[0] !== carta.getAttribute('data-id')) {
             let cartaId = carta.getAttribute('data-id');
             cartaEscogida.push(cartas[cartaId].name);
-            cartaEscogidaId.push(cartaId); 
-           carta.setAttribute('src', cartas[cartaId].img); //Voltea la carta
+            cartaEscogidaId.push(cartaId);
+            carta.setAttribute('src', cartas[cartaId].img); //Voltea la carta
             if (cartaEscogida.length === 2) {
                 setTimeout(coincide, 1000);
             }
@@ -161,31 +161,31 @@ document.addEventListener('DOMContentLoaded', () => {
         let span = document.getElementsByClassName("close")[0];
 
         modal.style.display = "block";
-        if (victoria==true) { 
+        if (victoria == true) {
             enorabuena.textContent = "Enorabuena lo has logrado !!! :)";
             scores.textContent = "Tu score es: " + cartasGanadas.length;
             tiempos.textContent = "Te han sobrado: " + tempo.innerHTML + " seg";
-            result.textContent = "Tu puntuacion final es:"+parseInt(cartasGanadas.length,tempo.innerHTML);
+            result.textContent = "Tu puntuacion final es:" + parseInt(cartasGanadas.length, tempo.innerHTML);
         } else {
-            enorabuena.textContent = "Lo siento pero se te a acabado el tiempo :( ";
+            enorabuena.textContent = "Lo siento pero se te ha acabado el tiempo :( ";
             perdida.textContent = "No puedes entrar en el ranking";
-            scores.textContent = "Tu score es: " + cartasGanadas.length; 
+            scores.textContent = "Tu score es: " + cartasGanadas.length;
             //  tiempos.textContent = "TIEMPO !!!!";
-            result.textContent = "Tu puntuacion final es: " (cartasGanadas.length);
-    }
+            result.textContent = "Tu puntuacion final es: "(cartasGanadas.length);
+        }
     }
 
     function temporizador() {
         if (tempo.innerHTML != 0) {
-           seg = setInterval(function () { tiempo() }, 1000);
+            seg = setInterval(function () { tiempo() }, 1000);
         }
     }
     function tiempo() {
         if (tempo.innerHTML != 0) {
             tempo.textContent = tempo.innerHTML - 1;
-        }else{
+        } else {
             clearInterval(seg);
-            tempo.textContent="TIEMPO !!! "
+            tempo.textContent = "TIEMPO !!! "
             acabo.textContent = " "
             victoria = false;
             modal();
@@ -196,59 +196,38 @@ document.addEventListener('DOMContentLoaded', () => {
             cartas[i]
         }
     }
-    //-----------------------SQL--------------------------
-    var Connection = require('tedious').Connection;  
-    var config = {  
-        server: 'localhost',  //update me
-        authentication: {
-            type: 'default',
-            options: {
-                userName: 'root', //update me
-                password: 'mysql'  //update me
-            }
-        },
-        options: {
-            // If you are on Microsoft Azure, you need encryption:
-            encrypt: true,
-            database: 'gadi'  //update me
+    function showRanking() {
+        let tablaRanking = document.getElementById("ranking");
+        tablaRanking.innerHTML = "";
+        const opcion = {
+            method: 'POST',
+            body: JSON.stringify({ action: 'selectScores' })
         }
-    };  
-    var connection = new Connection(config);  
-    connection.on('connect', function(err) {  
-        // If no error, then good to proceed.  
-        console.log("Connected");  
-        executeStatement1();  
-    });
-    
-    connection.connect();
-    
-    var Request = require('tedious').Request  
-    var TYPES = require('tedious').TYPES;  
-  
-    function executeStatement1() {  
-        request = new Request("INSERT INTO JUEGO_USER VALUES (@idJuego,@idUser,@juegoCompleto,@score);", function(err) {  
-         if (err) {  
-            console.log(err);}  
-        });  
-        request.addParameter('idJuego', TYPES.int,2);  
-        request.addParameter('idUser', TYPES.int , );  
-        request.addParameter('juegoCompleto', TYPES.boolean, True);  
-        request.addParameter('score', TYPES.Int,resultado);  
-        request.on('row', function(columns) {  
-            columns.forEach(function(column) {  
-              if (column.value === null) {  
-                console.log('NULL');  
-              } else {  
-                console.log("Product id of inserted item is " + column.value);  
-              }  
-            });  
-        });
 
-        // Close the connection after the final event emitted by the request, after the callback passes
-        request.on("requestCompleted", function (rowCount, more) {
-            connection.close();
-        });
-        connection.execSql(request);  
-    }  
-}
-)
+
+        fetch('./bd.php', opcion)
+            .then(respuesta => respuesta.json())
+            .then(resultado => {
+
+                cont = 1;
+                resultado.forEach(user => {
+
+                    tablaRanking.innerHTML += `
+ <tr>
+     <th>${cont}</th>
+     <th>${user.nickname}</th>
+     <th>${user.score}</th>
+ </tr>`
+                    cont++;
+                });
+            });
+    }
+ function insertGameUser() {
+ const opciones = {
+ method: 'POST',
+ body: JSON.stringify({action: 'updateUserGame', score: score})
+ }
+ fetch('./php_librarys/bd.php', opciones)
+
+ }
+})
