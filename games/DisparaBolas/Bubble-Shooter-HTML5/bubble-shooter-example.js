@@ -999,9 +999,9 @@ igual te hago un while
                 }
             }
             //contador a partir de aqui
-            let timeLeft = 150;
+            let timeLeft = 180;
         }
-        timeLeft = 150;
+        timeLeft = 180;
         let timer = setInterval(function(){
         const minutos = Math.floor(timeLeft / 60);
         const segundos = timeLeft % 60;
@@ -1021,7 +1021,7 @@ igual te hago un while
             timeOver = true;
             setGameState(gamestates.gameover);
         }  
-        }, 1000);
+        }, 1100);
     }
     
     // Crear random bola para jugador
