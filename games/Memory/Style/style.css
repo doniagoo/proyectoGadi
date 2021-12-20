@@ -42,7 +42,14 @@ h3 {
 p {
   color: white;
 }
+tr {
+  color: #fff;
+  margin-right: 10px;
+}
 
+td {
+  color: #fff;
+}
 .contenedor {
   padding: 0px;
   margin: auto;

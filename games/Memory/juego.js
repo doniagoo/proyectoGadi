@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const opcionId1 = cartaEscogidaId[0];
     const opcionId2 = cartaEscogidaId[1];
     let seg;
+    let puntuacion=0;
 
 
     function crearTablero() { //creo el tablero con cartas 
@@ -129,7 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cartasGanadas.length === cartas.length / 2) {//Te muestra un mensage de lo has logrado, cuando tu score es igual a al length entre 2
             resultado.textContent = 'Enorabuena lo has logrado ! :)';
-            modal();
+            console.log(puntuacion);
+            puntuacion = (parseInt(cartasGanadas.length) + parseInt(tempo.innerHTML));
+             console.log(puntuacion);
+            puntuacionUser();
+            setTimeout(() => {
+                modal();
+            }, 1000);
         }
     }
     function transicion() {
@@ -159,19 +166,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Get the <span> element that closes the modal
         let span = document.getElementsByClassName("close")[0];
-
+        
         modal.style.display = "block";
         if (victoria == true) {
+            
             enorabuena.textContent = "Enorabuena lo has logrado !!! :)";
             scores.textContent = "Tu score es: " + cartasGanadas.length;
             tiempos.textContent = "Te han sobrado: " + tempo.innerHTML + " seg";
-            result.textContent = "Tu puntuacion final es:" + parseInt(cartasGanadas.length, tempo.innerHTML);
+            result.textContent = "Tu puntuacion final es: " + puntuacion;
+            showRanking();
         } else {
             enorabuena.textContent = "Lo siento pero se te ha acabado el tiempo :( ";
             perdida.textContent = "No puedes entrar en el ranking";
             scores.textContent = "Tu score es: " + cartasGanadas.length;
-            //  tiempos.textContent = "TIEMPO !!!!";
-            result.textContent = "Tu puntuacion final es: "(cartasGanadas.length);
+            showRanking();
         }
     }
 
@@ -201,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tablaRanking.innerHTML = "";
         const opcion = {
             method: 'POST',
-            body: JSON.stringify({ action: 'selectScores' })
+            body: JSON.stringify({ action: 'ranking' })
         }
 
 
@@ -214,20 +222,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     tablaRanking.innerHTML += `
  <tr>
-     <th>${cont}</th>
-     <th>${user.nickname}</th>
-     <th>${user.score}</th>
+     <td>${cont}</td>
+     <td>${user.nickname}</td>
+     <td>${user.score}</td>
  </tr>`
                     cont++;
                 });
             });
     }
- function insertGameUser() {
+ function puntuacionUser() {
  const opciones = {
  method: 'POST',
- body: JSON.stringify({action: 'updateUserGame', score: score})
+ body: JSON.stringify({action: 'updateUserGame', puntuacion: puntuacion})
  }
- fetch('./php_librarys/bd.php', opciones)
+     fetch('./bd.php', opciones);
 
  }
 })

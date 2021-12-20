@@ -1,5 +1,5 @@
 <?php
-session_start();           
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,7 +13,7 @@ session_start();
 </head>
 
 <body>
-    <h3 class="marg">SCORE: <span id="resultado" class="margR">0</span> <span id="tempo">222</span><span id="acabo"> seg</span></h3>
+    <h3 class="marg">SCORE: <span id="resultado" class="margR">0</span> <span id="tempo">5152</span><span id="acabo"> seg</span></h3>
     <div class="contenedor">
         <div class="grid"></div>
     </div>
@@ -34,16 +34,18 @@ session_start();
 
                 </form>
                 <h3>Ranking</h3>
-                
+
                 <table>
-                    <td>
-                        <tr>nickname</tr>
-                        <tr>score</tr>
-                    </td>
+                    <tr>
+                        <td>Posicion</td>
+                        <td>Nickname</td>
+                        <td>Score</td>
+                    </tr>
                     <tbody id="ranking">
 
 
                     </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <a href="./inicio.html"><button>Inicio</button></a>

@@ -1,4 +1,5 @@
  <?php
+ //UPDATE USER RANKING
     function scorePlayer()
     {
         $score = $_POST['result'];
