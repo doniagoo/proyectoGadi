@@ -36,7 +36,7 @@ function openBD()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "mysql";
+    $password = "";
 
     $conexion = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     // set the PDO error mode to exception
@@ -214,6 +214,18 @@ function nickname($idUser){
     $sentencia = $conexion->prepare("Select nickname from USERS WHERE id = '$idUser'");
     $sentencia->execute();
     $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado[0];
+}
+
+function isGameUnlocked($idUser, $idJuego){
+    $sentencia = "SELECT juegoCompleto FROM JUEGO_USER WHERE idJuego =:idJuego AND idUser =:idUser";
+    $conexion = openBD();
+    $query = $conexion->prepare($sentencia);
+    $query->bindParam(':idJuego', $idJuego);
+    $query->bindParam(':idUser', $idUser);
+    $query->execute();
+    $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();
     return $resultado[0];
 }

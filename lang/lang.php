@@ -1,5 +1,5 @@
 <?php
-    // session_start();
+    session_start();
     $absolutePathEsp = $_SERVER['DOCUMENT_ROOT'] . '/GADI/lang/esp.php';
     $absolutePathCat = $_SERVER['DOCUMENT_ROOT'] . '/GADI/lang/cat.php';
     $absolutePathEng = $_SERVER['DOCUMENT_ROOT'] . '/GADI/lang/eng.php';

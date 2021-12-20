@@ -31,10 +31,10 @@ if ($userEmail !== "") {
             <a href="../index.php"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
         </div>
         <div class="contenido-navbar">
-            <div><a href="../index.php">Inicio</a></div>
-            <div><a href="../index.php#1">Sobre Politècnics</a></div>
-            <div><a href="../index.php#2">Ciclos</a></div>
-            <div class="ultimo-elemento"><a href="#">JUGAR</a></div>
+            <div><a href="../index.php"><?php echo $lang["navInicio"] ?></a></div>
+            <div><a href="../index.php#1"><?php echo $lang["navAbout"] ?></a></div>
+            <div><a href="../index.php#2"><?php echo $lang["navCiclos"] ?></a></div>
+            <div class="ultimo-elemento"><a href="#"><?php echo $lang["jugarButton"] ?></a></div>
         </div>
     </div>
     <div class="container">

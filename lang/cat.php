@@ -58,7 +58,10 @@ $langCat = array(
     "empresariales" => "ADMINISTRACIÓ Y GESTIÓ",
     "emp1" => "Grau mitjà gestió administrativa",
     "emp2" => "Grau superior administració i finances",
-    "emp3" => "Grau superior assistència a la direcció"
+    "emp3" => "Grau superior assistència a la direcció",
+    "textoRegistro" => "Escriu un email per poder tenir accés als JOCS",
+    "textoCerrarSesion" => "Tancar Sessió",
+    "textoSeleccionarCiclo" => "Selecciona el Cicle per canviar la modalitat de cada JOC"
 )
 
 ?>

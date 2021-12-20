@@ -4,6 +4,7 @@ $langEsp = array(
 
     "titulo" => "¡BIENVENID@ A POLITÈCNICS BARCELONA!",
     "jugar" => "🎮 JUGAR 🎮",
+    "jugarButton" => "Jugar",
     "navInicio" => "Inicio",
     "navAbout" => "Sobre Politècnics",
     "navCiclos" => "Ciclos",
@@ -68,7 +69,9 @@ $langEsp = array(
     "emp1" => "Grado medio gestión administrativa.",
     "emp2" => "Grado superior administración y finanzas.",
     "emp3" => "Grado superior asistencia a la dirección.",
-    "textoRegistro" => "Escribe un email para poder tener acceso a los JUEGOS"
+    "textoRegistro" => "Escribe un email para poder tener acceso a los JUEGOS",
+    "textoCerrarSesion" => "Cerrar Sesión",
+    "textoSeleccionarCiclo" => "Selecciona el Ciclo para cambiar la modalidad de cada JUEGO"
 )
 
 ?>

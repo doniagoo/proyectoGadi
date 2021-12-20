@@ -15,7 +15,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "pwa-chrome",
-            "url": "http://localhost:8080/proyectoGadi/index.php",
+            "url": "http://localhost:8080/GADI/index.php",
             "webRoot": "${workspaceFolder}"
         }
        

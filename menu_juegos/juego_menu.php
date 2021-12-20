@@ -4,6 +4,9 @@ session_start();
 $emailUser = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
 $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
+include('../BD/bd.php');
+include('../lang/esp.php');
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,20 +27,20 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
       <a href="../index.php"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
     </div>
     <div class="contenido-navbar">
-      <div><a href="../index.php">Inicio</a></div>
-      <div><a href="../index.php#1">Sobre Politècnics</a></div>
-      <div><a href="../index.php#2">Ciclos</a></div>
+      <div><a href="../index.php"><?php echo $lang["navInicio"] ?></a></div>
+      <div><a href="../index.php#1"><?php echo $lang["navAbout"] ?></a></div>
+      <div><a href="../index.php#2"><?php echo $lang["navCiclos"] ?></a></div>
       <div>
         <form action="../BD/controlador.php" method="post">
           <div class="nombreUser-btn"><i class="fa fa-user"></i><?php echo $emailUser; ?></div>
-          <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i>Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
+          <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i><?php echo $lang["textoCerrarSesion"] ?></button>
         </form>
       </div>
     </div>
   </div>
   <div class="caja-elige-ciclo">
     <div class="titulo-ciclos">
-      <h2>Selecciona el Ciclo para cambiar la modalidad de cada JUEGO</h2>
+      <h2><?php echo $lang["textoSeleccionarCiclo"] ?></h2>
     </div>
     <div class="divComboBoxCiclos">
       <select name="ciclo" id="comboCiclo">
@@ -47,59 +50,59 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
           <option></option>
         <?php }
         if ($userActivo['ciclo'] == 'AC') { ?>
-          <option value="AC" selected>Grau mitjà activitats comercials</option>
+          <option value="AC" selected><?php echo $lang["com1"] ?></option>
         <?php } else { ?>
-          <option value="AC">Grau mitjà activitats comercials</option>
+          <option value="AC"><?php echo $lang["com1"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'MARP') { ?>
-          <option value="GS MARP" selected>Grau superior màrqueting i publicitat</option>
+          <option value="GS MARP" selected><?php echo $lang["com2"] ?></option>
         <?php } else { ?>
-          <option value="MARP">Grau superior màrqueting i publicitat</option>
+          <option value="MARP"><?php echo $lang["com2"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'GVEC') { ?>
-          <option value="GVEC" selected>Grau superior gestió de vendes i espais comercials</option>
+          <option value="GVEC" selected><?php echo $lang["com3"] ?></option>
         <?php } else { ?>
-          <option value="GS GVEC">Grau superior gestió de vendes i espais comercials</option>
+          <option value="GS GVEC"><?php echo $lang["com3"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'CINT') { ?>
-          <option value="GS CINT" selected>Grau superior comerç internacional</option>
+          <option value="GS CINT" selected><?php echo $lang["com4"] ?></option>
         <?php } else { ?>
-          <option value="CINT">Grau superior comerç internacional</option>
+          <option value="CINT"><?php echo $lang["com4"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'AVIE') { ?>
-          <option value="AVIE" selected>Grau superior agències de viatges i gestió d’esdeveniments</option>
+          <option value="AVIE" selected><?php echo $lang["hosteleria1"] ?></option>
         <?php } else { ?>
-          <option value="AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
+          <option value="AVIE"><?php echo $lang["hosteleria1"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'SMIX') { ?>
-          <option value="SMIX" selected>Grau mitjà sistemes microinformàtics i xarxes</option>
+          <option value="SMIX" selected><?php echo $lang["info1"] ?></option>
         <?php } else { ?>
-          <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
+          <option value="GM SMIX"><?php echo $lang["info1"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'DAW') { ?>
-          <option value="DAW" selected>Grau superior desenvolupament aplicacions web</option>
+          <option value="DAW" selected><?php echo $lang["info2"] ?></option>
         <?php } else { ?>
-          <option value="DAW">Grau superior desenvolupament aplicacions web</option>
+          <option value="DAW"><?php echo $lang["info2"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'DAM') { ?>
-          <option value="DAM" selected>Grau superior desenvolupament aplicacions multiplataforma</option>
+          <option value="DAM" selected><?php echo $lang["info3"] ?></option>
         <?php } else { ?>
-          <option value="DAM">Grau superior desenvolupament aplicacions multiplataforma</option>
+          <option value="DAM"><?php echo $lang["info3"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'GAD') { ?>
-          <option value="GAD" selected>Grau mitjà gestió administrativa</option>
+          <option value="GAD" selected><?php echo $lang["emp1"] ?></option>
         <?php } else { ?>
-          <option value="GAD">Grau mitjà gestió administrativa</option>
+          <option value="GAD"><?php echo $lang["emp1"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'AFI') { ?>
-          <option value="AFI" selected>Grau superior administració i finances</option>
+          <option value="AFI" selected><?php echo $lang["emp2"] ?></option>
         <?php } else { ?>
-          <option value="AFI">Grau superior administració i finances</option>
+          <option value="AFI"><?php echo $lang["emp2"] ?></option>
         <?php }
         if ($userActivo['ciclo'] == 'ADIR') { ?>
-          <option value="ADIR" selected>Grau superior assistència a la direcció</option>
+          <option value="ADIR" selected><?php echo $lang["emp3"] ?></option>
         <?php } else { ?>
-          <option value="ADIR">Grau superior assistència a la direcció</option>
+          <option value="ADIR"><?php echo $lang["emp3"] ?></option>
         <?php } ?>
       </select>
     </div>
@@ -109,12 +112,12 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
     <div class="juego">
       <div class="imagen__juego">
         <a href="../games/politecniX/src/html/index.html"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
-
       </div>
       <div class="game__name">
         <h2>PolitecniX</h2>
       </div>
     </div>
+
     <div class="juego">
       <div class="imagen__juego">
         <a href="../games/Memory/inicio.html"><img src="../media/img/img-pantalla-game-2.png" id="juego_imagen" alt="joc1" /></a>
@@ -123,30 +126,67 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <h2>Memory</h2>
       </div>
     </div>
-    <div class="juego">
-      <div class="imagen__juego">
-        <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+    <?php
+    $huntUnlocked = isGameUnlocked($userActivo['id'], 2);
+    if ($huntUnlocked['juegoCompleto'] == '0') { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" />
+        </div>
+        <div class="game__name">
+          <h2>Politecnics Hunt</h2>
+        </div>
       </div>
-      <div class="game__name">
-        <h2>Politecnics Hunt</h2>
+    <?php } else { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+        </div>
+        <div class="game__name">
+          <h2>Politecnics Hunt</h2>
+        </div>
       </div>
-    </div>
-    <div class="juego">
-      <div class="imagen__juego">
-        <a href="../games/DisparaBolas/Bubble-Shooter-HTML5/bubble-shooter.html"><img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" /></a>
+    <?php }
+    $ShooterUnlocked = isGameUnlocked($userActivo['id'], 3);
+    if ($ShooterUnlocked['juegoCompleto'] == '0') { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" />
+        </div>
+        <div class="game__name">
+          <h2>Dispara Bolas</h2>
+        </div>
       </div>
-      <div class="game__name">
-        <h2>Dispara Bolas</h2>
+    <?php } else { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <a href="../games/DisparaBolas/Bubble-Shooter-HTML5/bubble-shooter.html"><img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" /></a>
+        </div>
+        <div class="game__name">
+          <h2>Dispara Bolas</h2>
+        </div>
       </div>
-    </div>
-    <div class="juego">
-      <div class="imagen__juego">
-        <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
+    <?php }
+    $PacmanUnlocked = isGameUnlocked($userActivo['id'], 5);
+    if ($PacmanUnlocked['juegoCompleto'] == '0') { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" />
+        </div>
+        <div class="game__name">
+          <h2>Caza Frase</h2>
+        </div>
       </div>
-      <div class="game__name">
-        <h2>Caza Frase</h2>
+    <?php } else { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
+        </div>
+        <div class="game__name">
+          <h2>Caza Frase</h2>
+        </div>
       </div>
-    </div>
+    <?php } ?>
   </div>
 </body>
 
