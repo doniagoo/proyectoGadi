@@ -4,6 +4,7 @@ $langEsp = array(
 
     "titulo" => "¡BIENVENID@ A POLITÈCNICS BARCELONA!",
     "jugar" => "🎮 JUGAR 🎮",
+    "jugarButton" => "Jugar",
     "navInicio" => "Inicio",
     "navAbout" => "Sobre Politècnics",
     "navCiclos" => "Ciclos",

@@ -66,7 +66,7 @@
       <div><a href="#1"><?php echo $lang["navAbout"] ?></a></div>
       <div><a href="#2"><?php echo $lang["navCiclos"] ?></a></div>
       <div class="ultimo-elemento">
-        <a href="./BD/loginUser.php">JUGAR</a>
+        <a href="./BD/loginUser.php"><?php echo $lang["jugarButton"] ?></a>
       </div>
     </div>
   </div>
