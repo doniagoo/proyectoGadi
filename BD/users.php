@@ -2,7 +2,6 @@
 require_once("./bd.php");
 $users = mostrarUsers();
 $scores = mostrarScore();
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
