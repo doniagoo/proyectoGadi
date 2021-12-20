@@ -1,5 +1,7 @@
 <?php session_start();
 $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] : '';
+include('../lang/esp.php');
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
 ?>
 
 
@@ -40,33 +42,33 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                 <?php } else { ?>
                     <input type="text" name="email" id="email" required minlength="11" maxlength="60">
                 <?php } ?><br><br>
-                <label for="nombre">Nombre</label><br>
+                <label for="nombre"><?php echo $lang["nombreRegistro"] ?></label><br>
                 <input type="text" name="nombre" id="nombre" required maxlength="25"><br><br>
-                <label for="apellidos">Apellido</label><br>
+                <label for="apellidos"><?php echo $lang["apellidoRegistro"] ?></label><br>
                 <input type="text" name="apellidos" id="apellidos" required maxlength="60"><br><br>
 
                 <label for="nickname">Nickname</label><br>
                 <input type="text" name="nickname" id="nickname" required maxlength="25"><br><br>
-                <label for="ciclo">Ciclo</label><br>
+                <label for="ciclo"><?php echo $lang["cicloRegistro"] ?></label><br>
                 <select name="ciclo" id="" required>
                     <option></option>
-                    <option value="AC">Grau mitjà activitats comercials</option>
-                    <option value="MARP">Grau superior màrqueting i publicitat</option>
-                    <option value="GVEC">Grau superior gestió de vendes i espais comercials</option>
-                    <option value="CINT">Grau superior comerç internacional</option>
-                    <option value="AVIE">Grau superior agències de viatges i gestió d’esdeveniments</option>
-                    <option value="SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
-                    <option value="DAW">Grau superior desenvolupament aplicacions web</option>
-                    <option value="DAM">Grau superior desenvolupament aplicacions multiplaforma</option>
-                    <option value="GAD">Grau mitjà gestió administrativa</option>
-                    <option value="AFI">Grau superior administració i finances</option>
-                    <option value="ADIR">Grau superior assistència a la direcció</option>
+                    <option value="AC"><?php echo $lang["com1"] ?></option>
+                    <option value="MARP"><?php echo $lang["com2"] ?></option>
+                    <option value="GVEC"><?php echo $lang["com3"] ?></option>
+                    <option value="CINT"><?php echo $lang["com4"] ?></option>
+                    <option value="AVIE"><?php echo $lang["hosteleria1"] ?></option>
+                    <option value="SMIX"><?php echo $lang["info1"] ?></option>
+                    <option value="DAW"><?php echo $lang["info2"] ?></option>
+                    <option value="DAM"><?php echo $lang["info3"] ?></option>
+                    <option value="GAD"><?php echo $lang["emp1"] ?></option>
+                    <option value="AFI"><?php echo $lang["emp2"] ?></option>
+                    <option value="ADIR"><?php echo $lang["emp3"] ?></option>
                 </select><br>
                 <br>
                 <div class="mensaje-error"><?php require_once('./mensaje.php'); ?></div>
-                <button class="registro-boton" type="submit" name="insertUser">Registrarse</button>
+                <button class="registro-boton" type="submit" name="insertUser"><?php echo $lang["btnRegistrarse"] ?></button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
-                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.php">Cancelar</a></button>
+                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.php"><?php echo $lang["btnCancelar"] ?></a></button>
             </form>
         </div>
     </div>

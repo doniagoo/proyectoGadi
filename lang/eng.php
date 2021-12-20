@@ -64,7 +64,12 @@ $langEng = array(
     "emp3" => "Higher degree management assistance",
     "textoRegistro" => "Write an email to get access to the GAMES",
     "textoCerrarSesion" => "Log Out",
-    "textoSeleccionarCiclo" => "Select the Course to change the GAME's modality"
+    "textoSeleccionarCiclo" => "Select the Course to change the GAME's modality",
+    "nombreRegistro" => "Name",
+    "apellidoRegistro" => "Surname",
+    "cicloRegistro" => "Course",
+    "btnRegistrarse" => "Sign Up",
+    "btnCancelar" => "Cancel"
 )
 
 ?>
