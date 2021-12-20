@@ -50,10 +50,8 @@ $admins = mostrarAdmins();
                     <th>Contraseña</th>
                     <th>Es_Admin</th>
                     <th>Es_SuperAdmin</th>
-                    <th>Nickname</th>
                     <th>Apellidos</th>
                     <th>Nombre</th>
-                    <th>Ciclo</th>
                     <th>DEL</th>
                     <th>EDIT</th>
                 </tr>
@@ -65,10 +63,8 @@ $admins = mostrarAdmins();
                 <td><?php echo $admin['contrasena']; ?></td>
                 <td><?php echo $admin['es_admin']; ?></td>
                 <td><?php echo $admin['es_superadmin']; ?></td>
-                <td><?php echo $admin['nickname']; ?></td>
                 <td><?php echo $admin['apellidos']; ?></td>
                 <td><?php echo $admin['nombre']; ?></td>
-                <td><?php echo $admin['ciclo']; ?></td>
                 <td>
                     <form action="./controlador.php" method="post">
                         <input type="hidden" id="Idadmin" name="Idadmin" value="<?php echo $admin['id'] ?>">

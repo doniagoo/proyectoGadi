@@ -1,7 +1,7 @@
 const intro = document.querySelector("#intro");
 
 function intro1(){
-    let primera = "Este juego es un memory un juego muy facil que lo que trata es encontrar las parejas.";
+    let primera = "Este juego es un memory un juego muy facil de lo que trata es encontrar las parejas.";
     intro.textContent = primera;
     setTimeout(intro2, 6500);
 }
