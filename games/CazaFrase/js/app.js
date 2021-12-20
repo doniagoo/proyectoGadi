@@ -85,11 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const chompSound = new Audio ('./media/sounds/chomp.mp3');
         const gameWinSound = new Audio ('./media/sounds/gameWinSound.wav');
 
-        const textF = "TEXTO DE LA F";
-        const textR = "TEXTO DE LA R";
-        const textA = "TEXTO DE LA A";
-        const textS = "TEXTO DE LA S";
-        const textE = "TEXTO DE LA E";
+        const textF = "FLEXIBILITAT: Es treballa amb una visió global del projecte. Això permet fer adaptacions fàcilment. S'entén el treball en grups com un avantatge, i això fa augmentar el talent de l'equip.";
+        const textR = "RESPONSABILITAT: Es coneixen els objectius amb precisió i es treballa de manera continuada i intensiva. Es fan autoavaluacions metòdiques de la gestió del treball atent a indicacions pròpies o externes.";
+        const textA = "AUTONOMIA: Quan s'ha de prendre una decisió i es disposa d'indicadors clars que la reforcin es desenvolupa una proposta i es du a terme. Sap gestionar el temps i els moments. S'entenen els errors com a aprenentatges.";
+        const textS = "SOCIABILITAT: Es comunica intensivament tant en el temps i espai acadèmic com a fora d'ell. Dona i rep ajuda per igual. Hi ha comunicació amb la resta de l'equip que ajuda al procés d'aprenentatge.";
+        const textE = "EVOLUCIÓ: Es treballa de manera constant, completant els fulls de ruta amb esperit crític. Hi ha preocupació entenent el sentit de cada tasca. Es detecta perocupació per extendre els coneixements més enllà dels proposats, buscant sorprendre.";
         let timeOver = false;
 
         // Definim el color de l'anell com a verd per defecte.
