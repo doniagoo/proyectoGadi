@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnBack.addEventListener("click", backGamesScreen);
 
     function backGamesScreen(){
-        location.href="../../menu_juegos/juego_menu.html";
+        location.href="../../menu_juegos/juego_menu.php";
     }
 
 

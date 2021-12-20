@@ -13,7 +13,7 @@ session_start();
 </head>
 
 <body>
-    <h3 class="marg">SCORE: <span id="resultado" class="margR">0</span> <span id="tempo">10</span><span id="acabo"> seg</span></h3>
+    <h3 class="marg">SCORE: <span id="resultado" class="margR">0</span> <span id="tempo">222</span><span id="acabo"> seg</span></h3>
     <div class="contenedor">
         <div class="grid"></div>
     </div>
@@ -27,10 +27,41 @@ session_start();
                 <p id="enorabuena"></p>
             </div>
             <div class="modal-body">
-                <p id="perdida"></p>
-                <p id="scores" id="tiempos"></p>
-                <p El resultado es : id="result"></p>
+                <p><span id="perdida"></span> <span id="scores"></span></p>
+                <p id="tiempos"></p>
+                <p id="result"></p>
                 <h3>Ranking</h3>
+                <?php
+                function scorePlayer()
+                {
+                    $score ='id="result"' ;
+                    $conexion = openBD();
+                    $id=id($_SESSION['email']);
+                    $sentenciaText = "UPDATE JUEGO_USER SET idJuego= :idJuego,idUser=:idUser,juegoCompleto=:juegoCompleto,score=:score WHERE idUser= $id";
+                    $sentencia = $conexion->prepare($sentenciaText);
+                    $sentencia->bindParam(':idJuego', 2);
+                    $sentencia->bindParam(':idUser', $id);
+                    $sentencia->bindParam(':juegoCompleto', 1);
+                    $sentencia->bindParam(':score',$score);
+                    $sentencia->execute();
+                    $conexion = closeBD();
+                }
+                $ranking=scorePlayer();
+                $nickname=nickname($ranking['idUser']);
+                ?>
+                <table>
+                    <td>
+                        <tr>nickname</tr>
+                        <tr>score</tr>
+                    </td>
+                    <td>
+                        <tr>
+                            <?php $nickname['nickname']?>
+                        </tr>
+                        <tr>
+                            <?php $ranking['score']?>
+                        </tr>
+                    </td>
             </div>
             <div class="modal-footer">
                 <a href="./inicio.html"><button>Inicio</button></a>

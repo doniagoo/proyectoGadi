@@ -14,7 +14,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../style/juegos__styles.css" />
   <link rel="stylesheet" href="../style/nav__style.css" />
-
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <title>Menu Juegos</title>
 </head>
 
@@ -29,8 +29,8 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
       <div><a href="../index.php#2">Ciclos</a></div>
       <div>
         <form action="../BD/controlador.php" method="post">
-          <div class="nombreUser-btn"><?php echo $emailUser; ?></div>
-          <button class="cerrar-sesion" type="submit" name="cerrarSesion">Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
+          <div class="nombreUser-btn"><i class="fa fa-user"></i><?php echo $emailUser; ?></div>
+          <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i>Cerrar Sesión</button> <!-- Modificar la clase del botón para que se ajuste a los demás. -->
         </form>
       </div>
     </div>
@@ -77,7 +77,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
           <option value="GM SMIX">Grau mitjà sistemes microinformàtics i xarxes</option>
         <?php }
         if ($userActivo['ciclo'] == 'DAW') { ?>
-          <option value="DAW">Grau superior desenvolupament aplicacions web</option>
+          <option value="DAW" selected>Grau superior desenvolupament aplicacions web</option>
         <?php } else { ?>
           <option value="DAW">Grau superior desenvolupament aplicacions web</option>
         <?php }
@@ -108,11 +108,11 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
   <div class="container">
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/politecniX/src/html/index.php"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
+        <a href="../games/politecniX/src/html/index.html"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
 
       </div>
       <div class="game__name">
-        <h3>PolitecniX</h3>
+        <h2>PolitecniX</h2>
       </div>
     </div>
     <div class="juego">
@@ -120,15 +120,15 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/Memory/inicio.html"><img src="../media/img/img-pantalla-game-2.png" id="juego_imagen" alt="joc1" /></a>
       </div>
       <div class="game__name">
-        <h3>Memory</h3>
+        <h2>Memory</h2>
       </div>
     </div>
     <div class="juego">
       <div class="imagen__juego">
-        <a href="../games/politecnicsHunt/index.php"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+        <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
       </div>
       <div class="game__name">
-        <h3>Politecnics Hunt</h3>
+        <h2>Politecnics Hunt</h2>
       </div>
     </div>
     <div class="juego">
@@ -136,7 +136,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/DisparaBolas/Bubble-Shooter-HTML5/bubble-shooter.html"><img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" /></a>
       </div>
       <div class="game__name">
-        <h3>Dispara Bolas</h3>
+        <h2>Dispara Bolas</h2>
       </div>
     </div>
     <div class="juego">
@@ -144,7 +144,7 @@ $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
         <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
       </div>
       <div class="game__name">
-        <h3>Caza Frase</h3>
+        <h2>Caza Frase</h2>
       </div>
     </div>
   </div>

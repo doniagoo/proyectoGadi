@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 function errorMensaje($e)
 {
     if (!empty($e->errorInfo[1])) {
@@ -8,7 +8,7 @@ function errorMensaje($e)
                 $mensaje = 'Registro duplicado';
                 break;
             case 1451:
-                $mensaje = 'Registrop con elementos relacionados';
+                $mensaje = 'Registro con elementos relacionados';
                 break;
             default:
                 $mensaje = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
@@ -196,6 +196,22 @@ function loginAdmin($email)
 {
     $conexion = openBD();
     $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email' and es_admin = 1");
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado[0];
+}
+function ranking(){
+    $conexion = openBD();
+    $sentencia = $conexion->prepare("Select idUser,score from JUEGO_USER WHERE idJuego = 2 order by score desc LIMIT 5");
+    $sentencia->execute();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado;
+}
+function nickname($idUser){
+    $conexion = openBD();
+    $sentencia = $conexion->prepare("Select nickname from USERS WHERE id = '$idUser'");
     $sentencia->execute();
     $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();

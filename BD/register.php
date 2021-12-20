@@ -14,23 +14,25 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/login__style.css">
     <link rel="stylesheet" href="../style/nav__style.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <title>Registro</title>
 </head>
 
 <body>
     <div class="container-navbar">
         <div class="logo-navbar">
-            <a href="../index.html"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
+            <a href="../index.php"><img src="../media/img/marca-agua-negro.png" alt="" /></a>
         </div>
         <div class="contenido-navbar">
-            <div><a href="../index.html">Inicio</a></div>
-            <div><a href="../index.html#1">Sobre Politècnics</a></div>
-            <div><a href="../index.html#2">Ciclos</a></div>
-            <div><a href="#">JUGAR</a></div>
+            <div><a href="../index.php">Inicio</a></div>
+            <div><a href="../index.php#1">Sobre Politècnics</a></div>
+            <div><a href="../index.php#2">Ciclos</a></div>
+            <div class="ultimo-elemento"><a href="#">JUGAR</a></div>
         </div>
     </div>
     <div class="container">
         <div class="form__container">
+        <div class="volver"><a href="../BD/loginUser.php"><i class="fa fa-chevron-left" style="font-size:24px"></i></a></div>
             <form class="form__style" action="./controlador.php" method="post">
                 <label for="email">Email</label><br>
                 <?php if ($emailRegister != '') { ?>
@@ -64,7 +66,7 @@ $emailRegister = isset($_SESSION['emailRegister']) ? $_SESSION['emailRegister'] 
                 <div class="mensaje-error"><?php require_once('./mensaje.php'); ?></div>
                 <button class="registro-boton" type="submit" name="insertUser">Registrarse</button>
                 <!-- <input type="submit" value="Registrarse" class="bttn"> -->
-                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.html">Cancelar</a></button>
+                <button class="cancel-boton" type="submit"><a draggable="true" href="../index.php">Cancelar</a></button>
             </form>
         </div>
     </div>

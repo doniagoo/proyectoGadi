@@ -67,7 +67,8 @@ $langEsp = array(
     "empresariales" => "ADMINISTRACIÓN Y GESTIÓN",
     "emp1" => "Grado medio gestión administrativa.",
     "emp2" => "Grado superior administración y finanzas.",
-    "emp3" => "Grado superior asistencia a la dirección."
+    "emp3" => "Grado superior asistencia a la dirección.",
+    "textoRegistro" => "Escribe un email para poder tener acceso a los JUEGOS"
 )
 
 ?>
