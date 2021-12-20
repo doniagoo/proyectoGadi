@@ -1001,7 +1001,7 @@ igual te hago un while
             //contador a partir de aqui
             let timeLeft = 150;
         }
-        timeLeft = 150;
+        timeLeft = 151;
         let timer = setInterval(function(){
         const minutos = Math.floor(timeLeft / 60);
         const segundos = timeLeft % 60;
