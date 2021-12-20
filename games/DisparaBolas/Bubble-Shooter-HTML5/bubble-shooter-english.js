@@ -961,9 +961,9 @@ window.onload = function() {
                     nivel.tiles[i][j].type = -1;
                 }
             }
-            let timeLeft = 150;
+            let timeLeft = 180;
         }
-        timeLeft = 150;
+        timeLeft = 180;
         let timer = setInterval(function(){
         const minutos = Math.floor(timeLeft / 60);
         const segundos = timeLeft % 60;
@@ -983,7 +983,7 @@ window.onload = function() {
             timeOver = true;
             setGameState(gamestates.gameover);
         }  
-        }, 1000);
+        }, 1100);
     }
     
     // Crear random bola para jugador

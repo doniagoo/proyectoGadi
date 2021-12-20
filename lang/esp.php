@@ -71,7 +71,12 @@ $langEsp = array(
     "emp3" => "Grado superior asistencia a la dirección.",
     "textoRegistro" => "Escribe un email para poder tener acceso a los JUEGOS",
     "textoCerrarSesion" => "Cerrar Sesión",
-    "textoSeleccionarCiclo" => "Selecciona el Ciclo para cambiar la modalidad de cada JUEGO"
+    "textoSeleccionarCiclo" => "Selecciona el Ciclo para cambiar la modalidad de cada JUEGO",
+    "nombreRegistro" => "Nombre",
+    "apellidoRegistro" => "Apellido",
+    "cicloRegistro" => "Ciclo",
+    "btnRegistrarse" => "Registrarse",
+    "btnCancelar" => "Cancelar"
 )
 
 ?>

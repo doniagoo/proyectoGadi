@@ -131,7 +131,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
     if ($huntUnlocked['juegoCompleto'] == '0') { ?>
       <div class="juego">
         <div class="imagen__juego">
-          <img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" />
+          <img src="../media/img/candado-shoter.png" id="juego_imagen" alt="joc2" />
         </div>
         <div class="game__name">
           <h2>Politecnics Hunt</h2>
@@ -151,7 +151,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
     if ($ShooterUnlocked['juegoCompleto'] == '0') { ?>
       <div class="juego">
         <div class="imagen__juego">
-          <img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" />
+          <img src="../media/img/candado-bola.png" id="juego_imagen" alt="joc3" />
         </div>
         <div class="game__name">
           <h2>Dispara Bolas</h2>
@@ -171,7 +171,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
     if ($PacmanUnlocked['juegoCompleto'] == '1') { ?>
       <div class="juego">
         <div class="imagen__juego">
-          <img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" />
+          <img src="../media/img/Candado-pacman.png" id="juego_imagen" alt="joc4" />
         </div>
         <div class="game__name">
           <h2>Caza Frase</h2>

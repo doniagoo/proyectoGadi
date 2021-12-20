@@ -61,7 +61,12 @@ $langCat = array(
     "emp3" => "Grau superior assistència a la direcció",
     "textoRegistro" => "Escriu un email per poder tenir accés als JOCS",
     "textoCerrarSesion" => "Tancar Sessió",
-    "textoSeleccionarCiclo" => "Selecciona el Cicle per canviar la modalitat de cada JOC"
+    "textoSeleccionarCiclo" => "Selecciona el Cicle per canviar la modalitat de cada JOC",
+    "nombreRegistro" => "Nom",
+    "apellidoRegistro" => "Cognom",
+    "cicloRegistro" => "Curs",
+    "btnRegistrarse" => "Registrar-se",
+    "btnCancelar" => "Cancel·lar"
 )
 
 ?>
