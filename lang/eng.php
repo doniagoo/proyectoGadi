@@ -61,7 +61,15 @@ $langEng = array(
     "empresariales" => "ADMINISTRATION AND MANAGEMENT",
     "emp1" => "Intermediate degree in administrative management",
     "emp2" => "Higher degree in administration and finance",
-    "emp3" => "Higher degree management assistance"
+    "emp3" => "Higher degree management assistance",
+    "textoRegistro" => "Write an email to get access to the GAMES",
+    "textoCerrarSesion" => "Log Out",
+    "textoSeleccionarCiclo" => "Select the Course to change the GAME's modality",
+    "nombreRegistro" => "Name",
+    "apellidoRegistro" => "Surname",
+    "cicloRegistro" => "Course",
+    "btnRegistrarse" => "Sign Up",
+    "btnCancelar" => "Cancel"
 )
 
 ?>
