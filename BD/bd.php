@@ -217,3 +217,15 @@ function nickname($idUser){
     $conexion = closeBD();
     return $resultado[0];
 }
+
+function isGameUnlocked($idUser, $idJuego){
+    $sentencia = "SELECT juegoCompleto FROM JUEGO_USER WHERE idJuego =:idJuego AND idUser =:idUser";
+    $conexion = openBD();
+    $query = $conexion->prepare($sentencia);
+    $query->bindParam(':idJuego', $idJuego);
+    $query->bindParam(':idUser', $idUser);
+    $query->execute();
+    $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado[0];
+}

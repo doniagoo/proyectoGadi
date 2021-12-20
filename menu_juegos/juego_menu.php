@@ -4,7 +4,7 @@ session_start();
 $emailUser = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 $cicloUser = isset($_SESSION['ciclo']) ? $_SESSION['ciclo'] : "";
 $userActivo = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
-
+include('../BD/bd.php');
 include('../lang/esp.php');
 $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
 ?>
@@ -33,7 +33,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
       <div>
         <form action="../BD/controlador.php" method="post">
           <div class="nombreUser-btn"><i class="fa fa-user"></i><?php echo $emailUser; ?></div>
-          <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i><?php echo $lang["textoCerrarSesion"] ?></button> 
+          <button class="cerrar-sesion" type="submit" name="cerrarSesion"><i class="fa fa-sign-out"></i><?php echo $lang["textoCerrarSesion"] ?></button>
         </form>
       </div>
     </div>
@@ -112,12 +112,12 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
     <div class="juego">
       <div class="imagen__juego">
         <a href="../games/politecniX/src/html/index.html"><img src="../media/img/img-pantalla-game-4.png" id="juego_imagen" alt="joc5" /></a>
-
       </div>
       <div class="game__name">
         <h2>PolitecniX</h2>
       </div>
     </div>
+
     <div class="juego">
       <div class="imagen__juego">
         <a href="../games/Memory/inicio.html"><img src="../media/img/img-pantalla-game-2.png" id="juego_imagen" alt="joc1" /></a>
@@ -126,30 +126,67 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
         <h2>Memory</h2>
       </div>
     </div>
-    <div class="juego">
-      <div class="imagen__juego">
-        <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+    <?php
+    $huntUnlocked = isGameUnlocked($userActivo['id'], 2);
+    if ($huntUnlocked['juegoCompleto'] == '0') { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" />
+        </div>
+        <div class="game__name">
+          <h2>Politecnics Hunt</h2>
+        </div>
       </div>
-      <div class="game__name">
-        <h2>Politecnics Hunt</h2>
+    <?php } else { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <a href="../games/politecnicsHunt/index.html"><img src="../media/img/img-pantalla-game-5.png" id="juego_imagen" alt="joc2" /></a>
+        </div>
+        <div class="game__name">
+          <h2>Politecnics Hunt</h2>
+        </div>
       </div>
-    </div>
-    <div class="juego">
-      <div class="imagen__juego">
-        <a href="../games/DisparaBolas/Bubble-Shooter-HTML5/bubble-shooter.html"><img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" /></a>
+    <?php }
+    $ShooterUnlocked = isGameUnlocked($userActivo['id'], 3);
+    if ($ShooterUnlocked['juegoCompleto'] == '0') { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" />
+        </div>
+        <div class="game__name">
+          <h2>Dispara Bolas</h2>
+        </div>
       </div>
-      <div class="game__name">
-        <h2>Dispara Bolas</h2>
+    <?php } else { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <a href="../games/DisparaBolas/Bubble-Shooter-HTML5/bubble-shooter.html"><img src="../media/img/img-pantalla-game-1.png" id="juego_imagen" alt="joc3" /></a>
+        </div>
+        <div class="game__name">
+          <h2>Dispara Bolas</h2>
+        </div>
       </div>
-    </div>
-    <div class="juego">
-      <div class="imagen__juego">
-        <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
+    <?php }
+    $PacmanUnlocked = isGameUnlocked($userActivo['id'], 5);
+    if ($PacmanUnlocked['juegoCompleto'] == '0') { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" />
+        </div>
+        <div class="game__name">
+          <h2>Caza Frase</h2>
+        </div>
       </div>
-      <div class="game__name">
-        <h2>Caza Frase</h2>
+    <?php } else { ?>
+      <div class="juego">
+        <div class="imagen__juego">
+          <a href="../games/CazaFrase/index.php"><img src="../media/img/img-pantalla-game-3.png" id="juego_imagen" alt="joc4" /></a>
+        </div>
+        <div class="game__name">
+          <h2>Caza Frase</h2>
+        </div>
       </div>
-    </div>
+    <?php } ?>
   </div>
 </body>
 
