@@ -13,7 +13,12 @@ session_start();
 </head>
 
 <body>
-    <h3 class="marg">SCORE: <span id="resultado" class="margR">0</span> <span id="tempo">5152</span><span id="acabo"> seg</span></h3>
+    <div onload="cargar()">
+        <div id="musica"></div>
+    </div>
+    <audio src="./musicaFondo.mp3"></audio>
+    <audio id="correcto" src="./acierto.mp3"></audio>
+    <h3 class="marg">SCORE: <span id="resultado" class="margR">0</span> <span id="tempo">90</span><span id="acabo"> seg</span></h3>
     <div class="contenedor">
         <div class="grid"></div>
     </div>

@@ -1,76 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartas = [ //array con imagenes del memory
         {
-            name: 'Monitor',
-            img: './img/Monitor.png'
+            name: 'MARP',
+            img: './img/MARP.png'
         },
         {
-            name: 'Raton',
-            img: './img/Raton.png'
+            name: 'MARP',
+            img: './img/MARP.png'
         },
         {
-            name: 'Codigo',
-            img: './img/Codigo.png'
+            name: 'GVEC',
+            img: './img/GVEC.png'
         },
         {
-            name: 'Lenguaje',
-            img: './img/Lenguaje.png'
+            name: 'GVEC',
+            img: './img/GVEC.png'
         },
         {
-            name: 'Pc',
-            img: './img/Pc.png'
+            name: 'CINT',
+            img: './img/CINT.png'
         },
         {
-            name: 'Logo',
-            img: './img/Logo.png'
+            name: 'CINT',
+            img: './img/CINT.png'
         },
         {
-            name: 'Monitor',
-            img: './img/Monitor.png'
+            name: 'AVIE',
+            img: './img/AVIE.png'
         },
         {
-            name: 'Raton',
-            img: './img/Raton.png'
+            name: 'AVIE',
+            img: './img/AVIE.png'
         },
         {
-            name: 'Codigo',
-            img: './img/Codigo.png'
+            name: 'DAM',
+            img: './img/DAM.png'
         },
         {
-            name: 'Lenguaje',
-            img: './img/Lenguaje.png'
+            name: 'DAM',
+            img: './img/DAM.png'
         },
         {
-            name: 'Pc',
-            img: './img/Pc.png'
+            name: 'DAW',
+            img: './img/DAW.png'
         },
         {
-            name: 'Logo',
-            img: './img/Logo.png'
+            name: 'DAW',
+            img: './img/DAW.png'
         },
         {
-            name: 'Ethernet',
-            img: './img/Ethernet.png'
+            name: 'AFI',
+            img: './img/AFI.png'
         },
         {
-            name: 'wifi',
-            img: './img/wifi.png'
+            name: 'AFI',
+            img: './img/AFI.png'
         },
         {
-            name: 'Portatil',
-            img: './img/Portatil.png'
+            name: 'ADIR',
+            img: './img/ADIR.png'
         },
         {
-            name: 'Ethernet',
-            img: './img/Ethernet.png'
+            name: 'ADIR',
+            img: './img/ADIR.png'
         },
         {
-            name: 'wifi',
-            img: './img/wifi.png'
+            name: 'POLI',
+            img: './img/POLI.png'
         },
         {
-            name: 'Portatil',
-            img: './img/Portatil.png'
+            name: 'POLI',
+            img: './img/POLI.png'
         }
     ]
 
@@ -89,7 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const opcionId2 = cartaEscogidaId[1];
     let seg;
     let puntuacion=0;
-
+    const audio = document.querySelector('audio');
+    const correcto = document.getElementById('correcto');
+    const fallo =document.getElementById('fallo');
+    // function cargar(){
+    //     const musica = document.getElementById('musica');
+    //     musica.innerHTML='<audio src="./musicaFondo.mp3" autoplay></audio>';
+    // }
 
     function crearTablero() { //creo el tablero con cartas 
         for (let i = 0; i < cartas.length; i++) {
@@ -101,26 +107,25 @@ document.addEventListener('DOMContentLoaded', () => {
             grid.appendChild(carta);
         }
     }
-
-
+function error(){
+    fallo.play();
+}
     function coincide() {//funcion que comprueba si la primera carta seleccionada es igual que la segunda si coincide cambia la imagen a blanco y sube el score, si no se vuelve a voltear la carta 
         let carta = document.querySelectorAll('img');
         const opcionId1 = cartaEscogidaId[0];
         const opcionId2 = cartaEscogidaId[1];
         if (cartaEscogida[0] === cartaEscogida[1]) {
-            document.getElementById("acierto").innerHTML = ('acierto');//aviso de acierto
+            correcto.play();
             carta[opcionId1].style.visibility = 'hidden';
             carta[opcionId2].style.visibility = 'hidden';
             cartasGanadas.push(cartaEscogida);
         } else {
-            if (carta[opcionId1] !== "'src','./img/blanco.png'" || carta[opcionId2] !== "'src','./img/blanco.png'") {
+            
                 carta[opcionId1].style.transform = "rotateY(180deg)";
-                carta[opcionId1].setAttribute('src', './img/carta_detras.png');
                 carta[opcionId2].style.transform = "rotateY(180deg)";
+                carta[opcionId1].setAttribute('src', './img/carta_detras.png');
                 carta[opcionId2].setAttribute('src', './img/carta_detras.png');
-               
-            }
-            document.getElementById("acierto").innerHTML = ('fallo');//aviso de fallo
+            
         }
         cartaEscogida = [];
         cartaEscogidaId = [];
@@ -132,15 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
             resultado.textContent = 'Enorabuena lo has logrado ! :)';
             console.log(puntuacion);
             puntuacion = (parseInt(cartasGanadas.length) + parseInt(tempo.innerHTML));
-             console.log(puntuacion);
+            console.log(puntuacion);
             puntuacionUser();
-            setTimeout(() => {
-                modal();
-            }, 1000);
+            modal();
         }
     }
     function transicion() {
         let carta = this;
+        audio.play();
         carta.style.transform = "rotateY(360deg)"; //gira la carta
         setTimeout(voltearCarta, 125, carta);
     }
@@ -184,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function temporizador() {
+        
         if (tempo.innerHTML != 0) {
             seg = setInterval(function () { tiempo() }, 1000);
         }
@@ -199,11 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal();
         }
     }
-    function movimiento() {
-        for (let i = 0; i < 6; i++) {
-            cartas[i]
-        }
-    }
+
     function showRanking() {
         let tablaRanking = document.getElementById("ranking");
         tablaRanking.innerHTML = "";
