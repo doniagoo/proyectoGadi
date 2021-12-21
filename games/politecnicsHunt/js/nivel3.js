@@ -1,3 +1,4 @@
+let arrayImgCaja = ["./img/caja.png","./img/caja1.png","./img/caja2.png","./img/caja3.png","./img/caja4.png"];
 let empezarTiempo = false;
 let contadorTiempoRestante = null;
 // Get the modal
@@ -68,7 +69,7 @@ for (let i = 0; i < numMax; i++) {
   );
   var img = document.createElement("img");
   img.className = "imagen-caja";
-  img.src = "./img/caja4.png";
+  img.src = arrayImgCaja[Math.floor(Math.random() * 5)];
   img.draggable = false;
   caja.appendChild(img);
   container.appendChild(caja);
