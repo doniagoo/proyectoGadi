@@ -17,7 +17,7 @@ function openBd()
 {
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "mysql";
 
     $connection = new PDO("mysql:host=$servername;dbname=gadi", $username, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -203,8 +203,9 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
         </div>
       </div>
       <?php } else {
-      $PacmanUnlocked = isGameUnlocked($userActivo['id'], 2);
-      if ($PacmanUnlocked['juegoCompleto'] == '0') { ?>
+      $PacmanUnlocked = getScoreGame($userActivo['id'], 5);
+      $PacmanUnlocked = intval($PacmanUnlocked['score']);
+      if ($PacmanUnlocked == 0) { ?>
         <div class="juego">
           <div class="imagen__juego">
             <img src="../media/img/Candado-pacman.png" id="juego_imagen" alt="joc4" />

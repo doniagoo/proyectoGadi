@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../BD/bd.php');
+include('../../../BD/bd.php');
 $data = json_decode(file_get_contents('php://input'), true);
 
 if ($data['action'] == 'ranking') {
@@ -9,7 +9,7 @@ if ($data['action'] == 'ranking') {
 
 if ($data['action'] == 'updateUserGame') {
     $user = isset($_SESSION['userActivo']) ? $_SESSION['userActivo'] : "";
-    $score = $data['puntuacion'];
+    $score = $data['score'];
 
     updateUserGame($score, $user);
 }
@@ -19,7 +19,7 @@ function ranking()
 
     $consulta = "SELECT score, users.nickname FROM juego_user 
                  JOIN users
-                 WHERE idJuego = 2 AND idUser = users.id AND score > 0
+                 WHERE idJuego = 5 AND idUser = users.id AND score > 0
                  ORDER BY score DESC LIMIT 5";
 
     $sentence = $connection->prepare($consulta);
@@ -45,7 +45,7 @@ function updateUserGame($score, $user)
         $connection->beginTransaction();
 
         $id_user = $user['id'];
-        $consultaSelect = "SELECT score FROM juego_user WHERE idJuego =2 AND idUser = :id_user";
+        $consultaSelect = "SELECT score FROM juego_user WHERE idJuego =5 AND idUser = :id_user";
         $query = $connection->prepare($consultaSelect);
         $query->bindParam(':id_user', $id_user);
         $query->execute();
@@ -54,7 +54,7 @@ function updateUserGame($score, $user)
 
         if ($scoreExistente[0]['score'] < $score) {
             $consulta = "UPDATE juego_user SET juegoCompleto = 1, score =:score
-            WHERE idUser =:id_user AND idJuego = 2";
+            WHERE idUser =:id_user AND idJuego = 5";
 
             $sentence = $connection->prepare($consulta);
             $sentence->bindParam(':score', $score);

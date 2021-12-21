@@ -793,6 +793,7 @@ igual te hago un while
             } else{
                 drawCenterText("Necesitas practicar una poco más, no te rindas!", nivel.x, nivel.y + nivel.height / 2 + 70, nivel.width);
             }
+            insertGameUser();
             drawCenterText("Click para reiniciar",  nivel.x, nivel.y + nivel.height / 2 + 130, nivel.width);
             //canvas acabado
             //añadir lo que sea necesario para salir de aquí
@@ -813,6 +814,15 @@ igual te hago un while
         }
     }
     
+    function insertGameUser() {
+            const opciones = {
+                method: 'POST',
+                body: JSON.stringify({action: 'updateUserGame', score: score})
+            }
+            fetch('./bd.php', opciones)
+            
+        }
+
     // Draw a frame around the game
     function drawFrame() {
         // Draw background
