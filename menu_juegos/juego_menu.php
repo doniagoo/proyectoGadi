@@ -147,8 +147,8 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
         </div>
       </div>
     <?php }
-    $ShooterUnlocked = isGameUnlocked($userActivo['id'], 4);
-    if ($ShooterUnlocked['juegoCompleto'] == '0') { ?>
+    $ShooterUnlocked = isGameUnlocked($userActivo['id'], 3);
+    if ($ShooterUnlocked['juegoCompleto'] == '1') { ?>
       <div class="juego">
         <div class="imagen__juego">
           <img src="../media/img/candado-bola.png" id="juego_imagen" alt="joc3" />
@@ -167,7 +167,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
         </div>
       </div>
     <?php }
-    $PacmanUnlocked = isGameUnlocked($userActivo['id'], 3);
+    $PacmanUnlocked = isGameUnlocked($userActivo['id'], 4);
     if ($PacmanUnlocked['juegoCompleto'] == '0') { ?>
       <div class="juego">
         <div class="imagen__juego">
