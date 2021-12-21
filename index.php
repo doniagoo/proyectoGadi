@@ -27,17 +27,17 @@
         <ul>
           <li>
             <form action="./lang/lang.php" method="post">
-              <button type="submit" name="cat" class="cat" value="cat">Català</button>
+              <button type="submit" name="cat" class="bttn" value="cat">Català</button>
             </form>
           </li>
           <li>
             <form action="./lang/lang.php" method="post">
-              <button type="submit" name="eng" class="eng" value="eng">English</button>
+              <button type="submit" name="eng" class="bttn" value="eng">English</button>
             </form>
           </li>
           <li>
             <form action="./lang/lang.php" method="post">
-              <button type="submit" name="esp" class="esp" value="esp">Español</button>
+              <button type="submit" name="esp" class="bttn" value="esp">Español</button>
             </form>
           </li>
         </ul>
