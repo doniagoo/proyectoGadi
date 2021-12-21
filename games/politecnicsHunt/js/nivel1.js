@@ -105,6 +105,7 @@ function restarTiempo() {
     document.getElementById("resultado-partida").innerHTML =
     "Enhorabuena! Te has hecho con la <b>VICTORIA!</b> </br> Has logrado: <b>" + puntuacionFinal + "</b> puntos<br/><br/><br/>";
     //limpiar el interval para que deje de contar
+    updateScoreBD();
     clearInterval(contadorTiempoRestante);
     abrirModal2();
   }
@@ -131,3 +132,13 @@ let numCajas = numMax;
 function restarCajas() {
   numCajas -= 1;
 }
+
+function updateScoreBD(){
+    const opciones = {
+        method: 'POST',
+        body: JSON.stringify({action: 'updateUserGame', score: puntuacionFinal})
+    }
+    fetch('./bd.php', opciones)
+    
+}
+

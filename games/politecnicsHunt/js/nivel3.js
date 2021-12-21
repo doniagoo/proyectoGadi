@@ -104,6 +104,7 @@ function restarTiempo() {
         "Enhorabuena! Te has hecho con la <b>VICTORIA!</b> </br> Has logrado: <b>" + puntuacionFinal + "</b> puntos<br/><br/><br/>";
     //limpiar el interval para que deje de contar
     clearInterval(contadorTiempoRestante);
+    updateScoreBD();
     abrirModal2();
   }
   if (tiempo == 0 && puntos < puntosNecesarios) {
@@ -128,4 +129,13 @@ let numCajas = numMax;
 //funcion restar cajas restantes
 function restarCajas() {
   numCajas -= 1;
+}
+
+function updateScoreBD(){
+  const opciones = {
+      method: 'POST',
+      body: JSON.stringify({action: 'updateUserGame', score: puntuacionFinal})
+  }
+  fetch('./bd.php', opciones)
+  
 }
