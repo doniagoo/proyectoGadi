@@ -147,7 +147,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
         </div>
       </div>
     <?php }
-    $ShooterUnlocked = isGameUnlocked($userActivo['id'], 3);
+    $ShooterUnlocked = isGameUnlocked($userActivo['id'], 4);
     if ($ShooterUnlocked['juegoCompleto'] == '0') { ?>
       <div class="juego">
         <div class="imagen__juego">
@@ -167,7 +167,7 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $langEsp;
         </div>
       </div>
     <?php }
-    $PacmanUnlocked = isGameUnlocked($userActivo['id'], 5);
+    $PacmanUnlocked = isGameUnlocked($userActivo['id'], 2);
     if ($PacmanUnlocked['juegoCompleto'] == '0') { ?>
       <div class="juego">
         <div class="imagen__juego">
