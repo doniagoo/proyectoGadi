@@ -186,7 +186,7 @@ function userJuegos($cantidadJuegos, $idUser)
 function loginUser($email)
 {
     $conexion = openBD();
-    $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email' and es_admin = 0");
+    $sentencia = $conexion->prepare("Select * from USERS WHERE email = '$email'");
     $sentencia->execute();
     $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     $conexion = closeBD();
@@ -215,6 +215,18 @@ function nickname($idUser)
 function isGameUnlocked($idUser, $idJuego)
 {
     $sentencia = "SELECT juegoCompleto FROM JUEGO_USER WHERE idJuego =:idJuego AND idUser =:idUser";
+    $conexion = openBD();
+    $query = $conexion->prepare($sentencia);
+    $query->bindParam(':idJuego', $idJuego);
+    $query->bindParam(':idUser', $idUser);
+    $query->execute();
+    $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+    $conexion = closeBD();
+    return $resultado[0];
+}
+
+function getScoreGame($idUser, $idJuego){
+    $sentencia = "SELECT score FROM JUEGO_USER WHERE idJuego =:idJuego AND idUser =:idUser";
     $conexion = openBD();
     $query = $conexion->prepare($sentencia);
     $query->bindParam(':idJuego', $idJuego);
