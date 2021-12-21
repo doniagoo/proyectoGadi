@@ -68,7 +68,7 @@ for (let i = 0; i < numMax; i++) {
   );
   var img = document.createElement("img");
   img.className = "imagen-caja";
-  img.src = "./img/caja.png";
+  img.src = "./img/caja4.png";
   img.draggable = false;
   caja.appendChild(img);
   container.appendChild(caja);
