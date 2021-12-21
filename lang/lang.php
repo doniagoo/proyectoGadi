@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $absolutePathEsp = $_SERVER['DOCUMENT_ROOT'] . '/proyectoGadi/lang/esp.php';
-    $absolutePathCat = $_SERVER['DOCUMENT_ROOT'] . '/proyectoGadi/lang/cat.php';
-    $absolutePathEng = $_SERVER['DOCUMENT_ROOT'] . '/proyectoGadi/lang/eng.php';
+    $absolutePathEsp = $_SERVER['DOCUMENT_ROOT'] . '/GADI/lang/esp.php';
+    $absolutePathCat = $_SERVER['DOCUMENT_ROOT'] . '/GADI/lang/cat.php';
+    $absolutePathEng = $_SERVER['DOCUMENT_ROOT'] . '/GADI/lang/eng.php';
     include ($absolutePathEsp);
     include ($absolutePathCat);
     include ($absolutePathEng);
@@ -26,3 +26,5 @@
         header('Location: ../index.php');
         exit();
     }
+    
+?>
