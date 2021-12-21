@@ -190,7 +190,7 @@
   <div class="container-footer">
     <footer class="footer">
       <div class="caja-iconos">
-        <a draggable="false" class="icon" href="#"><img draggable="false" src="./media/img/yt.png" /></a>
+        <a draggable="false" class="icon" href="https://www.youtube.com/channel/UCvT7I71s5idvpUJM7gMLpIA/featured"><img draggable="false" src="./media/img/yt.png" /></a>
       </div>
       <div class="caja-iconos">
         <a draggable="false" class="icon" href="https://www.instagram.com/gadigamescep/"><img draggable="false" src="./media/img/insta.png" /></a>
