@@ -37,6 +37,8 @@ score INT default 0,
 FOREIGN KEY (IDJuego) REFERENCES JUEGOS(ID),
 FOREIGN KEY (IDUser) REFERENCES USERS(ID)
 );
+
+/*
 Insert INTO JUEGO_USER VALUES (1,1,true,0);
 Insert INTO JUEGO_USER VALUES (2,1,true,0);
 Insert INTO JUEGO_USER VALUES (3,1,true,0);
@@ -53,7 +55,7 @@ Insert INTO JUEGO_USER VALUES (3,3,true,0);
 Insert INTO JUEGO_USER VALUES (4,3,true,0);
 Insert INTO JUEGO_USER VALUES (5,3,true,0);
 
-/*
+
 CREATE TABLE if not exists CICLO(
 ID INT,
 Nombre varchar(75) not null,
