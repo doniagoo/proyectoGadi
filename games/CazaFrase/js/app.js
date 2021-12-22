@@ -483,16 +483,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.outOfHouse = false;
             }
         }
-        const enemies = [
-            new Ghost('enemy1', 13, 14,500)
-        ];
-
         // const enemies = [
-        //     new Ghost('enemy1', 13, 14, 200),
-        //     new Ghost('enemy2', 14, 14, 200),
-        //     new Ghost('enemy3', 13, 15, 200),
-        //     new Ghost('enemy4', 14, 15, 200)   
+        //     new Ghost('enemy1', 13, 14,500)
         // ];
+
+        const enemies = [
+            new Ghost('enemy1', 13, 14, 500),
+            new Ghost('enemy2', 14, 14, 550),
+            new Ghost('enemy3', 13, 15, 600),
+            new Ghost('enemy4', 14, 15, 400)   
+        ];
 
         //Dibuixem els enemics. Els hi donem la classe que contingui el nom que li hem donat i la classe 'enemy' per poder localitzar-lo en cas de
         //haver de consultar si hi ha hagut colisió amb un enemic.
