@@ -22,6 +22,14 @@ p {
   text-align: center;
   margin: auto;
   margin-top: 15%;
+  margin-bottom: 5%;
+  font-family: "SansationLight";
+}
+a.skip{
+  font-size: 78px;
+  width: 65%;
+  text-align: center;
+  margin: auto;
   font-family: "SansationLight";
 }
 @font-face {

@@ -96,20 +96,21 @@ document.addEventListener('DOMContentLoaded', () => {
     //     const musica = document.getElementById('musica');
     //     musica.innerHTML='<audio src="./musicaFondo.mp3" autoplay></audio>';
     // }
-
+    function eventListCard(carta){
+        carta.addEventListener('click', transicion);
+    }
     function crearTablero() { //creo el tablero con cartas 
         for (let i = 0; i < cartas.length; i++) {
             let carta = document.createElement('img');
             carta.setAttribute('src', './img/carta_detras.png');
             carta.setAttribute('data-id', i);
             carta.draggable = false;
-            carta.addEventListener('click', transicion);
+            eventListCard(carta);
             grid.appendChild(carta);
         }
     }
-function error(){
-    fallo.play();
-}
+
+    
     function coincide() {//funcion que comprueba si la primera carta seleccionada es igual que la segunda si coincide cambia la imagen a blanco y sube el score, si no se vuelve a voltear la carta 
         let carta = document.querySelectorAll('img');
         const opcionId1 = cartaEscogidaId[0];
@@ -158,6 +159,7 @@ function error(){
             carta.setAttribute('src', cartas[cartaId].img); //Voltea la carta
             if (cartaEscogida.length === 2) {
                 setTimeout(coincide, 1000);
+               
             }
         }
     }

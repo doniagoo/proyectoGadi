@@ -26,7 +26,17 @@ body {
   width: 30%;
   text-align: center;
   margin: auto;
-  margin-top: 21%;
+  margin-top: 15%;
+}
+.play2 {
+  color: rgb(255 255 255);
+  font-size: 50px;
+  font-family: "SansationLight";
+  border: 7px solid rgb(255 255 255);
+  width: 20%;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
 }
 
 a:link,
