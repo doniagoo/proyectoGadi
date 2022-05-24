@@ -67,7 +67,7 @@ Devin Schlippe:
     - Linkedin -> https://www.linkedin.com/in/devinschlippejusticia/
 
 Guillem Castaño: 
-    - Github -> https://github.com/FGonSa
+    - Github -> https://github.com/Palomoman
     - Linkedin -> https://www.linkedin.com/in/guillemcasta%C3%B1omedina
 
 Gadi Games: 
