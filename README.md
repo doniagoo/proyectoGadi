@@ -59,17 +59,18 @@ Iago de Oliveira:
     - Linkedin -> https://www.linkedin.com/in/iago-de-oliveira-b570bb1b2/
     
 Alex Cubells: 
-    - Github -> https://github.com/FGonSa
-    - Linkedin -> https://www.linkedin.com/in/francisco-javier-gonz%C3%A1lez-14758b198/
+    - Github -> https://github.com/Katakuna9
+    - Linkedin -> https://www.linkedin.com/in/alex-cubells-70b956210/
     
 Devin Schlippe: 
-    - Github -> https://github.com/FGonSa
-    - Linkedin -> https://www.linkedin.com/in/francisco-javier-gonz%C3%A1lez-14758b198/
+    - Github -> https://github.com/DevinSJ
+    - Linkedin -> https://www.linkedin.com/in/devinschlippejusticia/
 
 Guillem Castaño: 
     - Github -> https://github.com/FGonSa
-    - Linkedin -> https://www.linkedin.com/in/francisco-javier-gonz%C3%A1lez-14758b198/
+    - Linkedin -> https://www.linkedin.com/in/guillemcasta%C3%B1omedina
 
 Gadi Games: 
-    - Github -> https://github.com/FGonSa/solve_app
-    - Instagram -> https://www.instagram.com/solve.app/
+    - Github -> https://github.com/doniagoo/proyectoGadi/
+    - Instagram -> https://www.instagram.com/gadigamescep/
+    - Twitter -> https://mobile.twitter.com/gadigames
